@@ -11,11 +11,11 @@ class User(Base):
 
     user_id = Column(Integer, primary_key=True, index=True)
 
-    full_name = Column(String)
-    email = Column(String, unique=True)
-    password_hash = Column(String)
+    full_name = Column(String, index=True)
+    email = Column(String, unique=True, index=True)
+    password = Column(String)
 
-    created_at = Column(DateTime, default=datetime.utcnow)
+   #$ created_at = Column(DateTime, default=datetime.utcnow)
 
 
 # =========================

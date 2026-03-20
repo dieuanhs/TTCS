@@ -1,7 +1,17 @@
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
+from pydantic import BaseModel, ConfigDict
 
+class UserCreate(BaseModel):
+    full_name: str
+    email: str
+    password: str
+class UserOut(BaseModel):
+    user_id: int
+    full_name: str
+    email: str
+    model_config = ConfigDict(from_attributes=True)
 
 # TRANSACTIONS
 
