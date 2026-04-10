@@ -30,7 +30,7 @@ STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transactio
 29,Mua kem dưỡng da hết 350k xót ví,350000,Chi tiêu,Mua sắm,Tiêu cực,2026-02-24 21:10:00,2026-02-24 21:10:00
 30,Đang vui nên mua vé đi thủy cung hết 250k,250000,Chi tiêu,Giải trí,Tích cực,2026-02-25 10:15:22,2026-02-25 10:15:22
 31,Mua thẻ xe bus tháng hết 140k,140000,Chi tiêu,Di chuyển,Bình thường,2026-02-26 07:30:00,2026-02-26 07:30:00
-32,Bị ốm nên mua thuốc hết 150k mệt ghê,150000,Chi tiêu,Y tế,Tiêu cực,2026-02-27 14:20:45,2026-02-27 14:20:45
+32,Bị ốm nên mua thuốc hết 150k mệt ghê,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-02-27 14:20:45,2026-02-27 14:20:45
 33,Mua quà sinh nhật cho bạn hết 70k,70000,Chi tiêu,Giao lưu,Bình thường,2026-02-28 16:50:10,2026-02-28 16:50:10
 34,Trưa nay ăn cơm rang thập cẩm hết 35k,35000,Chi tiêu,Ăn uống,Bình thường,2026-03-01 12:10:30,2026-03-01 12:10:30
 35,Mua rau củ về nấu cơm hết 15k,15000,Chi tiêu,Ăn uống,Bình thường,2026-03-02 17:30:00,2026-03-02 17:30:00
@@ -38,7 +38,7 @@ STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transactio
 37,Tiếc 25k mua áo mưa nilong dùng 1 lần,25000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-04 08:20:00,2026-03-04 08:20:00
 38,Chi 180k đăng ký Netflix xem phim xả stress,180000,Chi tiêu,Giải trí,Tích cực,2026-03-04 21:45:30,2026-03-04 21:45:30
 39,Vui vì săn được vé concert 900k,900000,Chi tiêu,Giải trí,Tích cực,2026-03-05 10:00:12,2026-03-05 10:00:12
-40,Khám bệnh tổng quát hết 1tr5 áp lực quá,1500000,Chi tiêu,Y tế,Tiêu cực,2026-03-06 09:30:00,2026-03-06 09:30:00
+40,Khám bệnh tổng quát hết 1tr5 áp lực quá,1500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-06 09:30:00,2026-03-06 09:30:00
 41,Ăn mì cay với bạn hết 40k,40000,Chi tiêu,Ăn uống,Tích cực,2026-03-07 19:10:00,2026-03-07 19:10:00
 42,Đi uống trà sữa để xả stress hết 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-03-08 20:30:00,2026-03-08 20:30:00
 43,Trúng số được 100k hên ghê,100000,Thu nhập,Thu nhập,Tích cực,2026-03-09 15:20:45,2026-03-09 15:20:45
@@ -158,3 +158,23 @@ STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transactio
 157,Stress quá nên đặt phòng nghỉ dưỡng 700k,700000,Chi tiêu,Giải trí,Tiêu cực,2025-11-21 00:40:00,2025-11-21 00:40:00
 158,Da hơi tệ nên đặt lộ trình chăm sóc hết 1tr2,1200000,Chi tiêu,Sức khỏe,Tiêu cực,2025-11-18 13:30:00,2025-11-18 13:30:00
 159,Đi ăn gà rán 99k ngon bá cháy,99000,Chi tiêu,Ăn uống,Tích cực,2025-11-15 07:55:00,2025-11-15 07:55:00
+160,ốm đau mua thuốc cảm hết 60k,60000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-05 08:15:00,2026-03-05 08:15:00
+161,đi lấy cao răng 150k,150000,Chi tiêu,Sức khỏe,Bình thường,2026-03-10 14:30:20,2026-03-10 14:30:20
+162,nhổ răng khôn bay mất 1 củ đau ví quá,1000000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-12 09:00:15,2026-03-12 09:00:15
+163,mua hộp vitamin c 120 nghìn uống cho khỏe,120000,Chi tiêu,Sức khỏe,Tích cực,2026-03-18 19:20:00,2026-03-18 19:20:00
+164,đi khám dạ dày tốn 500k xót xa,500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-22 10:45:30,2026-03-22 10:45:30
+165,mua dầu gió với băng gạc 30k,30000,Chi tiêu,Sức khỏe,Bình thường,2026-03-26 21:10:05,2026-03-26 21:10:05
+166,khám mắt cắt kính mới 800k,800000,Chi tiêu,Sức khỏe,Bình thường,2026-03-29 16:05:40,2026-03-29 16:05:40
+167,mua thuốc ho siro 45k ốm mệt ghê,45000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-01 07:50:10,2026-04-01 07:50:10
+168,xét nghiệm máu tổng quát 350k,350000,Chi tiêu,Sức khỏe,Bình thường,2026-04-05 08:30:00,2026-04-05 08:30:00
+169,truyền nước biển 150k do suy nhược,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-08 11:20:55,2026-04-08 11:20:55
+170,thủng xăm thay hết 50k xui xẻo,50000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-03 17:45:10,2026-03-03 17:45:10
+171,quên đội mũ bị công an vẫy mất 2 loét,200000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-07 14:10:25,2026-03-07 14:10:25
+172,hỏng sạc laptop phải mua mới 450k cay,450000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-11 20:05:00,2026-03-11 20:05:00
+173,đánh rơi tờ 100k lúc mua đồ buồn thế,100000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-16 12:30:45,2026-03-16 12:30:45
+174,chuột cắn đứt dây chuột đền nét 150k,150000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-20 23:15:30,2026-03-20 23:15:30
+175,vá lốp xe máy dọc đường 30k,30000,Chi tiêu,Phát sinh,Bình thường,2026-03-24 18:20:15,2026-03-24 18:20:15
+176,đền tiền làm vỡ cốc trà sữa 40k,40000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-28 15:50:05,2026-03-28 15:50:05
+177,sửa lại khóa phòng trọ 120k,120000,Chi tiêu,Phát sinh,Bình thường,2026-04-03 09:40:50,2026-04-03 09:40:50
+178,thay nhớt xe máy định kỳ 110k,110000,Chi tiêu,Phát sinh,Bình thường,2026-04-06 10:15:20,2026-04-06 10:15:20
+179,nộp phạt trễ hạn thư viện 20k,20000,Chi tiêu,Phát sinh,Tiêu cực,2026-04-09 14:05:10,2026-04-09 14:05:10
