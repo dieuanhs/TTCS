@@ -1,0 +1,65 @@
+============================================================
+ THỜI GIAN: 2026-04-17 23:19:55
+ MÔ HÌNH:   LinearSVC (Category)
+⚙CẤU HÌNH:  C=5.0, ngram_range=(1,2), sublinear_tf=True
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       1.00      0.75      0.86         4
+    Giao lưu       1.00      1.00      1.00         4
+    Giải trí       1.00      0.67      0.80         6
+     Hóa đơn       0.67      0.89      0.76         9
+     Học tập       0.50      0.50      0.50         4
+     Mua sắm       0.67      0.86      0.75         7
+   Phát sinh       1.00      0.33      0.50         3
+    Sức khỏe       0.75      0.82      0.78        11
+    Thu nhập       1.00      0.75      0.86         4
+     Ăn uống       0.75      0.75      0.75         8
+
+    accuracy                           0.77        60
+   macro avg       0.83      0.73      0.76        60
+weighted avg       0.80      0.77      0.76        60
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-04-17 23:24:47
+ MÔ HÌNH:   PhoBERT-base-v2 (Emotion)
+CẤU HÌNH:  epochs=4, batch_size=16, lr=2e-5, max_length=64, input=clean_text
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       1.00      0.55      0.71        11
+ Bình thường       0.73      0.90      0.81        30
+    Tích cực       0.82      0.74      0.78        19
+
+    accuracy                           0.78        60
+   macro avg       0.85      0.73      0.76        60
+weighted avg       0.81      0.78      0.78        60
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-04-17 23:35:23
+ MÔ HÌNH:   LinearSVC (Category)
+CẤU HÌNH:  C=5.0, ngram_range=(1,2), sublinear_tf=True
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       1.00      0.75      0.86         4
+    Giao lưu       1.00      1.00      1.00         4
+    Giải trí       1.00      0.67      0.80         6
+     Hóa đơn       0.67      0.89      0.76         9
+     Học tập       0.50      0.50      0.50         4
+     Mua sắm       0.67      0.86      0.75         7
+   Phát sinh       1.00      0.33      0.50         3
+    Sức khỏe       0.75      0.82      0.78        11
+    Thu nhập       1.00      0.75      0.86         4
+     Ăn uống       0.75      0.75      0.75         8
+
+    accuracy                           0.77        60
+   macro avg       0.83      0.73      0.76        60
+weighted avg       0.80      0.77      0.76        60
+
+============================================================
+
