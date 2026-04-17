@@ -11,7 +11,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
 sys.path.append(PROJECT_ROOT)
 
 from preprocessing import clean_text
-
+from amount_extractor import extract_amount   # 🔥 NEW
 
 # ======================
 # Load Models (Singleton)
@@ -20,21 +20,28 @@ class AIModel:
     def __init__(self):
         model_dir = os.path.join(PROJECT_ROOT, "models")
 
-        # Category
-        self.category_model = joblib.load(
-            os.path.join(model_dir, "category_model.pkl")
-        )
-        self.category_vectorizer = joblib.load(
-            os.path.join(model_dir, "vectorizer.pkl")
-        )
+        try:
+            # Category
+            self.category_model = joblib.load(
+                os.path.join(model_dir, "category_model.pkl")
+            )
+            self.category_vectorizer = joblib.load(
+                os.path.join(model_dir, "vectorizer.pkl")
+            )
 
-        # Emotion
-        self.emotion_model = joblib.load(
-            os.path.join(model_dir, "emotion_model.pkl")
-        )
-        self.emotion_vectorizer = joblib.load(
-            os.path.join(model_dir, "emotion_vectorizer.pkl")
-        )
+            # Emotion
+            self.emotion_model = joblib.load(
+                os.path.join(model_dir, "emotion_model.pkl")
+            )
+            self.emotion_vectorizer = joblib.load(
+                os.path.join(model_dir, "emotion_vectorizer.pkl")
+            )
+
+            print("✅ Models loaded successfully")
+
+        except Exception as e:
+            print("❌ Error loading models:", e)
+            raise e
 
     # ======================
     # Category Prediction
@@ -42,27 +49,35 @@ class AIModel:
     def predict_category(self, text: str):
         clean = clean_text(text)
         vec = self.category_vectorizer.transform([clean])
-        pred = self.category_model.predict(vec)[0]
-        return pred
+        return self.category_model.predict(vec)[0]
 
     # ======================
     # Emotion Prediction
     # ======================
     def predict_emotion(self, text: str):
         clean = clean_text(text)
-        vec = self.emotion_vectorizer.transform([clean])  # ✅ FIX
-        pred = self.emotion_model.predict(vec)[0]
-        return pred
+        vec = self.emotion_vectorizer.transform([clean])
+        return self.emotion_model.predict(vec)[0]
 
     # ======================
-    # Predict All
+    # FULL SMART INPUT
     # ======================
     def predict_all(self, text: str):
-        return {
-            "text": text,
-            "category": self.predict_category(text),
-            "emotion": self.predict_emotion(text)
-        }
+        try:
+            amount = extract_amount(text)
+
+            return {
+                "text": text,
+                "amount": amount,
+                "category": self.predict_category(text),
+                "emotion": self.predict_emotion(text)
+            }
+
+        except Exception as e:
+            return {
+                "text": text,
+                "error": str(e)
+            }
 
 
 # ======================
@@ -92,7 +107,8 @@ def predict_all(text: str):
 if __name__ == "__main__":
     samples = [
         "mua thuốc cảm hết 200k",
-        "ăn bún bò 35k sáng nay"
+        "ăn bún bò 35k sáng nay",
+        "trả tiền nhà hết 1.5 triệu"
     ]
 
     for s in samples:

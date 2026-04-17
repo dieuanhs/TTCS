@@ -1,180 +1,400 @@
-﻿STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transaction_date,clean_text,auto_category
-1,Sáng nay mệt mỏi quá nên ăn bát phở 45k,45000,Chi tiêu,Ăn uống,Tiêu cực,2026-01-02 08:15:30,2026-01-02 08:15:30,sáng nay mệt_mỏi quá nên ăn_bát phở 45k,Ăn uống
-2,Mới nhận lương làm thêm 2 triệu vui quá xá,2000000,Thu nhập,Thu nhập,Tích cực,2026-01-05 17:40:12,2026-01-05 17:40:12,mới nhận lương làm thêm 2triệu vui quá_xá,Thu nhập
-3,Đóng tiền học phí 5tr mà xót hết cả ruột,5000000,Chi tiêu,Học tập,Tiêu cực,2026-01-08 10:20:00,2026-01-08 10:20:00,đóng tiền học_phí 5tr mà xót hết cả ruột,Mua sắm
-4,Tối đi trà sữa với hội bạn hết 120k vui cực,120000,Chi tiêu,Giải trí,Tích cực,2026-01-12 20:45:15,2026-01-12 20:45:15,tối đi trà_sữa với hội bạn hết 120k vui cực,Ăn uống
-5,Mua cuốn giáo trình 80k thấy bình thường,80000,Chi tiêu,Học tập,Bình thường,2026-01-15 14:30:05,2026-01-15 14:30:05,mua cuốn giáo_trình 80k thấy bình_thường,Học tập
-6,Đổ xăng 50k mà giá lại tăng chán ghét,50000,Chi tiêu,Di chuyển,Tiêu cực,2026-01-18 07:10:40,2026-01-18 07:10:40,đổ xăng 50k mà giá lại tăng chán ghét,Ăn uống
-7,Đặt đồ ăn đêm hết 35k,35000,Chi tiêu,Ăn uống,Bình thường,2026-01-20 23:15:22,2026-01-20 23:15:22,đặt đồ_ăn đêm hết 35k,Ăn uống
-8,buồn vì hết tiền nên đành mua 15k mì tôm,15000,Chi tiêu,Ăn uống,Tiêu cực,2026-01-22 18:05:10,2026-01-22 18:05:10,buồn vì hết tiền nên đành mua 15k mì tôm,Ăn uống
-9,Được bố mẹ cho 3 củ đóng tiền nhà mừng ghê,3000000,Thu nhập,Thu nhập,Tích cực,2026-01-25 09:00:00,2026-01-25 09:00:00,được bố_mẹ cho 3củ đóng tiền nhà mừng ghê,Mua sắm
-10,Mua cái áo mới 250k trên Shopee ưng quá,250000,Chi tiêu,Mua sắm,Tích cực,2026-01-28 16:20:55,2026-01-28 16:20:55,mua cái áo mới 250k trên shopee ưng quá,Mua sắm
-11,Trả tiền mạng 200k mỗi tháng thấy tốn kém,200000,Chi tiêu,Hóa đơn,Tiêu cực,2026-01-30 21:00:30,2026-01-30 21:00:30,trả tiền mạng 200k mỗi tháng thấy tốn_kém,Hóa đơn
-12,Đi xe bus hết 7k tiết kiệm được khối tiền,7000,Chi tiêu,Di chuyển,Tích cực,2026-02-01 06:45:12,2026-02-01 06:45:12,đi xe bus hết 7k tiết_kiệm được khối tiền,Di chuyển
-13,Ăn trưa cơm tiệm 35k ngon bổ rẻ,35000,Chi tiêu,Ăn uống,Bình thường,2026-02-03 12:15:00,2026-02-03 12:15:00,ăn trưa cơm tiệm 35k ngon_bổ rẻ,Ăn uống
-14,Nạp thẻ điện thoại 50k để đăng ký 4G,50000,Chi tiêu,Hóa đơn,Bình thường,2026-02-05 10:40:20,2026-02-05 10:40:20,nạp thẻ điện_thoại 50k để đăng_ký 4 g,Ăn uống
-15,Mất 200k tiền phạt xe máy ức chế thật,200000,Chi tiêu,Phát sinh,Tiêu cực,2026-02-07 15:55:45,2026-02-07 15:55:45,mất 200k tiền phạt xe_máy ức_chế thật,Phát sinh
-16,Đi ăn cưới bạn cũ mừng 500k hơi đau ví,500000,Chi tiêu,Giao lưu,Tiêu cực,2026-02-10 11:30:10,2026-02-10 11:30:10,đi ăn cưới bạn cũ mừng 500k hơi đau ví,Ăn uống
-17,Mua quà sinh nhật cho mẹ 300k rất hạnh phúc,300000,Chi tiêu,Giao lưu,Tích cực,2026-02-12 19:20:00,2026-02-12 19:20:00,mua quà sinh_nhật cho mẹ 300k rất hạnh_phúc,Giao lưu
-18,Sửa xe hết 150k vì thủng lốp đen quá,150000,Chi tiêu,Di chuyển,Tiêu cực,2026-02-14 08:50:35,2026-02-14 08:50:35,sửa xe hết 150k vì thủng lốp đen quá,Phát sinh
-19,Mua cốc cafe 25k tỉnh cả người,25000,Chi tiêu,Ăn uống,Tích cực,2026-02-15 07:30:12,2026-02-15 07:30:12,mua cốc cafe 25k tỉnh cả người,Ăn uống
-20,Đóng tiền quỹ lớp 100k hàng tháng,100000,Chi tiêu,Học tập,Bình thường,2026-02-18 14:10:00,2026-02-18 14:10:00,đóng tiền quỹ lớp 100k hàng tháng,Mua sắm
-21,Ăn đêm vỉa hè với bạn hết 60k sướng bụng,60000,Chi tiêu,Ăn uống,Tích cực,2026-02-16 22:15:00,2026-02-16 22:15:00,ăn đêm vỉa_hè với bạn hết 60k sướng bụng,Ăn uống
-22,Đi xem phim CGV hết 150k cả bỏng nước,150000,Chi tiêu,Giải trí,Tích cực,2026-02-17 19:30:45,2026-02-17 19:30:45,đi xem_phim cgv hết 150k cả bỏng nước,Giải trí
-23,Giao lưu cho thằng bạn 500k nhẹ cả người,500000,Chi tiêu,Giao lưu,Tích cực,2026-02-18 09:10:00,2026-02-18 09:10:00,giao_lưu cho thằng bạn 500k nhẹ cả người,Giao lưu
-24,Mua thẻ tập gym 400k quyết tâm giảm cân,400000,Chi tiêu,Sức khỏe,Tích cực,2026-02-19 16:40:20,2026-02-19 16:40:20,mua thẻ tập gym 400k quyết_tâm giảm cân,Mua sắm
-25,Tiền điện tháng này lên tới 800k áp lực quá,800000,Chi tiêu,Hóa đơn,Tiêu cực,2026-02-20 20:05:30,2026-02-20 20:05:30,tiền điện tháng này lên tới 800k áp_lực quá,Hóa đơn
-26,Mua kem chống nắng hết 300 nghìn đồng,300000,Chi tiêu,Mua sắm,Bình thường,2026-02-21 11:20:15,2026-02-21 11:20:15,mua kem chống nắng hết 300nghìn đồng,Mua sắm
-27,Được thưởng 500k vì hoàn thành dự án tốt,500000,Thu nhập,Thu nhập,Tích cực,2026-02-22 15:30:00,2026-02-22 15:30:00,được thưởng 500k vì hoàn_thành dự_án tốt,Thu nhập
-28,Mua giày thể thao mới hết 1 triệu,1000000,Chi tiêu,Mua sắm,Bình thường,2026-02-23 18:45:10,2026-02-23 18:45:10,mua giày thể_thao mới hết 1triệu,Mua sắm
-29,Mua kem dưỡng da hết 350k xót ví,350000,Chi tiêu,Mua sắm,Tiêu cực,2026-02-24 21:10:00,2026-02-24 21:10:00,mua kem_dưỡng da hết 350k_xót ví,Mua sắm
-30,Đang vui nên mua vé đi thủy cung hết 250k,250000,Chi tiêu,Giải trí,Tích cực,2026-02-25 10:15:22,2026-02-25 10:15:22,đang vui nên mua vé đi thủy cung hết 250k,Mua sắm
-31,Mua thẻ xe bus tháng hết 140k,140000,Chi tiêu,Di chuyển,Bình thường,2026-02-26 07:30:00,2026-02-26 07:30:00,mua thẻ xe bus tháng hết 140k,Di chuyển
-32,Bị ốm nên mua thuốc hết 150k mệt ghê,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-02-27 14:20:45,2026-02-27 14:20:45,bị ốm nên mua thuốc hết 150k mệt ghê,Sức khỏe
-33,Mua quà sinh nhật cho bạn hết 70k,70000,Chi tiêu,Giao lưu,Bình thường,2026-02-28 16:50:10,2026-02-28 16:50:10,mua quà sinh_nhật cho bạn hết 70k,Giao lưu
-34,Trưa nay ăn cơm rang thập cẩm hết 35k,35000,Chi tiêu,Ăn uống,Bình thường,2026-03-01 12:10:30,2026-03-01 12:10:30,trưa nay ăn cơm rang thập_cẩm hết 35k,Ăn uống
-35,Mua rau củ về nấu cơm hết 15k,15000,Chi tiêu,Ăn uống,Bình thường,2026-03-02 17:30:00,2026-03-02 17:30:00,mua rau_củ về nấu cơm hết 15k,Ăn uống
-36,Mua cuốn sách yêu thích hết 85k thấy vui,85000,Chi tiêu,Học tập,Tích cực,2026-03-03 19:15:15,2026-03-03 19:15:15,mua cuốn sách yêu_thích hết 85k thấy vui,Học tập
-37,Tiếc 25k mua áo mưa nilong dùng 1 lần,25000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-04 08:20:00,2026-03-04 08:20:00,tiếc 25k mua áo_mưa nilong dùng 1 lần,Mua sắm
-38,Chi 180k đăng ký Netflix xem phim xả stress,180000,Chi tiêu,Giải trí,Tích cực,2026-03-04 21:45:30,2026-03-04 21:45:30,chi 180k đăng_ký netflix xem_phim xả stress,Giải trí
-39,Vui vì săn được vé concert 900k,900000,Chi tiêu,Giải trí,Tích cực,2026-03-05 10:00:12,2026-03-05 10:00:12,vui vì săn được vé concert 900k,Ăn uống
-40,Khám bệnh tổng quát hết 1tr5 áp lực quá,1500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-06 09:30:00,2026-03-06 09:30:00,khám bệnh tổng_quát hết 1tr5 áp_lực quá,Sức khỏe
-41,Ăn mì cay với bạn hết 40k,40000,Chi tiêu,Ăn uống,Tích cực,2026-03-07 19:10:00,2026-03-07 19:10:00,ăn mì_cay với bạn hết 40k,Ăn uống
-42,Đi uống trà sữa để xả stress hết 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-03-08 20:30:00,2026-03-08 20:30:00,đi uống trà_sữa để xả stress hết 30k,Ăn uống
-43,Trúng số được 100k hên ghê,100000,Thu nhập,Thu nhập,Tích cực,2026-03-09 15:20:45,2026-03-09 15:20:45,trúng số được 100k hên ghê,Thu nhập
-44,Mua gói xôi 15k ăn sáng vội vàng,15000,Chi tiêu,Ăn uống,Bình thường,2026-03-10 07:15:10,2026-03-10 07:15:10,mua gói xôi 15k ăn sáng vội_vàng,Ăn uống
-45,Trả tiền gửi xe máy cả tháng 100k,100000,Chi tiêu,Di chuyển,Bình thường,2026-03-10 16:40:00,2026-03-10 16:40:00,trả tiền gửi xe_máy cả tháng 100k,Di chuyển
-46,Mua chuột máy tính mới hết 250k để làm đồ án,250000,Chi tiêu,Học tập,Tích cực,2026-03-11 11:10:00,2026-03-11 11:10:00,mua chuột máy_tính mới hết 250k để làm đồ_án,Học tập
-47,Đi cắt tóc hết 60k cho gọn gàng,60000,Chi tiêu,Mua sắm,Tích cực,2026-03-12 14:30:00,2026-03-12 14:30:00,đi cắt tóc hết 60k cho gọn_gàng,Mua sắm
-48,Mua bình nước cá nhân 120k bền đẹp,120000,Chi tiêu,Mua sắm,Bình thường,2026-03-13 10:20:15,2026-03-13 10:20:15,mua bình nước cá_nhân 120k bền đẹp,Mua sắm
-49,Đi ăn buffet lẩu 250k với gia đình no căng,250000,Chi tiêu,Ăn uống,Tích cực,2026-03-14 19:00:00,2026-03-14 19:00:00,đi ăn_buffet lẩu 250k với gia_đình no căng,Ăn uống
-50,Bị mất ví mất tiêu 300k buồn cả ngày,300000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-15 08:45:30,2026-03-15 08:45:30,bị mất ví mất tiêu 300k buồn cả ngày,Mua sắm
-51,Mua lót chuột 50k dùng khá thích,50000,Chi tiêu,Học tập,Tích cực,2026-03-15 15:20:00,2026-03-15 15:20:00,mua lót chuột 50k dùng khá thích,Học tập
-52,Đăng ký gói Spotify 59k nghe nhạc cho chill,59000,Chi tiêu,Giải trí,Tích cực,2026-03-16 20:00:00,2026-03-16 20:00:00,đăng_ký gói spotify 59k nghe nhạc cho chill,Giải trí
-53,Mua sạc dự phòng 350k đi thực tập cho tiện,350000,Chi tiêu,Mua sắm,Bình thường,2026-03-17 09:30:10,2026-03-17 09:30:10,mua sạc dự_phòng 350k đi thực_tập cho tiện,Mua sắm
-54,Đi net với mấy đứa bạn hết 40k,40000,Chi tiêu,Giải trí,Tích cực,2026-03-17 22:15:00,2026-03-17 22:15:00,đi net với mấy đứa bạn hết 40k,Giao lưu
-55,Mua bánh kem sinh nhật 200k tặng bạn,200000,Chi tiêu,Giao lưu,Tích cực,2026-03-18 17:40:00,2026-03-18 17:40:00,mua bánh_kem sinh_nhật 200k tặng bạn,Thu nhập
-56,Trả tiền giặt sấy 30k cho đống quần áo,30000,Chi tiêu,Hóa đơn,Bình thường,2026-03-19 14:10:00,2026-03-19 14:10:00,trả tiền giặt_sấy 30k cho đống quần_áo,Mua sắm
-57,Mua hoa quả 50k về tẩm bổ,50000,Chi tiêu,Ăn uống,Tích cực,2026-03-19 18:30:00,2026-03-19 18:30:00,mua hoa_quả 50k về tẩm bổ,Mua sắm
-58,Đi du lịch gần hết 1tr2 cực vui,1200000,Chi tiêu,Giải trí,Tích cực,2026-03-20 06:00:00,2026-03-20 06:00:00,đi du_lịch gần hết 1tr2 cực vui,Mua sắm
-59,Mua vở ghi chép mới 20k cho học kỳ mới,20000,Chi tiêu,Học tập,Bình thường,2026-03-21 08:20:00,2026-03-21 08:20:00,mua vở ghi_chép mới 20k cho học_kỳ mới,Học tập
-60,Trả tiền nước tháng này hết 50k,50000,Chi tiêu,Hóa đơn,Bình thường,2026-03-21 16:50:00,2026-03-21 16:50:00,trả tiền nước tháng này hết 50k,Mua sắm
-61,Đi uống bia với đồng nghiệp hết 150k,150000,Chi tiêu,Giao lưu,Tích cực,2026-03-22 19:45:00,2026-03-22 19:45:00,đi uống bia với đồng_nghiệp hết 150k,Ăn uống
-62,Mua tai nghe cũ 400k dùng tạm,400000,Chi tiêu,Mua sắm,Bình thường,2026-03-23 10:10:00,2026-03-23 10:10:00,mua tai_nghe cũ 400k dùng tạm,Mua sắm
-63,Thuê đồ diễn văn nghệ hết 100k,100000,Chi tiêu,Giải trí,Bình thường,2026-03-23 15:30:00,2026-03-23 15:30:00,thuê đồ_diễn văn_nghệ hết 100k,Ăn uống
-64,Mua sắm đồ tết hết 2 triệu tốn quá trời,2000000,Chi tiêu,Mua sắm,Tiêu cực,2026-01-20 14:00:00,2026-01-20 14:00:00,mua_sắm đồ tết hết 2triệu tốn quá trời,Mua sắm
-65,Nhận tiền làm đồ án thuê 500k vui ghê,500000,Thu nhập,Thu nhập,Tích cực,2026-03-24 11:20:00,2026-03-24 11:20:00,nhận tiền làm đồ_án thuê 500k vui ghê,Thu nhập
-66,Mua hoa tặng bạn gái 200k thấy hạnh phúc,200000,Chi tiêu,Giao lưu,Tích cực,2026-03-14 08:15:00,2026-03-14 08:15:00,mua hoa tặng bạn gái 200k thấy hạnh_phúc,Giao lưu
-67,Đi hội chợ sách mua hết 300k toàn sách hay,300000,Chi tiêu,Học tập,Tích cực,2026-03-24 16:40:00,2026-03-24 16:40:00,đi hội_chợ sách mua hết 300k toàn sách hay,Học tập
-68,Mua mì tôm trữ sẵn 100k cho mùa thi,100000,Chi tiêu,Ăn uống,Bình thường,2026-03-25 09:00:00,2026-03-25 09:00:00,mua mì tôm_trữ sẵn 100k cho mùa thi,Ăn uống
-69,Trả tiền phòng gym tháng 300k quyết tâm,300000,Chi tiêu,Sức khỏe,Bình thường,2026-03-01 17:00:00,2026-03-01 17:00:00,trả tiền phòng gym tháng 300k quyết_tâm,Hóa đơn
-70,Mua vitamin C 150k uống cho khỏe người,150000,Chi tiêu,Sức khỏe,Tích cực,2026-03-25 14:15:00,2026-03-25 14:15:00,mua vitamin c 150k uống cho khỏe người,Ăn uống
-71,Đi chợ mua đồ tự nấu ăn hết 100k,100000,Chi tiêu,Ăn uống,Tích cực,2026-03-25 18:30:00,2026-03-25 18:30:00,đi chợ mua đồ tự nấu_ăn hết 100k,Ăn uống
-72,Mua đèn bàn học 150k chống cận thị,150000,Chi tiêu,Học tập,Tích cực,2026-03-26 20:10:00,2026-03-26 20:10:00,mua đèn bàn học 150k chống cận_thị,Mua sắm
-73,Đi bơi hết 40k mát mẻ sướng quá,40000,Chi tiêu,Sức khỏe,Tích cực,2026-03-26 15:45:00,2026-03-26 15:45:00,đi bơi hết 40k mát_mẻ sướng quá,Mua sắm
-74,Mua trà đá vỉa hè 5k lúc chờ xe bus,5000,Chi tiêu,Ăn uống,Bình thường,2026-03-27 07:10:00,2026-03-27 07:10:00,mua trà_đá vỉa_hè 5k lúc chờ xe bus,Ăn uống
-75,Bị trừ phí duy trì thẻ ngân hàng 11k xót ví,11000,Chi tiêu,Hóa đơn,Tiêu cực,2026-01-31 08:00:00,2026-01-31 08:00:00,bị trừ_phí duy_trì thẻ ngân_hàng 11k_xót ví,Mua sắm
-76,Mua USB 128GB hết 200k để copy tài liệu,200000,Chi tiêu,Học tập,Bình thường,2026-03-27 10:30:00,2026-03-27 10:30:00,mua usb 128 gb hết 200k để copy tài_liệu,Học tập
-77,Đi tham quan bảo tàng hết 20k cho biết,20000,Chi tiêu,Giải trí,Bình thường,2026-03-27 14:00:00,2026-03-27 14:00:00,đi tham_quan bảo_tàng hết 20k cho biết,Mua sắm
-78,Mua kem 10k giải nhiệt mùa hè,10000,Chi tiêu,Ăn uống,Tích cực,2026-03-27 15:30:00,2026-03-27 15:30:00,mua kem 10k giải_nhiệt mùa hè,Mua sắm
-79,Trả tiền photo tài liệu môn AI hết 50k,50000,Chi tiêu,Học tập,Bình thường,2026-03-27 09:45:00,2026-03-27 09:45:00,trả tiền photo tài_liệu môn ai hết 50k,Học tập
-80,Mua thảm tập yoga 200k về tập tại phòng,200000,Chi tiêu,Sức khỏe,Tích cực,2026-02-15 11:00:00,2026-02-15 11:00:00,mua thảm_tập yoga 200k về tập tại phòng,Mua sắm
-81,Đi ăn ốc đêm với người yêu hết 100k ngon tuyệt,100000,Chi tiêu,Ăn uống,Tích cực,2026-02-14 21:00:00,2026-02-14 21:00:00,đi ăn_ốc đêm với người_yêu hết 100k ngon tuyệt,Ăn uống
-82,Mua sữa tắm dưỡng da hết 90k,90000,Chi tiêu,Mua sắm,Bình thường,2026-03-02 16:30:00,2026-03-02 16:30:00,mua sữa_tắm_dưỡng da hết 90k,Mua sắm
-83,Nhận tiền lì xì từ bác 1 triệu vui ghê,1000000,Thu nhập,Thu nhập,Tích cực,2026-02-05 09:00:00,2026-02-05 09:00:00,nhận tiền lì_xì từ bác 1triệu vui ghê,Thu nhập
-84,Mua sim điện thoại mới hết 150k,150000,Chi tiêu,Hóa đơn,Bình thường,2026-01-10 14:20:00,2026-01-10 14:20:00,mua sim điện_thoại mới hết 150k,Hóa đơn
-85,Đi bảo dưỡng laptop hết 300k thấy áp lực quá,300000,Chi tiêu,Học tập,Tiêu cực,2026-03-12 11:15:00,2026-03-12 11:15:00,đi bảo_dưỡng laptop hết 300k thấy áp_lực quá,Học tập
-86,Mua túi xách mới 400k tặng bạn gái,400000,Chi tiêu,Mua sắm,Tích cực,2026-03-07 19:30:00,2026-03-07 19:30:00,mua túi_xách mới 400k tặng bạn gái,Giao lưu
-87,Trả tiền vé gửi xe máy hàng ngày 5k,5000,Chi tiêu,Di chuyển,Bình thường,2026-03-15 07:10:00,2026-03-15 07:10:00,trả tiền vé gửi xe_máy hàng ngày 5k,Di chuyển
-88,Mua khẩu trang y tế hộp 30k,30000,Chi tiêu,Sức khỏe,Bình thường,2026-03-18 08:30:00,2026-03-18 08:30:00,mua khẩu_trang y_tế hộp 30k,Mua sắm
-89,Đi đánh cầu lông hết 50k thuê sân mệt nhưng vui,50000,Chi tiêu,Sức khỏe,Tích cực,2026-03-20 18:00:00,2026-03-20 18:00:00,đi đánh cầu lông hết 50k thuê sân mệt nhưng vui,Hóa đơn
-90,Mua đồ ăn vặt 40k nhâm nhi lúc xem phim,40000,Chi tiêu,Ăn uống,Tích cực,2026-03-22 21:15:00,2026-03-22 21:15:00,mua đồ_ăn vặt 40k nhâm_nhi lúc xem_phim,Giải trí
-91,Trả tiền in đồ án màu 150k xót tiền quá,150000,Chi tiêu,Học tập,Tiêu cực,2026-03-25 15:45:00,2026-03-25 15:45:00,trả tiền in đồ_án màu 150k_xót tiền quá,Mua sắm
-92,Mua kính mát 150k đi chơi cho ngầu,150000,Chi tiêu,Mua sắm,Tích cực,2026-03-26 09:20:00,2026-03-26 09:20:00,mua kính mát 150k đi chơi cho ngầu,Mua sắm
-93,Đi hát karaoke hết 200k vui nổ trời,200000,Chi tiêu,Giải trí,Tích cực,2026-03-26 22:30:00,2026-03-26 22:30:00,đi hát karaoke hết 200k vui nổ trời,Giải trí
-94,Mua khăn trải bàn mới 50k cho phòng đẹp,50000,Chi tiêu,Mua sắm,Bình thường,2026-01-05 14:10:00,2026-01-05 14:10:00,mua khăn trải bàn mới 50k cho phòng đẹp,Ăn uống
-95,Trả tiền vé tàu về quê hết 250k mừng rỡ,250000,Chi tiêu,Di chuyển,Tích cực,2026-01-25 08:30:00,2026-01-25 08:30:00,trả tiền vé tàu về quê hết 250k mừng_rỡ,Mua sắm
-96,Mua pin dự phòng điện thoại 100k hàng rẻ,100000,Chi tiêu,Mua sắm,Bình thường,2026-01-15 10:45:00,2026-01-15 10:45:00,mua pin dự_phòng điện_thoại 100k hàng rẻ,Hóa đơn
-97,Đi ăn chè với hội bạn hết 25k ngon rẻ,25000,Chi tiêu,Ăn uống,Tích cực,2026-03-27 16:30:00,2026-03-27 16:30:00,đi ăn_chè với hội bạn hết 25k ngon rẻ,Ăn uống
-98,Mua bánh mì 15k ăn sáng vội cho kịp giờ,15000,Chi tiêu,Ăn uống,Bình thường,2026-01-02 07:15:00,2026-01-02 07:15:00,mua bánh_mì 15k ăn sáng vội cho kịp giờ,Thu nhập
-99,Đi Grab hết 40k vì lỡ muộn học buồn quá,40000,Chi tiêu,Di chuyển,Tiêu cực,2026-02-10 07:15:00,2026-02-10 07:15:00,đi grab hết 40k vì lỡ muộn_học buồn quá,Di chuyển
-100,Được hoàn tiền Shopee 20k hên ghê,20000,Thu nhập,Thu nhập,Tích cực,2026-03-27 20:00:00,2026-03-27 20:00:00,được hoàn tiền shopee 20k hên ghê,Thu nhập
-101,Ăn tối phở bò 45k ngon tuyệt,45000,Chi tiêu,Ăn uống,Tích cực,2026-01-05 19:30:00,2026-01-05 19:30:00,ăn tối phở bò 45k ngon tuyệt,Ăn uống
-102,Mua thêm gói bảo hiểm xe máy 66k,66000,Chi tiêu,Di chuyển,Bình thường,2026-01-15 10:20:00,2026-01-15 10:20:00,mua thêm gói bảo_hiểm xe_máy 66k,Di chuyển
-103,Da dẻ dạo này tệ nên đi chăm sóc da hết 1tr2,1200000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-27 21:05:00,2026-03-27 21:05:00,da_dẻ dạo này tệ nên đi chăm_sóc da hết 1tr2,Mua sắm
-104,Sáng sớm mua ổ bánh mì 15k lót dạ đi học,15000,Chi tiêu,Ăn uống,Bình thường,2026-01-10 07:20:00,2026-01-10 07:20:00,sáng sớm mua ổ bánh_mì 15k_lót_dạ đi học,Thu nhập
-105,Bán lại mấy cuốn giáo trình cũ được 50k mừng rơn,50000,Thu nhập,Thu nhập,Tích cực,2026-01-12 15:30:00,2026-01-12 15:30:00,bán lại mấy cuốn giáo_trình cũ được 50k mừng rơn,Thu nhập
-106,Rửa xe máy hết 25k nhìn xe sạch sướng quá,25000,Chi tiêu,Di chuyển,Tích cực,2026-01-14 09:45:00,2026-01-14 09:45:00,rửa xe_máy hết 25k nhìn xe sạch sướng quá,Di chuyển
-107,Mua gói tăm bông 10k ở tiệm tạp hóa,10000,Chi tiêu,Mua sắm,Bình thường,2026-01-16 11:20:00,2026-01-16 11:20:00,mua gói tăm_bông 10k ở tiệm tạp_hóa,Mua sắm
-108,Order suất cơm gà 45k trên app về ăn trưa,45000,Chi tiêu,Ăn uống,Tích cực,2026-01-18 12:15:00,2026-01-18 12:15:00,order suất cơm gà 45k trên app về ăn trưa,Ăn uống
-109,Đi photo tài liệu ôn thi hết 20k mệt mỏi,20000,Chi tiêu,Học tập,Bình thường,2026-01-20 16:30:00,2026-01-20 16:30:00,đi photo tài_liệu ôn_thi hết 20k mệt_mỏi,Học tập
-110,Uống ly trà đá vỉa hè 5k lúc chờ bạn thân,5000,Chi tiêu,Ăn uống,Bình thường,2026-01-22 08:00:00,2026-01-22 08:00:00,uống ly trà_đá vỉa_hè 5k lúc chờ bạn thân,Ăn uống
-111,Mua lốc sữa 30k để sẵn trong phòng lúc đói,30000,Chi tiêu,Ăn uống,Bình thường,2026-01-24 10:10:00,2026-01-24 10:10:00,mua lốc sữa 30k để sẵn trong phòng lúc đói,Mua sắm
-112,Đi sinh nhật đứa bạn cùng phòng mừng nó 200k,200000,Chi tiêu,Giao lưu,Tích cực,2026-01-26 19:30:00,2026-01-26 19:30:00,đi sinh_nhật đứa bạn cùng phòng mừng nó 200k,Giao lưu
-113,Mua miếng dán cường lực điện thoại mới 50k,50000,Chi tiêu,Mua sắm,Bình thường,2026-01-28 14:15:00,2026-01-28 14:15:00,mua miếng dán cường_lực điện_thoại mới 50k,Hóa đơn
-114,Đăng ký gia hạn gói iCloud 19k hàng tháng,19000,Chi tiêu,Hóa đơn,Bình thường,2026-02-01 08:00:00,2026-02-01 08:00:00,đăng_ký gia_hạn gói icloud 19k hàng tháng,Ăn uống
-115,Ăn bát bún riêu 35k quán quen ngon dã man,35000,Chi tiêu,Ăn uống,Tích cực,2026-02-03 12:30:00,2026-02-03 12:30:00,ăn bát_bún riêu 35k quán quen ngon dã_man,Ăn uống
-116,Mua cái kẹp tóc 15k thấy xinh xinh là mua luôn,15000,Chi tiêu,Mua sắm,Tích cực,2026-02-05 15:45:00,2026-02-05 15:45:00,mua cái kẹp tóc 15k thấy xinh_xinh là mua luôn,Mua sắm
-117,Ra bưu điện gửi đồ về quê hết 30k phí ship,30000,Chi tiêu,Phát sinh,Bình thường,2026-02-07 10:10:00,2026-02-07 10:10:00,ra bưu_điện gửi đồ về quê hết 30k phí ship,Hóa đơn
-118,Mua tờ vé số cầu may hết 10k mà trượt đen quá,10000,Chi tiêu,Phát sinh,Tiêu cực,2026-02-09 17:30:00,2026-02-09 17:30:00,mua tờ vé_số cầu may hết 10k mà trượt đen quá,Mua sắm
-119,Nạp 20k vào game để mua thêm lượt chơi giải trí,20000,Chi tiêu,Giải trí,Tích cực,2026-02-11 20:20:00,2026-02-11 20:20:00,nạp 20k vào game để mua thêm lượt_chơi giải_trí,Giải trí
-120,Mua đôi tất 20k vì trời bỗng nhiên lạnh quá,20000,Chi tiêu,Mua sắm,Bình thường,2026-02-13 08:15:00,2026-02-13 08:15:00,mua đôi tất 20k vì trời bỗng_nhiên lạnh quá,Mua sắm
-121,Book xe ôm đi học cho kịp hết 15k vội vàng,15000,Chi tiêu,Di chuyển,Bình thường,2026-02-15 07:15:00,2026-02-15 07:15:00,book xe_ôm đi học cho kịp hết 15k vội_vàng,Di chuyển
-122,Mua túi bánh tráng trộn 20k nhâm nhi lúc học bài,20000,Chi tiêu,Ăn uống,Tích cực,2026-02-17 19:30:00,2026-02-17 19:30:00,mua túi bánh_tráng trộn 20k nhâm_nhi lúc học bài,Thu nhập
-123,Mua tập hồ sơ 10k chuẩn bị đi nộp thực tập,10000,Chi tiêu,Học tập,Bình thường,2026-02-19 10:45:00,2026-02-19 10:45:00,mua tập hồ_sơ 10k chuẩn_bị đi nộp thực_tập,Mua sắm
-124,Làm thêm ca tối được chủ thưởng thêm 100k sướng,100000,Thu nhập,Thu nhập,Tích cực,2026-02-21 21:00:00,2026-02-21 21:00:00,làm thêm ca tối được chủ thưởng thêm 100k sướng,Thu nhập
-125,Đi siêu thị mua túi bột giặt Omo hết 45k,45000,Chi tiêu,Mua sắm,Bình thường,2026-02-23 16:30:00,2026-02-23 16:30:00,đi siêu_thị mua túi bột giặt omo hết 45k,Hóa đơn
-126,Mua lốc nước ngọt 60k đãi cả nhóm đồ án,60000,Chi tiêu,Giao lưu,Tích cực,2026-02-25 14:15:00,2026-02-25 14:15:00,mua lốc nước_ngọt 60k_đãi cả nhóm đồ_án,Mua sắm
-127,Trả tiền gửi xe máy ở cổng trường hết 3k rẻ,3000,Chi tiêu,Di chuyển,Bình thường,2026-02-27 07:10:00,2026-02-27 07:10:00,trả tiền gửi xe_máy ở cổng trường hết 3k rẻ,Di chuyển
-128,Mua cái thớt gỗ nhỏ 40k về tự nấu cơm sinh viên,40000,Chi tiêu,Mua sắm,Bình thường,2026-03-01 15:30:00,2026-03-01 15:30:00,mua cái thớt gỗ nhỏ 40k về tự nấu cơm sinh_viên,Ăn uống
-129,Đi ăn buffet cuối kỳ với lớp hết 300k hơi xót,300000,Chi tiêu,Ăn uống,Tiêu cực,2026-03-03 19:00:00,2026-03-03 19:00:00,đi ăn_buffet cuối kỳ với lớp hết 300k hơi xót,Ăn uống
-130,Săn sale Shopee mua được cục sạc dự phòng 150k,150000,Chi tiêu,Mua sắm,Tích cực,2026-03-05 10:15:00,2026-03-05 10:15:00,săn sale shopee mua được cục sạc dự_phòng 150k,Ăn uống
-131,Đi khám răng hết 500k thấy áp lực tài chính,500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-07 09:30:00,2026-03-07 09:30:00,đi khám răng hết 500k thấy áp_lực tài_chính,Ăn uống
-132,Mua thẻ nhớ 64GB hết 120k để lưu tài liệu học,120000,Chi tiêu,Học tập,Bình thường,2026-03-09 14:45:00,2026-03-09 14:45:00,mua thẻ nhớ 64 gb hết 120k để lưu_tài_liệu học,Học tập
-133,Ăn tối muộn bát cháo đêm 25k cho ấm bụng,25000,Chi tiêu,Ăn uống,Bình thường,2026-03-11 23:30:00,2026-03-11 23:30:00,ăn tối_muộn bát cháo đêm 25k cho ấm bụng,Ăn uống
-134,Thuê truyện tranh đọc giải trí hết 15k vui vẻ,15000,Chi tiêu,Giải trí,Tích cực,2026-03-13 18:00:00,2026-03-13 18:00:00,thuê truyện_tranh đọc giải_trí hết 15k vui_vẻ,Hóa đơn
-135,Mua hộp đựng cơm 55k để mang đồ ăn đi học tiết kiệm,55000,Chi tiêu,Mua sắm,Tích cực,2026-03-15 11:20:00,2026-03-15 11:20:00,mua hộp đựng cơm 55k để mang đồ_ăn đi học tiết_kiệm,Ăn uống
-136,Đi dạo phố uống ly trà chanh 20k với người yêu vui,20000,Chi tiêu,Giải trí,Tích cực,2026-03-17 20:45:00,2026-03-17 20:45:00,đi dạo phố uống ly trà_chanh 20k với người_yêu vui,Ăn uống
-137,Mua gói khăn giấy 5k bỏ túi dùng dần cho sạch,5000,Chi tiêu,Mua sắm,Bình thường,2026-03-19 14:10:00,2026-03-19 14:10:00,mua gói khăn giấy 5k bỏ_túi dùng dần cho sạch,Ăn uống
-138,Trả tiền in đồ án màu 120k thấy áp lực tiền bạc quá,120000,Chi tiêu,Học tập,Tiêu cực,2026-03-21 16:50:00,2026-03-21 16:50:00,trả tiền in đồ_án màu 120k thấy áp_lực tiền_bạc quá,Mua sắm
-139,Thanh lý được cái áo cũ trên Facebook được 150k hên,150000,Thu nhập,Thu nhập,Tích cực,2026-03-22 15:30:00,2026-03-22 15:30:00,thanh_lý được cái áo cũ trên facebook được 150k hên,Mua sắm
-140,Mua vé vào cổng hội chợ 50k xem cho biết không khí,50000,Chi tiêu,Giải trí,Bình thường,2026-03-23 18:15:00,2026-03-23 18:15:00,mua vé vào cổng hội_chợ 50k xem cho biết không_khí,Di chuyển
-141,Ăn đĩa nem chua rán 30k tám chuyện với hội bạn,30000,Chi tiêu,Ăn uống,Tích cực,2026-03-24 19:20:00,2026-03-24 19:20:00,ăn đĩa nem chua rán 30k tám chuyện với hội bạn,Ăn uống
-142,Mua chai nước rửa chén 25k cho cả phòng dùng chung,25000,Chi tiêu,Mua sắm,Bình thường,2026-03-25 10:40:00,2026-03-25 10:40:00,mua chai nước rửa_chén 25k cho cả phòng dùng chung,Mua sắm
-143,Ghé cây xăng đổ đầy bình hết 80k giá xăng tăng,80000,Chi tiêu,Di chuyển,Bình thường,2026-03-25 08:15:00,2026-03-25 08:15:00,ghé cây_xăng đổ đầy bình hết 80k giá xăng tăng,Ăn uống
-144,Thay cái ốp lưng điện thoại mới hết 35k màu đẹp,35000,Chi tiêu,Mua sắm,Tích cực,2026-03-26 14:30:00,2026-03-26 14:30:00,thay cái ốp lưng điện_thoại mới hết 35k màu đẹp,Hóa đơn
-145,Đi gội đầu ngoài tiệm hết 40k thấy thư giãn đầu óc,40000,Chi tiêu,Sức khỏe,Tích cực,2026-03-26 17:45:00,2026-03-26 17:45:00,đi gội đầu ngoài tiệm hết 40k thấy thư_giãn đầu_óc,Mua sắm
-146,Mua bánh xà phòng tắm Lifebuoy 15k,15000,Chi tiêu,Mua sắm,Bình thường,2026-03-26 20:00:00,2026-03-26 20:00:00,mua bánh xà_phòng tắm lifebuoy 15k,Thu nhập
-147,Sáng ra ăn đĩa bánh cuốn nóng 25k quán đầu ngõ,25000,Chi tiêu,Ăn uống,Bình thường,2026-03-27 07:15:00,2026-03-27 07:15:00,sáng ra ăn_đĩa bánh_cuốn nóng 25k quán đầu ngõ,Thu nhập
-148,Mua sắm linh tinh trên mạng hết 100k mà không nhớ rõ,100000,Chi tiêu,Mua sắm,Tiêu cực,2026-03-27 11:20:00,2026-03-27 11:20:00,mua_sắm linh_tinh trên mạng hết 100k mà không nhớ rõ,Hóa đơn
-149,Trả tiền đóng quỹ nhóm 50k chuẩn bị liên hoan lớp,50000,Chi tiêu,Học tập,Bình thường,2026-03-27 15:45:00,2026-03-27 15:45:00,trả tiền đóng quỹ nhóm 50k chuẩn_bị liên_hoan lớp,Mua sắm
-150,Mua dây sạc điện thoại 120k ,120000,Chi tiêu,Phát sinh,Bình thường,2026-03-27 10:10:00,2026-03-27 10:10:00,mua dây sạc điện_thoại 120k,Hóa đơn
-151,Mua ấm siêu tốc hết 150k,150000,Chi tiêu,Phát sinh,Bình thường,2025-12-27 04:35:00,2025-12-27 04:35:00,mua ấm siêu_tốc hết 150k,Mua sắm
-152,Sáng đi chợ mua ít thịt lợn hết 60k cho cả ngày,60000,Chi tiêu,Ăn uống,Bình thường,2025-12-26 23:00:00,2025-12-26 23:00:00,sáng đi chợ mua ít thịt lợn hết 60k cho cả ngày,Mua sắm
-153,Mua gói kẹo 10k ăn cho ngọt giọng lúc thuyết trình,10000,Chi tiêu,Ăn uống,Bình thường,2025-12-24 17:25:00,2025-12-24 17:25:00,mua gói kẹo 10k ăn cho ngọt giọng lúc thuyết_trình,Ăn uống
-154,Nhận được 200k tiền bác ở quê lên chơi cho,200000,Thu nhập,Thu nhập,Tích cực,2025-12-23 11:50:00,2025-12-23 11:50:00,nhận được 200k tiền bác ở quê lên chơi cho,Thu nhập
-155,Mua vé đi sở thú vào chủ nhật hết 240k,240000,Chi tiêu,Giải trí,Bình thường,2025-12-26 06:15:00,2025-12-26 06:15:00,mua vé đi sở_thú vào chủ_nhật hết 240k,Mua sắm
-156,Đau vai gáy nên phải đi hết massage hết 160k,160000,Chi tiêu,Sức khỏe,Tiêu cực,2025-11-28 00:40:00,2025-11-28 00:40:00,đau vai_gáy nên phải đi hết massage hết 160k,Sức khỏe
-157,Stress quá nên đặt phòng nghỉ dưỡng 700k,700000,Chi tiêu,Giải trí,Tiêu cực,2025-11-21 00:40:00,2025-11-21 00:40:00,stress quá nên đặt phòng nghỉ_dưỡng 700k,Mua sắm
-158,Da hơi tệ nên đặt lộ trình chăm sóc hết 1tr2,1200000,Chi tiêu,Sức khỏe,Tiêu cực,2025-11-18 13:30:00,2025-11-18 13:30:00,da hơi_tệ nên đặt lộ_trình chăm_sóc hết 1tr2,Mua sắm
-159,Đi ăn gà rán 99k ngon bá cháy,99000,Chi tiêu,Ăn uống,Tích cực,2025-11-15 07:55:00,2025-11-15 07:55:00,đi ăn gà rán 99k ngon_bá cháy,Ăn uống
-160,ốm đau mua thuốc cảm hết 60k,60000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-05 08:15:00,2026-03-05 08:15:00,ốm_đau mua thuốc cảm hết 60k,Sức khỏe
-161,đi lấy cao răng 150k,150000,Chi tiêu,Sức khỏe,Bình thường,2026-03-10 14:30:20,2026-03-10 14:30:20,đi lấy cao_răng 150k,Ăn uống
-162,nhổ răng khôn bay mất 1 củ đau ví quá,1000000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-12 09:00:15,2026-03-12 09:00:15,nhổ răng khôn_bay mất 1củ đau ví quá,Ăn uống
-163,mua hộp vitamin c 120 nghìn uống cho khỏe,120000,Chi tiêu,Sức khỏe,Tích cực,2026-03-18 19:20:00,2026-03-18 19:20:00,mua hộp vitamin c 120nghìn uống cho khỏe,Ăn uống
-164,đi khám dạ dày tốn 500k xót xa,500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-22 10:45:30,2026-03-22 10:45:30,đi khám dạ_dày tốn 500k xót_xa,Sức khỏe
-165,mua dầu gió với băng gạc 30k,30000,Chi tiêu,Sức khỏe,Bình thường,2026-03-26 21:10:05,2026-03-26 21:10:05,mua dầu_gió với băng gạc 30k,Ăn uống
-166,khám mắt cắt kính mới 800k,800000,Chi tiêu,Sức khỏe,Bình thường,2026-03-29 16:05:40,2026-03-29 16:05:40,khám mắt cắt kính mới 800k,Sức khỏe
-167,mua thuốc ho siro 45k ốm mệt ghê,45000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-01 07:50:10,2026-04-01 07:50:10,mua thuốc ho siro 45k_ốm mệt ghê,Sức khỏe
-168,xét nghiệm máu tổng quát 350k,350000,Chi tiêu,Sức khỏe,Bình thường,2026-04-05 08:30:00,2026-04-05 08:30:00,xét_nghiệm máu tổng_quát 350k,Mua sắm
-169,truyền nước biển 150k do suy nhược,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-08 11:20:55,2026-04-08 11:20:55,truyền nước_biển 150k do suy_nhược,Mua sắm
-170,thủng xăm thay hết 50k xui xẻo,50000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-03 17:45:10,2026-03-03 17:45:10,thủng xăm thay hết 50k xui_xẻo,Phát sinh
-171,quên đội mũ bị công an vẫy mất 2 loét,200000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-07 14:10:25,2026-03-07 14:10:25,quên đội mũ bị công_an vẫy mất 2 loét,Mua sắm
-172,hỏng sạc laptop phải mua mới 450k cay,450000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-11 20:05:00,2026-03-11 20:05:00,hỏng sạc laptop phải mua mới 450k cay,Phát sinh
-173,đánh rơi tờ 100k lúc mua đồ buồn thế,100000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-16 12:30:45,2026-03-16 12:30:45,đánh rơi tờ 100k lúc mua đồ buồn thế,Phát sinh
-174,chuột cắn đứt dây chuột đền nét 150k,150000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-20 23:15:30,2026-03-20 23:15:30,chuột cắn đứt dây chuột đền nét 150k,Phát sinh
-175,vá lốp xe máy dọc đường 30k,30000,Chi tiêu,Phát sinh,Bình thường,2026-03-24 18:20:15,2026-03-24 18:20:15,vá_lốp xe_máy dọc đường 30k,Di chuyển
-176,đền tiền làm vỡ cốc trà sữa 40k,40000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-28 15:50:05,2026-03-28 15:50:05,đền tiền làm vỡ_cốc trà_sữa 40k,Phát sinh
-177,sửa lại khóa phòng trọ 120k,120000,Chi tiêu,Phát sinh,Bình thường,2026-04-03 09:40:50,2026-04-03 09:40:50,sửa lại khóa phòng trọ 120k,Mua sắm
-178,thay nhớt xe máy định kỳ 110k,110000,Chi tiêu,Phát sinh,Bình thường,2026-04-06 10:15:20,2026-04-06 10:15:20,thay nhớt xe_máy định_kỳ 110k,Di chuyển
-179,nộp phạt trễ hạn thư viện 20k,20000,Chi tiêu,Phát sinh,Tiêu cực,2026-04-09 14:05:10,2026-04-09 14:05:10,nộp phạt trễ hạn thư_viện 20k,Phát sinh
+﻿STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transaction_date,clean_text
+1,Sáng nay mệt mỏi quá nên ăn bát phở 45k,45000,Chi tiêu,Ăn uống,Tiêu cực,2026-01-02 08:15:30,2026-01-02 08:15:30,sáng nay mệt_mỏi quá nên ăn_bát phở 45k
+2,Mới nhận lương làm thêm 2 triệu vui quá xá,2000000,Thu nhập,Thu nhập,Tích cực,2026-01-05 17:40:12,2026-01-05 17:40:12,mới nhận lương làm thêm 2triệu vui quá_xá
+3,Đóng tiền học phí 5tr mà xót hết cả ruột,5000000,Chi tiêu,Học tập,Tiêu cực,2026-01-08 10:20:00,2026-01-08 10:20:00,đóng tiền học_phí 5tr mà xót hết cả ruột
+4,Tối đi trà sữa với hội bạn hết 120k vui cực,120000,Chi tiêu,Giải trí,Tích cực,2026-01-12 20:45:15,2026-01-12 20:45:15,tối đi trà_sữa với hội bạn hết 120k vui cực
+5,Mua cuốn giáo trình 80k thấy bình thường,80000,Chi tiêu,Học tập,Bình thường,2026-01-15 14:30:05,2026-01-15 14:30:05,mua cuốn giáo_trình 80k thấy bình_thường
+6,Đổ xăng 50k mà giá lại tăng chán ghét,50000,Chi tiêu,Di chuyển,Tiêu cực,2026-01-18 07:10:40,2026-01-18 07:10:40,đổ xăng 50k mà giá lại tăng chán ghét
+7,Đặt đồ ăn đêm hết 35k,35000,Chi tiêu,Ăn uống,Bình thường,2026-01-20 23:15:22,2026-01-20 23:15:22,đặt đồ_ăn đêm hết 35k
+8,buồn vì hết tiền nên đành mua 15k mì tôm,15000,Chi tiêu,Ăn uống,Tiêu cực,2026-01-22 18:05:10,2026-01-22 18:05:10,buồn vì hết tiền nên đành mua 15k mì tôm
+9,Được bố mẹ cho 3 củ đóng tiền nhà mừng ghê,3000000,Thu nhập,Thu nhập,Tích cực,2026-01-25 09:00:00,2026-01-25 09:00:00,được bố_mẹ cho 3củ đóng tiền nhà mừng ghê
+10,Mua cái áo mới 250k trên Shopee ưng quá,250000,Chi tiêu,Mua sắm,Tích cực,2026-01-28 16:20:55,2026-01-28 16:20:55,mua cái áo mới 250k trên shopee ưng quá
+11,Trả tiền mạng 200k mỗi tháng thấy tốn kém,200000,Chi tiêu,Hóa đơn,Tiêu cực,2026-01-30 21:00:30,2026-01-30 21:00:30,trả tiền mạng 200k mỗi tháng thấy tốn_kém
+12,Đi xe bus hết 7k tiết kiệm được khối tiền,7000,Chi tiêu,Di chuyển,Tích cực,2026-02-01 06:45:12,2026-02-01 06:45:12,đi xe bus hết 7k tiết_kiệm được khối tiền
+13,Ăn trưa cơm tiệm 35k ngon bổ rẻ,35000,Chi tiêu,Ăn uống,Bình thường,2026-02-03 12:15:00,2026-02-03 12:15:00,ăn trưa cơm tiệm 35k ngon_bổ rẻ
+14,Nạp thẻ điện thoại 50k để đăng ký 4G,50000,Chi tiêu,Hóa đơn,Bình thường,2026-02-05 10:40:20,2026-02-05 10:40:20,nạp thẻ điện_thoại 50k để đăng_ký 4 g
+15,Mất 200k tiền phạt xe máy ức chế thật,200000,Chi tiêu,Phát sinh,Tiêu cực,2026-02-07 15:55:45,2026-02-07 15:55:45,mất 200k tiền phạt xe_máy ức_chế thật
+16,Đi ăn cưới bạn cũ mừng 500k hơi đau ví,500000,Chi tiêu,Giao lưu,Tiêu cực,2026-02-10 11:30:10,2026-02-10 11:30:10,đi ăn cưới bạn cũ mừng 500k hơi đau ví
+17,Mua quà sinh nhật cho mẹ 300k rất hạnh phúc,300000,Chi tiêu,Giao lưu,Tích cực,2026-02-12 19:20:00,2026-02-12 19:20:00,mua quà sinh_nhật cho mẹ 300k rất hạnh_phúc
+18,Sửa xe hết 150k vì thủng lốp đen quá,150000,Chi tiêu,Di chuyển,Tiêu cực,2026-02-14 08:50:35,2026-02-14 08:50:35,sửa xe hết 150k vì thủng lốp đen quá
+19,Mua cốc cafe 25k tỉnh cả người,25000,Chi tiêu,Ăn uống,Tích cực,2026-02-15 07:30:12,2026-02-15 07:30:12,mua cốc cafe 25k tỉnh cả người
+20,Đóng tiền quỹ lớp 100k hàng tháng,100000,Chi tiêu,Học tập,Bình thường,2026-02-18 14:10:00,2026-02-18 14:10:00,đóng tiền quỹ lớp 100k hàng tháng
+21,Ăn đêm vỉa hè với bạn hết 60k sướng bụng,60000,Chi tiêu,Ăn uống,Tích cực,2026-02-16 22:15:00,2026-02-16 22:15:00,ăn đêm vỉa_hè với bạn hết 60k sướng bụng
+22,Đi xem phim CGV hết 150k cả bỏng nước,150000,Chi tiêu,Giải trí,Tích cực,2026-02-17 19:30:45,2026-02-17 19:30:45,đi xem_phim cgv hết 150k cả bỏng nước
+23,Giao lưu cho thằng bạn 500k nhẹ cả người,500000,Chi tiêu,Giao lưu,Tích cực,2026-02-18 09:10:00,2026-02-18 09:10:00,giao_lưu cho thằng bạn 500k nhẹ cả người
+24,Mua thẻ tập gym 400k quyết tâm giảm cân,400000,Chi tiêu,Sức khỏe,Tích cực,2026-02-19 16:40:20,2026-02-19 16:40:20,mua thẻ tập gym 400k quyết_tâm giảm cân
+25,Tiền điện tháng này lên tới 800k áp lực quá,800000,Chi tiêu,Hóa đơn,Tiêu cực,2026-02-20 20:05:30,2026-02-20 20:05:30,tiền điện tháng này lên tới 800k áp_lực quá
+26,Mua kem chống nắng hết 300 nghìn đồng,300000,Chi tiêu,Mua sắm,Bình thường,2026-02-21 11:20:15,2026-02-21 11:20:15,mua kem chống nắng hết 300nghìn đồng
+27,Được thưởng 500k vì hoàn thành dự án tốt,500000,Thu nhập,Thu nhập,Tích cực,2026-02-22 15:30:00,2026-02-22 15:30:00,được thưởng 500k vì hoàn_thành dự_án tốt
+28,Mua giày thể thao mới hết 1 triệu,1000000,Chi tiêu,Mua sắm,Bình thường,2026-02-23 18:45:10,2026-02-23 18:45:10,mua giày thể_thao mới hết 1triệu
+29,Mua kem dưỡng da hết 350k xót ví,350000,Chi tiêu,Mua sắm,Tiêu cực,2026-02-24 21:10:00,2026-02-24 21:10:00,mua kem_dưỡng da hết 350k_xót ví
+30,Đang vui nên mua vé đi thủy cung hết 250k,250000,Chi tiêu,Giải trí,Tích cực,2026-02-25 10:15:22,2026-02-25 10:15:22,đang vui nên mua vé đi thủy cung hết 250k
+31,Mua thẻ xe bus tháng hết 140k,140000,Chi tiêu,Di chuyển,Bình thường,2026-02-26 07:30:00,2026-02-26 07:30:00,mua thẻ xe bus tháng hết 140k
+32,Bị ốm nên mua thuốc hết 150k mệt ghê,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-02-27 14:20:45,2026-02-27 14:20:45,bị ốm nên mua thuốc hết 150k mệt ghê
+33,Mua quà sinh nhật cho bạn hết 70k,70000,Chi tiêu,Giao lưu,Bình thường,2026-02-28 16:50:10,2026-02-28 16:50:10,mua quà sinh_nhật cho bạn hết 70k
+34,Trưa nay ăn cơm rang thập cẩm hết 35k,35000,Chi tiêu,Ăn uống,Bình thường,2026-03-01 12:10:30,2026-03-01 12:10:30,trưa nay ăn cơm rang thập_cẩm hết 35k
+35,Mua rau củ về nấu cơm hết 15k,15000,Chi tiêu,Ăn uống,Bình thường,2026-03-02 17:30:00,2026-03-02 17:30:00,mua rau_củ về nấu cơm hết 15k
+36,Mua cuốn sách yêu thích hết 85k thấy vui,85000,Chi tiêu,Học tập,Tích cực,2026-03-03 19:15:15,2026-03-03 19:15:15,mua cuốn sách yêu_thích hết 85k thấy vui
+37,Tiếc 25k mua áo mưa nilong dùng 1 lần,25000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-04 08:20:00,2026-03-04 08:20:00,tiếc 25k mua áo_mưa nilong dùng 1 lần
+38,Chi 180k đăng ký Netflix xem phim xả stress,180000,Chi tiêu,Giải trí,Tích cực,2026-03-04 21:45:30,2026-03-04 21:45:30,chi 180k đăng_ký netflix xem_phim xả stress
+39,Vui vì săn được vé concert 900k,900000,Chi tiêu,Giải trí,Tích cực,2026-03-05 10:00:12,2026-03-05 10:00:12,vui vì săn được vé concert 900k
+40,Khám bệnh tổng quát hết 1tr5 áp lực quá,1500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-06 09:30:00,2026-03-06 09:30:00,khám bệnh tổng_quát hết 1tr5 áp_lực quá
+41,Ăn mì cay với bạn hết 40k,40000,Chi tiêu,Ăn uống,Tích cực,2026-03-07 19:10:00,2026-03-07 19:10:00,ăn mì_cay với bạn hết 40k
+42,Đi uống trà sữa để xả stress hết 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-03-08 20:30:00,2026-03-08 20:30:00,đi uống trà_sữa để xả stress hết 30k
+43,Trúng số được 100k hên ghê,100000,Thu nhập,Thu nhập,Tích cực,2026-03-09 15:20:45,2026-03-09 15:20:45,trúng số được 100k hên ghê
+44,Mua gói xôi 15k ăn sáng vội vàng,15000,Chi tiêu,Ăn uống,Bình thường,2026-03-10 07:15:10,2026-03-10 07:15:10,mua gói xôi 15k ăn sáng vội_vàng
+45,Trả tiền gửi xe máy cả tháng 100k,100000,Chi tiêu,Di chuyển,Bình thường,2026-03-10 16:40:00,2026-03-10 16:40:00,trả tiền gửi xe_máy cả tháng 100k
+46,Mua chuột máy tính mới hết 250k để làm đồ án,250000,Chi tiêu,Học tập,Tích cực,2026-03-11 11:10:00,2026-03-11 11:10:00,mua chuột máy_tính mới hết 250k để làm đồ_án
+47,Đi cắt tóc hết 60k cho gọn gàng,60000,Chi tiêu,Mua sắm,Tích cực,2026-03-12 14:30:00,2026-03-12 14:30:00,đi cắt tóc hết 60k cho gọn_gàng
+48,Mua bình nước cá nhân 120k bền đẹp,120000,Chi tiêu,Mua sắm,Bình thường,2026-03-13 10:20:15,2026-03-13 10:20:15,mua bình nước cá_nhân 120k bền đẹp
+49,Đi ăn buffet lẩu 250k với gia đình no căng,250000,Chi tiêu,Ăn uống,Tích cực,2026-03-14 19:00:00,2026-03-14 19:00:00,đi ăn_buffet lẩu 250k với gia_đình no căng
+50,Bị mất ví mất tiêu 300k buồn cả ngày,300000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-15 08:45:30,2026-03-15 08:45:30,bị mất ví mất tiêu 300k buồn cả ngày
+51,Mua lót chuột 50k dùng khá thích,50000,Chi tiêu,Học tập,Tích cực,2026-03-15 15:20:00,2026-03-15 15:20:00,mua lót chuột 50k dùng khá thích
+52,Đăng ký gói Spotify 59k nghe nhạc cho chill,59000,Chi tiêu,Giải trí,Tích cực,2026-03-16 20:00:00,2026-03-16 20:00:00,đăng_ký gói spotify 59k nghe nhạc cho chill
+53,Mua sạc dự phòng 350k đi thực tập cho tiện,350000,Chi tiêu,Mua sắm,Bình thường,2026-03-17 09:30:10,2026-03-17 09:30:10,mua sạc dự_phòng 350k đi thực_tập cho tiện
+54,Đi net với mấy đứa bạn hết 40k,40000,Chi tiêu,Giải trí,Tích cực,2026-03-17 22:15:00,2026-03-17 22:15:00,đi net với mấy đứa bạn hết 40k
+55,Mua bánh kem sinh nhật 200k tặng bạn,200000,Chi tiêu,Giao lưu,Tích cực,2026-03-18 17:40:00,2026-03-18 17:40:00,mua bánh_kem sinh_nhật 200k tặng bạn
+56,Trả tiền giặt sấy 30k cho đống quần áo,30000,Chi tiêu,Hóa đơn,Bình thường,2026-03-19 14:10:00,2026-03-19 14:10:00,trả tiền giặt_sấy 30k cho đống quần_áo
+57,Mua hoa quả 50k về tẩm bổ,50000,Chi tiêu,Ăn uống,Tích cực,2026-03-19 18:30:00,2026-03-19 18:30:00,mua hoa_quả 50k về tẩm bổ
+58,Đi du lịch gần hết 1tr2 cực vui,1200000,Chi tiêu,Giải trí,Tích cực,2026-03-20 06:00:00,2026-03-20 06:00:00,đi du_lịch gần hết 1tr2 cực vui
+59,Mua vở ghi chép mới 20k cho học kỳ mới,20000,Chi tiêu,Học tập,Bình thường,2026-03-21 08:20:00,2026-03-21 08:20:00,mua vở ghi_chép mới 20k cho học_kỳ mới
+60,Trả tiền nước tháng này hết 50k,50000,Chi tiêu,Hóa đơn,Bình thường,2026-03-21 16:50:00,2026-03-21 16:50:00,trả tiền nước tháng này hết 50k
+61,Đi uống bia với đồng nghiệp hết 150k,150000,Chi tiêu,Giao lưu,Tích cực,2026-03-22 19:45:00,2026-03-22 19:45:00,đi uống bia với đồng_nghiệp hết 150k
+62,Mua tai nghe cũ 400k dùng tạm,400000,Chi tiêu,Mua sắm,Bình thường,2026-03-23 10:10:00,2026-03-23 10:10:00,mua tai_nghe cũ 400k dùng tạm
+63,Thuê đồ diễn văn nghệ hết 100k,100000,Chi tiêu,Giải trí,Bình thường,2026-03-23 15:30:00,2026-03-23 15:30:00,thuê đồ_diễn văn_nghệ hết 100k
+64,Mua sắm đồ tết hết 2 triệu tốn quá trời,2000000,Chi tiêu,Mua sắm,Tiêu cực,2026-01-20 14:00:00,2026-01-20 14:00:00,mua_sắm đồ tết hết 2triệu tốn quá trời
+65,Nhận tiền làm đồ án thuê 500k vui ghê,500000,Thu nhập,Thu nhập,Tích cực,2026-03-24 11:20:00,2026-03-24 11:20:00,nhận tiền làm đồ_án thuê 500k vui ghê
+66,Mua hoa tặng bạn gái 200k thấy hạnh phúc,200000,Chi tiêu,Giao lưu,Tích cực,2026-03-14 08:15:00,2026-03-14 08:15:00,mua hoa tặng bạn gái 200k thấy hạnh_phúc
+67,Đi hội chợ sách mua hết 300k toàn sách hay,300000,Chi tiêu,Học tập,Tích cực,2026-03-24 16:40:00,2026-03-24 16:40:00,đi hội_chợ sách mua hết 300k toàn sách hay
+68,Mua mì tôm trữ sẵn 100k cho mùa thi,100000,Chi tiêu,Ăn uống,Bình thường,2026-03-25 09:00:00,2026-03-25 09:00:00,mua mì tôm_trữ sẵn 100k cho mùa thi
+69,Trả tiền phòng gym tháng 300k quyết tâm,300000,Chi tiêu,Sức khỏe,Bình thường,2026-03-01 17:00:00,2026-03-01 17:00:00,trả tiền phòng gym tháng 300k quyết_tâm
+70,Mua vitamin C 150k uống cho khỏe người,150000,Chi tiêu,Sức khỏe,Tích cực,2026-03-25 14:15:00,2026-03-25 14:15:00,mua vitamin c 150k uống cho khỏe người
+71,Đi chợ mua đồ tự nấu ăn hết 100k,100000,Chi tiêu,Ăn uống,Tích cực,2026-03-25 18:30:00,2026-03-25 18:30:00,đi chợ mua đồ tự nấu_ăn hết 100k
+72,Mua đèn bàn học 150k chống cận thị,150000,Chi tiêu,Học tập,Tích cực,2026-03-26 20:10:00,2026-03-26 20:10:00,mua đèn bàn học 150k chống cận_thị
+73,Đi bơi hết 40k mát mẻ sướng quá,40000,Chi tiêu,Sức khỏe,Tích cực,2026-03-26 15:45:00,2026-03-26 15:45:00,đi bơi hết 40k mát_mẻ sướng quá
+74,Mua trà đá vỉa hè 5k lúc chờ xe bus,5000,Chi tiêu,Ăn uống,Bình thường,2026-03-27 07:10:00,2026-03-27 07:10:00,mua trà_đá vỉa_hè 5k lúc chờ xe bus
+75,Bị trừ phí duy trì thẻ ngân hàng 11k xót ví,11000,Chi tiêu,Hóa đơn,Tiêu cực,2026-01-31 08:00:00,2026-01-31 08:00:00,bị trừ_phí duy_trì thẻ ngân_hàng 11k_xót ví
+76,Mua USB 128GB hết 200k để copy tài liệu,200000,Chi tiêu,Học tập,Bình thường,2026-03-27 10:30:00,2026-03-27 10:30:00,mua usb 128 gb hết 200k để copy tài_liệu
+77,Đi tham quan bảo tàng hết 20k cho biết,20000,Chi tiêu,Giải trí,Bình thường,2026-03-27 14:00:00,2026-03-27 14:00:00,đi tham_quan bảo_tàng hết 20k cho biết
+78,Mua kem 10k giải nhiệt mùa hè,10000,Chi tiêu,Ăn uống,Tích cực,2026-03-27 15:30:00,2026-03-27 15:30:00,mua kem 10k giải_nhiệt mùa hè
+79,Trả tiền photo tài liệu môn AI hết 50k,50000,Chi tiêu,Học tập,Bình thường,2026-03-27 09:45:00,2026-03-27 09:45:00,trả tiền photo tài_liệu môn ai hết 50k
+80,Mua thảm tập yoga 200k về tập tại phòng,200000,Chi tiêu,Sức khỏe,Tích cực,2026-02-15 11:00:00,2026-02-15 11:00:00,mua thảm_tập yoga 200k về tập tại phòng
+81,Đi ăn ốc đêm với người yêu hết 100k ngon tuyệt,100000,Chi tiêu,Ăn uống,Tích cực,2026-02-14 21:00:00,2026-02-14 21:00:00,đi ăn_ốc đêm với người_yêu hết 100k ngon tuyệt
+82,Mua sữa tắm dưỡng da hết 90k,90000,Chi tiêu,Mua sắm,Bình thường,2026-03-02 16:30:00,2026-03-02 16:30:00,mua sữa_tắm_dưỡng da hết 90k
+83,Nhận tiền lì xì từ bác 1 triệu vui ghê,1000000,Thu nhập,Thu nhập,Tích cực,2026-02-05 09:00:00,2026-02-05 09:00:00,nhận tiền lì_xì từ bác 1triệu vui ghê
+84,Mua sim điện thoại mới hết 150k,150000,Chi tiêu,Hóa đơn,Bình thường,2026-01-10 14:20:00,2026-01-10 14:20:00,mua sim điện_thoại mới hết 150k
+85,Đi bảo dưỡng laptop hết 300k thấy áp lực quá,300000,Chi tiêu,Học tập,Tiêu cực,2026-03-12 11:15:00,2026-03-12 11:15:00,đi bảo_dưỡng laptop hết 300k thấy áp_lực quá
+86,Mua túi xách mới 400k tặng bạn gái,400000,Chi tiêu,Mua sắm,Tích cực,2026-03-07 19:30:00,2026-03-07 19:30:00,mua túi_xách mới 400k tặng bạn gái
+87,Trả tiền vé gửi xe máy hàng ngày 5k,5000,Chi tiêu,Di chuyển,Bình thường,2026-03-15 07:10:00,2026-03-15 07:10:00,trả tiền vé gửi xe_máy hàng ngày 5k
+88,Mua khẩu trang y tế hộp 30k,30000,Chi tiêu,Sức khỏe,Bình thường,2026-03-18 08:30:00,2026-03-18 08:30:00,mua khẩu_trang y_tế hộp 30k
+89,Đi đánh cầu lông hết 50k thuê sân mệt nhưng vui,50000,Chi tiêu,Sức khỏe,Tích cực,2026-03-20 18:00:00,2026-03-20 18:00:00,đi đánh cầu lông hết 50k thuê sân mệt nhưng vui
+90,Mua đồ ăn vặt 40k nhâm nhi lúc xem phim,40000,Chi tiêu,Ăn uống,Tích cực,2026-03-22 21:15:00,2026-03-22 21:15:00,mua đồ_ăn vặt 40k nhâm_nhi lúc xem_phim
+91,Trả tiền in đồ án màu 150k xót tiền quá,150000,Chi tiêu,Học tập,Tiêu cực,2026-03-25 15:45:00,2026-03-25 15:45:00,trả tiền in đồ_án màu 150k_xót tiền quá
+92,Mua kính mát 150k đi chơi cho ngầu,150000,Chi tiêu,Mua sắm,Tích cực,2026-03-26 09:20:00,2026-03-26 09:20:00,mua kính mát 150k đi chơi cho ngầu
+93,Đi hát karaoke hết 200k vui nổ trời,200000,Chi tiêu,Giải trí,Tích cực,2026-03-26 22:30:00,2026-03-26 22:30:00,đi hát karaoke hết 200k vui nổ trời
+94,Mua khăn trải bàn mới 50k cho phòng đẹp,50000,Chi tiêu,Mua sắm,Bình thường,2026-01-05 14:10:00,2026-01-05 14:10:00,mua khăn trải bàn mới 50k cho phòng đẹp
+95,Trả tiền vé tàu về quê hết 250k mừng rỡ,250000,Chi tiêu,Di chuyển,Tích cực,2026-01-25 08:30:00,2026-01-25 08:30:00,trả tiền vé tàu về quê hết 250k mừng_rỡ
+96,Mua pin dự phòng điện thoại 100k hàng rẻ,100000,Chi tiêu,Mua sắm,Bình thường,2026-01-15 10:45:00,2026-01-15 10:45:00,mua pin dự_phòng điện_thoại 100k hàng rẻ
+97,Đi ăn chè với hội bạn hết 25k ngon rẻ,25000,Chi tiêu,Ăn uống,Tích cực,2026-03-27 16:30:00,2026-03-27 16:30:00,đi ăn_chè với hội bạn hết 25k ngon rẻ
+98,Mua bánh mì 15k ăn sáng vội cho kịp giờ,15000,Chi tiêu,Ăn uống,Bình thường,2026-01-02 07:15:00,2026-01-02 07:15:00,mua bánh_mì 15k ăn sáng vội cho kịp giờ
+99,Đi Grab hết 40k vì lỡ muộn học buồn quá,40000,Chi tiêu,Di chuyển,Tiêu cực,2026-02-10 07:15:00,2026-02-10 07:15:00,đi grab hết 40k vì lỡ muộn_học buồn quá
+100,Được hoàn tiền Shopee 20k hên ghê,20000,Thu nhập,Thu nhập,Tích cực,2026-03-27 20:00:00,2026-03-27 20:00:00,được hoàn tiền shopee 20k hên ghê
+101,Ăn tối phở bò 45k ngon tuyệt,45000,Chi tiêu,Ăn uống,Tích cực,2026-01-05 19:30:00,2026-01-05 19:30:00,ăn tối phở bò 45k ngon tuyệt
+102,Mua thêm gói bảo hiểm xe máy 66k,66000,Chi tiêu,Di chuyển,Bình thường,2026-01-15 10:20:00,2026-01-15 10:20:00,mua thêm gói bảo_hiểm xe_máy 66k
+103,Da dẻ dạo này tệ nên đi chăm sóc da hết 1tr2,1200000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-27 21:05:00,2026-03-27 21:05:00,da_dẻ dạo này tệ nên đi chăm_sóc da hết 1tr2
+104,Sáng sớm mua ổ bánh mì 15k lót dạ đi học,15000,Chi tiêu,Ăn uống,Bình thường,2026-01-10 07:20:00,2026-01-10 07:20:00,sáng sớm mua ổ bánh_mì 15k_lót_dạ đi học
+105,Bán lại mấy cuốn giáo trình cũ được 50k mừng rơn,50000,Thu nhập,Thu nhập,Tích cực,2026-01-12 15:30:00,2026-01-12 15:30:00,bán lại mấy cuốn giáo_trình cũ được 50k mừng rơn
+106,Rửa xe máy hết 25k nhìn xe sạch sướng quá,25000,Chi tiêu,Di chuyển,Tích cực,2026-01-14 09:45:00,2026-01-14 09:45:00,rửa xe_máy hết 25k nhìn xe sạch sướng quá
+107,Mua gói tăm bông 10k ở tiệm tạp hóa,10000,Chi tiêu,Mua sắm,Bình thường,2026-01-16 11:20:00,2026-01-16 11:20:00,mua gói tăm_bông 10k ở tiệm tạp_hóa
+108,Order suất cơm gà 45k trên app về ăn trưa,45000,Chi tiêu,Ăn uống,Tích cực,2026-01-18 12:15:00,2026-01-18 12:15:00,order suất cơm gà 45k trên app về ăn trưa
+109,Đi photo tài liệu ôn thi hết 20k mệt mỏi,20000,Chi tiêu,Học tập,Bình thường,2026-01-20 16:30:00,2026-01-20 16:30:00,đi photo tài_liệu ôn_thi hết 20k mệt_mỏi
+110,Uống ly trà đá vỉa hè 5k lúc chờ bạn thân,5000,Chi tiêu,Ăn uống,Bình thường,2026-01-22 08:00:00,2026-01-22 08:00:00,uống ly trà_đá vỉa_hè 5k lúc chờ bạn thân
+111,Mua lốc sữa 30k để sẵn trong phòng lúc đói,30000,Chi tiêu,Ăn uống,Bình thường,2026-01-24 10:10:00,2026-01-24 10:10:00,mua lốc sữa 30k để sẵn trong phòng lúc đói
+112,Đi sinh nhật đứa bạn cùng phòng mừng nó 200k,200000,Chi tiêu,Giao lưu,Tích cực,2026-01-26 19:30:00,2026-01-26 19:30:00,đi sinh_nhật đứa bạn cùng phòng mừng nó 200k
+113,Mua miếng dán cường lực điện thoại mới 50k,50000,Chi tiêu,Mua sắm,Bình thường,2026-01-28 14:15:00,2026-01-28 14:15:00,mua miếng dán cường_lực điện_thoại mới 50k
+114,Đăng ký gia hạn gói iCloud 19k hàng tháng,19000,Chi tiêu,Hóa đơn,Bình thường,2026-02-01 08:00:00,2026-02-01 08:00:00,đăng_ký gia_hạn gói icloud 19k hàng tháng
+115,Ăn bát bún riêu 35k quán quen ngon dã man,35000,Chi tiêu,Ăn uống,Tích cực,2026-02-03 12:30:00,2026-02-03 12:30:00,ăn bát_bún riêu 35k quán quen ngon dã_man
+116,Mua cái kẹp tóc 15k thấy xinh xinh là mua luôn,15000,Chi tiêu,Mua sắm,Tích cực,2026-02-05 15:45:00,2026-02-05 15:45:00,mua cái kẹp tóc 15k thấy xinh_xinh là mua luôn
+117,Ra bưu điện gửi đồ về quê hết 30k phí ship,30000,Chi tiêu,Phát sinh,Bình thường,2026-02-07 10:10:00,2026-02-07 10:10:00,ra bưu_điện gửi đồ về quê hết 30k phí ship
+118,Mua tờ vé số cầu may hết 10k mà trượt đen quá,10000,Chi tiêu,Phát sinh,Tiêu cực,2026-02-09 17:30:00,2026-02-09 17:30:00,mua tờ vé_số cầu may hết 10k mà trượt đen quá
+119,Nạp 20k vào game để mua thêm lượt chơi giải trí,20000,Chi tiêu,Giải trí,Tích cực,2026-02-11 20:20:00,2026-02-11 20:20:00,nạp 20k vào game để mua thêm lượt_chơi giải_trí
+120,Mua đôi tất 20k vì trời bỗng nhiên lạnh quá,20000,Chi tiêu,Mua sắm,Bình thường,2026-02-13 08:15:00,2026-02-13 08:15:00,mua đôi tất 20k vì trời bỗng_nhiên lạnh quá
+121,Book xe ôm đi học cho kịp hết 15k vội vàng,15000,Chi tiêu,Di chuyển,Bình thường,2026-02-15 07:15:00,2026-02-15 07:15:00,book xe_ôm đi học cho kịp hết 15k vội_vàng
+122,Mua túi bánh tráng trộn 20k nhâm nhi lúc học bài,20000,Chi tiêu,Ăn uống,Tích cực,2026-02-17 19:30:00,2026-02-17 19:30:00,mua túi bánh_tráng trộn 20k nhâm_nhi lúc học bài
+123,Mua tập hồ sơ 10k chuẩn bị đi nộp thực tập,10000,Chi tiêu,Học tập,Bình thường,2026-02-19 10:45:00,2026-02-19 10:45:00,mua tập hồ_sơ 10k chuẩn_bị đi nộp thực_tập
+124,Làm thêm ca tối được chủ thưởng thêm 100k sướng,100000,Thu nhập,Thu nhập,Tích cực,2026-02-21 21:00:00,2026-02-21 21:00:00,làm thêm ca tối được chủ thưởng thêm 100k sướng
+125,Đi siêu thị mua túi bột giặt Omo hết 45k,45000,Chi tiêu,Mua sắm,Bình thường,2026-02-23 16:30:00,2026-02-23 16:30:00,đi siêu_thị mua túi bột giặt omo hết 45k
+126,Mua lốc nước ngọt 60k đãi cả nhóm đồ án,60000,Chi tiêu,Giao lưu,Tích cực,2026-02-25 14:15:00,2026-02-25 14:15:00,mua lốc nước_ngọt 60k_đãi cả nhóm đồ_án
+127,Trả tiền gửi xe máy ở cổng trường hết 3k rẻ,3000,Chi tiêu,Di chuyển,Bình thường,2026-02-27 07:10:00,2026-02-27 07:10:00,trả tiền gửi xe_máy ở cổng trường hết 3k rẻ
+128,Mua cái thớt gỗ nhỏ 40k về tự nấu cơm sinh viên,40000,Chi tiêu,Mua sắm,Bình thường,2026-03-01 15:30:00,2026-03-01 15:30:00,mua cái thớt gỗ nhỏ 40k về tự nấu cơm sinh_viên
+129,Đi ăn buffet cuối kỳ với lớp hết 300k hơi xót,300000,Chi tiêu,Ăn uống,Tiêu cực,2026-03-03 19:00:00,2026-03-03 19:00:00,đi ăn_buffet cuối kỳ với lớp hết 300k hơi xót
+130,Săn sale Shopee mua được cục sạc dự phòng 150k,150000,Chi tiêu,Mua sắm,Tích cực,2026-03-05 10:15:00,2026-03-05 10:15:00,săn sale shopee mua được cục sạc dự_phòng 150k
+131,Đi khám răng hết 500k thấy áp lực tài chính,500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-07 09:30:00,2026-03-07 09:30:00,đi khám răng hết 500k thấy áp_lực tài_chính
+132,Mua thẻ nhớ 64GB hết 120k để lưu tài liệu học,120000,Chi tiêu,Học tập,Bình thường,2026-03-09 14:45:00,2026-03-09 14:45:00,mua thẻ nhớ 64 gb hết 120k để lưu_tài_liệu học
+133,Ăn tối muộn bát cháo đêm 25k cho ấm bụng,25000,Chi tiêu,Ăn uống,Bình thường,2026-03-11 23:30:00,2026-03-11 23:30:00,ăn tối_muộn bát cháo đêm 25k cho ấm bụng
+134,Thuê truyện tranh đọc giải trí hết 15k vui vẻ,15000,Chi tiêu,Giải trí,Tích cực,2026-03-13 18:00:00,2026-03-13 18:00:00,thuê truyện_tranh đọc giải_trí hết 15k vui_vẻ
+135,Mua hộp đựng cơm 55k để mang đồ ăn đi học tiết kiệm,55000,Chi tiêu,Mua sắm,Tích cực,2026-03-15 11:20:00,2026-03-15 11:20:00,mua hộp đựng cơm 55k để mang đồ_ăn đi học tiết_kiệm
+136,Đi dạo phố uống ly trà chanh 20k với người yêu vui,20000,Chi tiêu,Giải trí,Tích cực,2026-03-17 20:45:00,2026-03-17 20:45:00,đi dạo phố uống ly trà_chanh 20k với người_yêu vui
+137,Mua gói khăn giấy 5k bỏ túi dùng dần cho sạch,5000,Chi tiêu,Mua sắm,Bình thường,2026-03-19 14:10:00,2026-03-19 14:10:00,mua gói khăn giấy 5k bỏ_túi dùng dần cho sạch
+138,Trả tiền in đồ án màu 120k thấy áp lực tiền bạc quá,120000,Chi tiêu,Học tập,Tiêu cực,2026-03-21 16:50:00,2026-03-21 16:50:00,trả tiền in đồ_án màu 120k thấy áp_lực tiền_bạc quá
+139,Thanh lý được cái áo cũ trên Facebook được 150k hên,150000,Thu nhập,Thu nhập,Tích cực,2026-03-22 15:30:00,2026-03-22 15:30:00,thanh_lý được cái áo cũ trên facebook được 150k hên
+140,Mua vé vào cổng hội chợ 50k xem cho biết không khí,50000,Chi tiêu,Giải trí,Bình thường,2026-03-23 18:15:00,2026-03-23 18:15:00,mua vé vào cổng hội_chợ 50k xem cho biết không_khí
+141,Ăn đĩa nem chua rán 30k tám chuyện với hội bạn,30000,Chi tiêu,Ăn uống,Tích cực,2026-03-24 19:20:00,2026-03-24 19:20:00,ăn đĩa nem chua rán 30k tám chuyện với hội bạn
+142,Mua chai nước rửa chén 25k cho cả phòng dùng chung,25000,Chi tiêu,Mua sắm,Bình thường,2026-03-25 10:40:00,2026-03-25 10:40:00,mua chai nước rửa_chén 25k cho cả phòng dùng chung
+143,Ghé cây xăng đổ đầy bình hết 80k giá xăng tăng,80000,Chi tiêu,Di chuyển,Bình thường,2026-03-25 08:15:00,2026-03-25 08:15:00,ghé cây_xăng đổ đầy bình hết 80k giá xăng tăng
+144,Thay cái ốp lưng điện thoại mới hết 35k màu đẹp,35000,Chi tiêu,Mua sắm,Tích cực,2026-03-26 14:30:00,2026-03-26 14:30:00,thay cái ốp lưng điện_thoại mới hết 35k màu đẹp
+145,Đi gội đầu ngoài tiệm hết 40k thấy thư giãn đầu óc,40000,Chi tiêu,Sức khỏe,Tích cực,2026-03-26 17:45:00,2026-03-26 17:45:00,đi gội đầu ngoài tiệm hết 40k thấy thư_giãn đầu_óc
+146,Mua bánh xà phòng tắm Lifebuoy 15k,15000,Chi tiêu,Mua sắm,Bình thường,2026-03-26 20:00:00,2026-03-26 20:00:00,mua bánh xà_phòng tắm lifebuoy 15k
+147,Sáng ra ăn đĩa bánh cuốn nóng 25k quán đầu ngõ,25000,Chi tiêu,Ăn uống,Bình thường,2026-03-27 07:15:00,2026-03-27 07:15:00,sáng ra ăn_đĩa bánh_cuốn nóng 25k quán đầu ngõ
+148,Mua sắm linh tinh trên mạng hết 100k mà không nhớ rõ,100000,Chi tiêu,Mua sắm,Tiêu cực,2026-03-27 11:20:00,2026-03-27 11:20:00,mua_sắm linh_tinh trên mạng hết 100k mà không nhớ rõ
+149,Trả tiền đóng quỹ nhóm 50k chuẩn bị liên hoan lớp,50000,Chi tiêu,Học tập,Bình thường,2026-03-27 15:45:00,2026-03-27 15:45:00,trả tiền đóng quỹ nhóm 50k chuẩn_bị liên_hoan lớp
+150,Mua dây sạc điện thoại 120k ,120000,Chi tiêu,Phát sinh,Bình thường,2026-03-27 10:10:00,2026-03-27 10:10:00,mua dây sạc điện_thoại 120k
+151,Mua ấm siêu tốc hết 150k,150000,Chi tiêu,Phát sinh,Bình thường,2025-12-27 04:35:00,2025-12-27 04:35:00,mua ấm siêu_tốc hết 150k
+152,Sáng đi chợ mua ít thịt lợn hết 60k cho cả ngày,60000,Chi tiêu,Ăn uống,Bình thường,2025-12-26 23:00:00,2025-12-26 23:00:00,sáng đi chợ mua ít thịt lợn hết 60k cho cả ngày
+153,Mua gói kẹo 10k ăn cho ngọt giọng lúc thuyết trình,10000,Chi tiêu,Ăn uống,Bình thường,2025-12-24 17:25:00,2025-12-24 17:25:00,mua gói kẹo 10k ăn cho ngọt giọng lúc thuyết_trình
+154,Nhận được 200k tiền bác ở quê lên chơi cho,200000,Thu nhập,Thu nhập,Tích cực,2025-12-23 11:50:00,2025-12-23 11:50:00,nhận được 200k tiền bác ở quê lên chơi cho
+155,Mua vé đi sở thú vào chủ nhật hết 240k,240000,Chi tiêu,Giải trí,Bình thường,2025-12-26 06:15:00,2025-12-26 06:15:00,mua vé đi sở_thú vào chủ_nhật hết 240k
+156,Đau vai gáy nên phải đi hết massage hết 160k,160000,Chi tiêu,Sức khỏe,Tiêu cực,2025-11-28 00:40:00,2025-11-28 00:40:00,đau vai_gáy nên phải đi hết massage hết 160k
+157,Stress quá nên đặt phòng nghỉ dưỡng 700k,700000,Chi tiêu,Giải trí,Tiêu cực,2025-11-21 00:40:00,2025-11-21 00:40:00,stress quá nên đặt phòng nghỉ_dưỡng 700k
+158,Da hơi tệ nên đặt lộ trình chăm sóc hết 1tr2,1200000,Chi tiêu,Sức khỏe,Tiêu cực,2025-11-18 13:30:00,2025-11-18 13:30:00,da hơi_tệ nên đặt lộ_trình chăm_sóc hết 1tr2
+159,Đi ăn gà rán 99k ngon bá cháy,99000,Chi tiêu,Ăn uống,Tích cực,2025-11-15 07:55:00,2025-11-15 07:55:00,đi ăn gà rán 99k ngon_bá cháy
+160,ốm đau mua thuốc cảm hết 60k,60000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-05 08:15:00,2026-03-05 08:15:00,ốm_đau mua thuốc cảm hết 60k
+161,đi lấy cao răng 150k,150000,Chi tiêu,Sức khỏe,Bình thường,2026-03-10 14:30:20,2026-03-10 14:30:20,đi lấy cao_răng 150k
+162,nhổ răng khôn bay mất 1 củ đau ví quá,1000000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-12 09:00:15,2026-03-12 09:00:15,nhổ răng khôn_bay mất 1củ đau ví quá
+163,mua hộp vitamin c 120 nghìn uống cho khỏe,120000,Chi tiêu,Sức khỏe,Tích cực,2026-03-18 19:20:00,2026-03-18 19:20:00,mua hộp vitamin c 120nghìn uống cho khỏe
+164,đi khám dạ dày tốn 500k xót xa,500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-22 10:45:30,2026-03-22 10:45:30,đi khám dạ_dày tốn 500k xót_xa
+165,mua dầu gió với băng gạc 30k,30000,Chi tiêu,Sức khỏe,Bình thường,2026-03-26 21:10:05,2026-03-26 21:10:05,mua dầu_gió với băng gạc 30k
+166,khám mắt cắt kính mới 800k,800000,Chi tiêu,Sức khỏe,Bình thường,2026-03-29 16:05:40,2026-03-29 16:05:40,khám mắt cắt kính mới 800k
+167,mua thuốc ho siro 45k ốm mệt ghê,45000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-01 07:50:10,2026-04-01 07:50:10,mua thuốc ho siro 45k_ốm mệt ghê
+168,xét nghiệm máu tổng quát 350k,350000,Chi tiêu,Sức khỏe,Bình thường,2026-04-05 08:30:00,2026-04-05 08:30:00,xét_nghiệm máu tổng_quát 350k
+169,truyền nước biển 150k do suy nhược,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-08 11:20:55,2026-04-08 11:20:55,truyền nước_biển 150k do suy_nhược
+170,thủng xăm thay hết 50k xui xẻo,50000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-03 17:45:10,2026-03-03 17:45:10,thủng xăm thay hết 50k xui_xẻo
+171,quên đội mũ bị công an vẫy mất 2 loét,200000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-07 14:10:25,2026-03-07 14:10:25,quên đội mũ bị công_an vẫy mất 2 loét
+172,hỏng sạc laptop phải mua mới 450k cay,450000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-11 20:05:00,2026-03-11 20:05:00,hỏng sạc laptop phải mua mới 450k cay
+173,đánh rơi tờ 100k lúc mua đồ buồn thế,100000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-16 12:30:45,2026-03-16 12:30:45,đánh rơi tờ 100k lúc mua đồ buồn thế
+174,chuột cắn đứt dây chuột đền nét 150k,150000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-20 23:15:30,2026-03-20 23:15:30,chuột cắn đứt dây chuột đền nét 150k
+175,vá lốp xe máy dọc đường 30k,30000,Chi tiêu,Phát sinh,Bình thường,2026-03-24 18:20:15,2026-03-24 18:20:15,vá_lốp xe_máy dọc đường 30k
+176,đền tiền làm vỡ cốc trà sữa 40k,40000,Chi tiêu,Phát sinh,Tiêu cực,2026-03-28 15:50:05,2026-03-28 15:50:05,đền tiền làm vỡ_cốc trà_sữa 40k
+177,sửa lại khóa phòng trọ 120k,120000,Chi tiêu,Phát sinh,Bình thường,2026-04-03 09:40:50,2026-04-03 09:40:50,sửa lại khóa phòng trọ 120k
+178,thay nhớt xe máy định kỳ 110k,110000,Chi tiêu,Phát sinh,Bình thường,2026-04-06 10:15:20,2026-04-06 10:15:20,thay nhớt xe_máy định_kỳ 110k
+179,nộp phạt trễ hạn thư viện 20k,20000,Chi tiêu,Phát sinh,Tiêu cực,2026-04-09 14:05:10,2026-04-09 14:05:10,nộp phạt trễ hạn thư_viện 20k
+180,nạp tiền chơi game 100k,100000,Chi tiêu,Giải trí,Bình thường,2026-04-12 10:00:00,2026-04-12 10:00:00,nạp tiền chơi game 100k
+181,mua vé xem phim cgv 120k,120000,Chi tiêu,Giải trí,Tích cực,2026-04-13 14:00:00,2026-04-13 14:00:00,mua vé xem_phim cgv 120k
+182,gia hạn netflix tháng này 260k,260000,Chi tiêu,Giải trí,Bình thường,2026-04-14 09:00:00,2026-04-14 09:00:00,gia_hạn netflix tháng này 260k
+183,đi hát karaoke với nhóm 300k,300000,Chi tiêu,Giải trí,Tích cực,2026-04-15 20:00:00,2026-04-15 20:00:00,đi hát karaoke với nhóm 300k
+184,mua tài khoản spotify 59k,59000,Chi tiêu,Giải trí,Bình thường,2026-04-16 08:00:00,2026-04-16 08:00:00,mua tài_khoản spotify 59k
+185,nhận lương tháng này 5 triệu,5000000,Thu nhập,Thu nhập,Tích cực,2026-04-10 08:00:00,2026-04-10 08:00:00,nhận lương tháng này 5triệu
+186,được mẹ cho 500k tiêu vặt,500000,Thu nhập,Thu nhập,Tích cực,2026-04-11 08:00:00,2026-04-11 08:00:00,được mẹ cho 500k tiêu vặt
+187,tiền thưởng dự án 2 củ,2000000,Thu nhập,Thu nhập,Tích cực,2026-04-12 08:00:00,2026-04-12 08:00:00,tiền thưởng dự_án 2củ
+188,bán đồ cũ được 300k,300000,Thu nhập,Thu nhập,Bình thường,2026-04-13 08:00:00,2026-04-13 08:00:00,bán đồ cũ được 300k
+189,hoàn tiền mua sắm 50k,50000,Thu nhập,Thu nhập,Tích cực,2026-04-14 08:00:00,2026-04-14 08:00:00,hoàn tiền mua_sắm 50k
+190,đóng tiền trọ tháng 4 hết 2 triệu,2000000,Chi tiêu,Hóa đơn,Bình thường,2026-04-10 09:00:00,2026-04-10 09:00:00,đóng tiền trọ tháng 4 hết 2triệu
+191,thanh toán tiền điện 450k,450000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-11 10:00:00,2026-04-11 10:00:00,thanh_toán tiền điện 450k
+192,nộp tiền nước tháng này 80k,80000,Chi tiêu,Hóa đơn,Bình thường,2026-04-12 11:00:00,2026-04-12 11:00:00,nộp tiền nước tháng này 80k
+193,đóng tiền wifi mạng fpt 220k,220000,Chi tiêu,Hóa đơn,Bình thường,2026-04-13 14:00:00,2026-04-13 14:00:00,đóng tiền wifi mạng fpt 220k
+194,phí dịch vụ chung cư 150k,150000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-14 08:00:00,2026-04-14 08:00:00,phí dịch_vụ chung_cư 150k
+195,tiền rác 3 tháng 90k,90000,Chi tiêu,Hóa đơn,Bình thường,2026-04-15 16:00:00,2026-04-15 16:00:00,tiền rác 3 tháng 90k
+196,gia hạn gói cước 4g 120k,120000,Chi tiêu,Hóa đơn,Bình thường,2026-04-16 07:00:00,2026-04-16 07:00:00,gia_hạn gói cước 4 g 120k
+197,nạp tiền điện thoại 100k,100000,Chi tiêu,Hóa đơn,Bình thường,2026-04-17 19:00:00,2026-04-17 19:00:00,nạp tiền điện_thoại 100k
+198,tiền gửi xe tháng 120k,120000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-18 20:00:00,2026-04-18 20:00:00,tiền gửi xe tháng 120k
+199,thanh toán icloud 19k,19000,Chi tiêu,Hóa đơn,Bình thường,2026-04-19 21:00:00,2026-04-19 21:00:00,thanh_toán icloud 19k
+200,trả tiền phòng trọ 1.8 triệu,1800000,Chi tiêu,Hóa đơn,Bình thường,2026-04-01 08:30:00,2026-04-01 08:30:00,trả tiền phòng trọ 1 8triệu
+201,tiền điện sinh hoạt 320k,320000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-02 09:15:00,2026-04-02 09:15:00,tiền điện sinh_hoạt 320k
+202,nước máy tháng này 65k,65000,Chi tiêu,Hóa đơn,Bình thường,2026-04-03 10:20:00,2026-04-03 10:20:00,nước_máy tháng này 65k
+203,đóng phí bảo vệ 50k,50000,Chi tiêu,Hóa đơn,Bình thường,2026-04-04 11:45:00,2026-04-04 11:45:00,đóng phí bảo_vệ 50k
+204,nạp sim 50k viettel,50000,Chi tiêu,Hóa đơn,Bình thường,2026-04-05 15:10:00,2026-04-05 15:10:00,nạp sim 50k viettel
+205,tiền nhà tháng 5 hết 2.5 củ,2500000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-06 17:30:00,2026-04-06 17:30:00,tiền nhà tháng 5 hết 2 5củ
+206,gia hạn truyền hình cáp 110k,110000,Chi tiêu,Hóa đơn,Bình thường,2026-04-07 18:25:00,2026-04-07 18:25:00,gia_hạn truyền_hình cáp 110k
+207,phí vệ sinh môi trường 40k,40000,Chi tiêu,Hóa đơn,Bình thường,2026-04-08 20:10:00,2026-04-08 20:10:00,phí vệ_sinh môi_trường 40k
+208,thanh toán cước internet 250k,250000,Chi tiêu,Hóa đơn,Bình thường,2026-04-09 22:00:00,2026-04-09 22:00:00,thanh_toán cước internet 250k
+209,đăng ký gói 4g tháng 90k,90000,Chi tiêu,Hóa đơn,Bình thường,2026-04-10 06:45:00,2026-04-10 06:45:00,đăng_ký gói 4 g tháng 90k
+210,tiền trọ tháng này 1tr8,1800000,Chi tiêu,Hóa đơn,Bình thường,2026-04-11 08:20:00,2026-04-11 08:20:00,tiền trọ tháng này 1tr8
+211,tiền điện tăng cao 600k xót quá,600000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-12 14:15:00,2026-04-12 14:15:00,tiền điện tăng cao 600k_xót quá
+212,đóng tiền nước nhà trọ 120k,120000,Chi tiêu,Hóa đơn,Bình thường,2026-04-13 16:30:00,2026-04-13 16:30:00,đóng tiền nước nhà_trọ 120k
+213,tiền wifi dùng chung 50k,50000,Chi tiêu,Hóa đơn,Bình thường,2026-04-14 17:50:00,2026-04-14 17:50:00,tiền wifi dùng chung 50k
+214,nạp card 20k,20000,Chi tiêu,Hóa đơn,Bình thường,2026-04-15 11:00:00,2026-04-15 11:00:00,nạp card 20k
+215,thanh toán hóa đơn điện 280k,280000,Chi tiêu,Hóa đơn,Bình thường,2026-04-16 09:40:00,2026-04-16 09:40:00,thanh_toán hóa đơn điện 280k
+216,tiền phòng tháng 6 hết 2 triệu,2000000,Chi tiêu,Hóa đơn,Bình thường,2026-04-17 13:20:00,2026-04-17 13:20:00,tiền phòng tháng 6 hết 2triệu
+217,phí quản lý căn hộ 200k,200000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-18 10:10:00,2026-04-18 10:10:00,phí quản_lý căn_hộ 200k
+218,đóng tiền mạng vnpt 189k,189000,Chi tiêu,Hóa đơn,Bình thường,2026-04-19 19:50:00,2026-04-19 19:50:00,đóng tiền mạng vnpt 189k
+219,nạp 100k điện thoại mobi,100000,Chi tiêu,Hóa đơn,Bình thường,2026-04-20 20:30:00,2026-04-20 20:30:00,nạp 100k điện_thoại mobi
+220,tiền trọ 2 triệu 2 tháng này,2200000,Chi tiêu,Hóa đơn,Bình thường,2026-04-21 08:00:00,2026-04-21 08:00:00,tiền trọ 2triệu 2 tháng này
+221,tiền điện 150k ít ghê,150000,Chi tiêu,Hóa đơn,Tích cực,2026-04-22 15:40:00,2026-04-22 15:40:00,tiền điện 150k ít ghê
+222,đóng tiền nước 40k,40000,Chi tiêu,Hóa đơn,Bình thường,2026-04-23 09:25:00,2026-04-23 09:25:00,đóng tiền nước 40k
+223,tiền rác sinh hoạt 30k,30000,Chi tiêu,Hóa đơn,Bình thường,2026-04-24 10:55:00,2026-04-24 10:55:00,tiền rác sinh_hoạt 30k
+224,phí wifi 200k,200000,Chi tiêu,Hóa đơn,Bình thường,2026-04-25 14:10:00,2026-04-25 14:10:00,phí wifi 200k
+225,trả nợ tiền nhà 1.2 triệu,1200000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-26 18:20:00,2026-04-26 18:20:00,trả nợ tiền nhà 1 2triệu
+226,đóng tiền phòng 1tr5,1500000,Chi tiêu,Hóa đơn,Bình thường,2026-04-27 19:30:00,2026-04-27 19:30:00,đóng tiền phòng 1tr5
+227,tiền sim trả sau 150k,150000,Chi tiêu,Hóa đơn,Bình thường,2026-04-28 21:00:00,2026-04-28 21:00:00,tiền sim trả sau 150k
+228,thanh toán tiền nước 75k,75000,Chi tiêu,Hóa đơn,Bình thường,2026-04-29 07:15:00,2026-04-29 07:15:00,thanh_toán tiền nước 75k
+229,tiền điện 380k tháng 3,380000,Chi tiêu,Hóa đơn,Bình thường,2026-04-30 08:45:00,2026-04-30 08:45:00,tiền điện 380k tháng 3
+230,thuê nhà hết 3 triệu đau ví,3000000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-01 10:10:00,2026-04-01 10:10:00,thuê nhà hết 3triệu đau ví
+231,tiền cáp tivi 80k,80000,Chi tiêu,Hóa đơn,Bình thường,2026-04-02 11:30:00,2026-04-02 11:30:00,tiền cáp tivi 80k
+232,tiền mạng chung cư 100k,100000,Chi tiêu,Hóa đơn,Bình thường,2026-04-03 14:20:00,2026-04-03 14:20:00,tiền mạng chung_cư 100k
+233,đóng tiền trọ sớm 1tr8,1800000,Chi tiêu,Hóa đơn,Tích cực,2026-04-04 15:50:00,2026-04-04 15:50:00,đóng tiền trọ sớm 1tr8
+234,nạp tiền sim 4g 50k,50000,Chi tiêu,Hóa đơn,Bình thường,2026-04-05 16:15:00,2026-04-05 16:15:00,nạp tiền sim 4 g 50k
+235,trả phí dịch vụ 120k,120000,Chi tiêu,Hóa đơn,Bình thường,2026-04-06 17:40:00,2026-04-06 17:40:00,trả phí dịch_vụ 120k
+236,hóa đơn tiền nước 55k,55000,Chi tiêu,Hóa đơn,Bình thường,2026-04-07 18:20:00,2026-04-07 18:20:00,hóa đơn tiền nước 55k
+237,tiền điện kinh doanh 900k,900000,Chi tiêu,Hóa đơn,Tiêu cực,2026-04-08 19:10:00,2026-04-08 19:10:00,tiền điện kinh_doanh 900k
+238,đóng tiền wifi hộ 220k,220000,Chi tiêu,Hóa đơn,Bình thường,2026-04-09 20:50:00,2026-04-09 20:50:00,đóng tiền wifi hộ 220k
+239,tiền nhà tháng 4 2tr5,2500000,Chi tiêu,Hóa đơn,Bình thường,2026-04-10 21:30:00,2026-04-10 21:30:00,tiền nhà tháng 4 2tr5
+240,mua thuốc cảm xuyên tâm liên 45k,45000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-05 08:00:00,2026-03-05 08:00:00,mua thuốc_cảm xuyên tâm_liên 45k
+241,đi lấy cao răng hết 200k,200000,Chi tiêu,Sức khỏe,Bình thường,2026-03-06 14:30:00,2026-03-06 14:30:00,đi lấy cao_răng hết 200k
+242,khám mắt ở bệnh viện 300k,300000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-07 09:15:00,2026-03-07 09:15:00,khám mắt ở bệnh_viện 300k
+243,mua hộp khẩu trang y tế 35k,35000,Chi tiêu,Sức khỏe,Bình thường,2026-03-08 10:20:00,2026-03-08 10:20:00,mua hộp khẩu_trang y_tế 35k
+244,mua vitamin c sủi 60k,60000,Chi tiêu,Sức khỏe,Tích cực,2026-03-09 11:45:00,2026-03-09 11:45:00,mua vitamin c sủi 60k
+245,thuốc bôi nhiệt miệng 25k,25000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-10 15:10:00,2026-03-10 15:10:00,thuốc bôi nhiệt_miệng 25k
+246,khám sức khỏe tổng quát 500k,500000,Chi tiêu,Sức khỏe,Bình thường,2026-03-11 17:30:00,2026-03-11 17:30:00,khám sức khỏe tổng_quát 500k
+247,mua thuốc đau dạ dày 120k,120000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-12 18:25:00,2026-03-12 18:25:00,mua thuốc đau dạ_dày 120k
+248,cắt kính cận mới hết 600k,600000,Chi tiêu,Sức khỏe,Bình thường,2026-03-13 20:10:00,2026-03-13 20:10:00,cắt kính_cận mới hết 600k
+249,mua men tiêu hóa 50k,50000,Chi tiêu,Sức khỏe,Bình thường,2026-03-14 22:00:00,2026-03-14 22:00:00,mua men tiêu_hóa 50k
+250,đi viện kiểm tra họng 200k,200000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-15 06:45:00,2026-03-15 06:45:00,đi viện_kiểm_tra họng 200k
+251,mua thực phẩm chức năng 450k,450000,Chi tiêu,Sức khỏe,Bình thường,2026-03-16 08:20:00,2026-03-16 08:20:00,mua thực_phẩm chức_năng 450k
+252,thuốc giảm đau tylenol 30k,30000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-17 14:15:00,2026-03-17 14:15:00,thuốc giảm đau tylenol 30k
+253,tẩy giun cho cả nhà 80k,80000,Chi tiêu,Sức khỏe,Bình thường,2026-03-18 16:30:00,2026-03-18 16:30:00,tẩy giun cho cả nhà 80k
+254,khám da liễu hết 250k,250000,Chi tiêu,Sức khỏe,Bình thường,2026-03-19 17:50:00,2026-03-19 17:50:00,khám da_liễu hết 250k
+255,mua thuốc nhỏ mắt 15k,15000,Chi tiêu,Sức khỏe,Bình thường,2026-03-20 11:00:00,2026-03-20 11:00:00,mua thuốc nhỏ mắt 15k
+256,mua dầu gió trường sơn 20k,20000,Chi tiêu,Sức khỏe,Bình thường,2026-03-21 09:40:00,2026-03-21 09:40:00,mua dầu_gió trường sơn 20k
+257,tiền mua thuốc ho prospan 100k,100000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-22 13:20:00,2026-03-22 13:20:00,tiền mua thuốc ho prospan 100k
+258,đi nhổ răng khôn 1 triệu đau quá,1000000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-23 10:10:00,2026-03-23 10:10:00,đi nhổ răng khôn 1triệu đau quá
+259,thuốc dị ứng thời tiết 50k,50000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-24 19:50:00,2026-03-24 19:50:00,thuốc dị_ứng thời_tiết 50k
+260,mua nước sát khuẩn 40k,40000,Chi tiêu,Sức khỏe,Bình thường,2026-03-25 20:30:00,2026-03-25 20:30:00,mua nước sát_khuẩn 40k
+261,đăng ký gói tập gym 500k cho khỏe,500000,Chi tiêu,Sức khỏe,Tích cực,2026-03-26 08:00:00,2026-03-26 08:00:00,đăng_ký gói tập gym 500k cho khỏe
+262,mua thuốc đau đầu panadol 20k,20000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-27 15:40:00,2026-03-27 15:40:00,mua thuốc đau_đầu panadol 20k
+263,khám tai mũi họng 150k,150000,Chi tiêu,Sức khỏe,Bình thường,2026-03-28 09:25:00,2026-03-28 09:25:00,khám tai mũi họng 150k
+264,mua trà gừng uống cho ấm 30k,30000,Chi tiêu,Sức khỏe,Tích cực,2026-03-29 10:55:00,2026-03-29 10:55:00,mua trà gừng uống cho ấm 30k
+265,miếng dán hạ sốt 45k,45000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-30 14:10:00,2026-03-30 14:10:00,miếng dán hạ sốt 45k
+266,mua thuốc ngủ thảo dược 120k,120000,Chi tiêu,Sức khỏe,Bình thường,2026-03-31 18:20:00,2026-03-31 18:20:00,mua thuốc ngủ thảo_dược 120k
+267,đi tiêm vaccine phòng cúm 350k,350000,Chi tiêu,Sức khỏe,Tích cực,2026-04-01 19:30:00,2026-04-01 19:30:00,đi tiêm vaccine phòng cúm 350k
+268,mua siro ho cho bé 60k,60000,Chi tiêu,Sức khỏe,Bình thường,2026-04-02 21:00:00,2026-04-02 21:00:00,mua siro_ho cho bé 60k
+269,thuốc nhỏ tai 40k,40000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-03 07:15:00,2026-04-03 07:15:00,thuốc nhỏ tai 40k
+270,mua kẹo ngậm đau họng 25k,25000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-04 08:45:00,2026-04-04 08:45:00,mua kẹo ngậm đau họng 25k
+271,khám định kỳ răng miệng 100k,100000,Chi tiêu,Sức khỏe,Bình thường,2026-04-05 10:10:00,2026-04-05 10:10:00,khám định_kỳ răng miệng 100k
+272,thuốc bổ gan 280k,280000,Chi tiêu,Sức khỏe,Bình thường,2026-04-06 11:30:00,2026-04-06 11:30:00,thuốc_bổ gan 280k
+273,mua cao dán giảm đau 15k,15000,Chi tiêu,Sức khỏe,Bình thường,2026-04-07 14:20:00,2026-04-07 14:20:00,mua cao_dán giảm đau 15k
+274,khám phụ khoa định kỳ 300k,300000,Chi tiêu,Sức khỏe,Bình thường,2026-04-08 15:50:00,2026-04-08 15:50:00,khám phụ_khoa định_kỳ 300k
+275,mua bông băng cồn y tế 35k,35000,Chi tiêu,Sức khỏe,Bình thường,2026-04-09 16:15:00,2026-04-09 16:15:00,mua bông_băng cồn y_tế 35k
+276,thuốc trị mụn hiệu quả 200k,200000,Chi tiêu,Sức khỏe,Tích cực,2026-04-10 17:40:00,2026-04-10 17:40:00,thuốc trị mụn hiệu_quả 200k
+277,khám nội soi dạ dày 800k mệt quá,800000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-11 18:20:00,2026-04-11 18:20:00,khám nội_soi dạ_dày 800k mệt quá
+278,mua thuốc bôi ngoài da 45k,45000,Chi tiêu,Sức khỏe,Bình thường,2026-04-12 19:10:00,2026-04-12 19:10:00,mua thuốc bôi ngoài da 45k
+279,đi lấy thuốc nam 150k,150000,Chi tiêu,Sức khỏe,Bình thường,2026-04-13 20:50:00,2026-04-13 20:50:00,đi lấy thuốc_nam 150k
+280,mua dung dịch vệ sinh 80k,80000,Chi tiêu,Sức khỏe,Bình thường,2026-04-14 21:30:00,2026-04-14 21:30:00,mua dung_dịch vệ_sinh 80k
+281,thuốc giảm sốt sủi 10k,10000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-15 08:00:00,2026-04-15 08:00:00,thuốc giảm sốt sủi 10k
+282,mua canxi bổ sung 220k,220000,Chi tiêu,Sức khỏe,Tích cực,2026-04-16 09:10:00,2026-04-16 09:10:00,mua canxi bổ_sung 220k
+283,khám tổng quát tại phòng khám 400k,400000,Chi tiêu,Sức khỏe,Bình thường,2026-04-17 10:25:00,2026-04-17 10:25:00,khám tổng_quát tại phòng_khám 400k
+284,mua thuốc bắc sắc uống 300k,300000,Chi tiêu,Sức khỏe,Bình thường,2026-04-18 11:40:00,2026-04-18 11:40:00,mua thuốc_bắc sắc uống 300k
+285,mua nhiệt kế điện tử 150k,150000,Chi tiêu,Sức khỏe,Bình thường,2026-04-19 14:15:00,2026-04-19 14:15:00,mua nhiệt_kế điện_tử 150k
+286,tiền thuốc điều trị mụn 500k,500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-04-20 15:30:00,2026-04-20 15:30:00,tiền thuốc điều_trị mụn 500k
+287,đi cắt thuốc đông y 250k,250000,Chi tiêu,Sức khỏe,Bình thường,2026-04-21 16:45:00,2026-04-21 16:45:00,đi cắt thuốc đông_y 250k
+288,khám sàng lọc hết 200k,200000,Chi tiêu,Sức khỏe,Bình thường,2026-04-22 17:55:00,2026-04-22 17:55:00,khám sàng_lọc hết 200k
+289,mua sữa nghệ tốt cho sức khỏe 180k,180000,Chi tiêu,Sức khỏe,Tích cực,2026-04-23 18:10:00,2026-04-23 18:10:00,mua sữa_nghệ tốt cho sức khỏe 180k
+290,nạp tiền chơi game 50k,50000,Chi tiêu,Giải trí,Bình thường,2026-04-10 10:00:00,2026-04-10 10:00:00,nạp tiền chơi game 50k
+291,tiền net chơi game 30k,30000,Chi tiêu,Giải trí,Bình thường,2026-04-10 11:00:00,2026-04-10 11:00:00,tiền net chơi game 30k
+292,mua vé xem phim rạp 150k,150000,Chi tiêu,Giải trí,Tích cực,2026-04-10 12:00:00,2026-04-10 12:00:00,mua vé xem_phim rạp 150k
+293,gia hạn tài khoản netflix 65k,65000,Chi tiêu,Giải trí,Bình thường,2026-04-10 13:00:00,2026-04-10 13:00:00,gia_hạn tài_khoản netflix 65k
+294,mua spotify premium 59k,59000,Chi tiêu,Giải trí,Bình thường,2026-04-10 14:00:00,2026-04-10 14:00:00,mua spotify premium 59k
+295,đi hát karaoke cuối tuần 120k,120000,Chi tiêu,Giải trí,Tích cực,2026-04-10 15:00:00,2026-04-10 15:00:00,đi hát karaoke cuối tuần 120k
+296,nạp thẻ game online 100k,100000,Chi tiêu,Giải trí,Bình thường,2026-04-10 16:00:00,2026-04-10 16:00:00,nạp thẻ game online 100k
+297,mua vé cgv xem phim 90k,90000,Chi tiêu,Giải trí,Tích cực,2026-04-10 17:00:00,2026-04-10 17:00:00,mua vé cgv xem_phim 90k
+298,chơi bi a ngoài nét 80k,80000,Chi tiêu,Giải trí,Bình thường,2026-04-10 18:00:00,2026-04-10 18:00:00,chơi bi_a ngoài nét 80k
+299,đóng tiền net tháng 200k,200000,Chi tiêu,Giải trí,Bình thường,2026-04-10 19:00:00,2026-04-10 19:00:00,đóng tiền net tháng 200k
+300,đi xem phim với gấu 250k,250000,Chi tiêu,Giải trí,Tích cực,2026-04-10 20:00:00,2026-04-10 20:00:00,đi xem_phim với gấu 250k
+301,tiền hát karaoke chia đều 150k,150000,Chi tiêu,Giải trí,Bình thường,2026-04-10 21:00:00,2026-04-10 21:00:00,tiền hát karaoke chia đều 150k
+302,mua game trên steam 350k,350000,Chi tiêu,Giải trí,Tích cực,2026-04-10 22:00:00,2026-04-10 22:00:00,mua game trên steam 350k
+303,nạp tiền liên quân 50k,50000,Chi tiêu,Giải trí,Bình thường,2026-04-11 08:00:00,2026-04-11 08:00:00,nạp tiền liên_quân 50k
+304,mua vé đi xem phim ca nhạc 400k,400000,Chi tiêu,Giải trí,Tích cực,2026-04-11 09:00:00,2026-04-11 09:00:00,mua vé đi xem_phim ca_nhạc 400k
+305,share tiền netflix với bạn 65k,65000,Chi tiêu,Giải trí,Bình thường,2026-04-11 10:00:00,2026-04-11 10:00:00,share tiền netflix với bạn 65k
+306,ngồi quán nét chơi game 40k,40000,Chi tiêu,Giải trí,Bình thường,2026-04-11 11:00:00,2026-04-11 11:00:00,ngồi quán nét chơi game 40k
+307,mua acc spotify 30k,30000,Chi tiêu,Giải trí,Bình thường,2026-04-11 12:00:00,2026-04-11 12:00:00,mua acc spotify 30k
+308,tiền karaoke sinh viên 70k,70000,Chi tiêu,Giải trí,Bình thường,2026-04-11 13:00:00,2026-04-11 13:00:00,tiền karaoke sinh_viên 70k
+309,vé xem phim rạp quốc gia 75k,75000,Chi tiêu,Giải trí,Tích cực,2026-04-11 14:00:00,2026-04-11 14:00:00,vé xem_phim_rạp quốc_gia 75k
+310,đổ xăng xe máy 60k,60000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 08:00:00,2026-04-12 08:00:00,đổ xăng xe_máy 60k
+311,bắt grab đi học 35k,35000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 09:00:00,2026-04-12 09:00:00,bắt grab đi học 35k
+312,vé xe bus tháng 100k,100000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 10:00:00,2026-04-12 10:00:00,vé xe bus tháng 100k
+313,đi taxi về quê 300k,300000,Chi tiêu,Di chuyển,Tiêu cực,2026-04-12 11:00:00,2026-04-12 11:00:00,đi taxi về quê 300k
+314,đổ đầy bình xăng 80k,80000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 12:00:00,2026-04-12 12:00:00,đổ đầy bình_xăng 80k
+315,book grab bike 25k,25000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 13:00:00,2026-04-12 13:00:00,book grab bike 25k
+316,đi xe khách lên hà nội 150k,150000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 14:00:00,2026-04-12 14:00:00,đi xe_khách lên hà_nội 150k
+317,nạp tiền vé xe bus 50k,50000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 15:00:00,2026-04-12 15:00:00,nạp tiền vé xe bus 50k
+318,gọi taxi ra bến xe 60k,60000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 16:00:00,2026-04-12 16:00:00,gọi taxi ra bến_xe 60k
+319,tiền xăng tuần này 100k,100000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 17:00:00,2026-04-12 17:00:00,tiền xăng tuần này 100k
+320,đi grab car trời mưa 80k,80000,Chi tiêu,Di chuyển,Tiêu cực,2026-04-12 18:00:00,2026-04-12 18:00:00,đi grab car trời mưa 80k
+321,mua vé xe khách 200k,200000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 19:00:00,2026-04-12 19:00:00,mua vé xe_khách 200k
+322,đổ xăng dọc đường 40k,40000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 20:00:00,2026-04-12 20:00:00,đổ xăng dọc đường 40k
+323,tiền đi taxi công nghệ 55k,55000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 21:00:00,2026-04-12 21:00:00,tiền đi taxi công_nghệ 55k
+324,bắt xe ôm 30k,30000,Chi tiêu,Di chuyển,Bình thường,2026-04-12 22:00:00,2026-04-12 22:00:00,bắt xe_ôm 30k
+325,mua quà sinh nhật tặng bạn 200k,200000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 08:00:00,2026-04-13 08:00:00,mua quà sinh_nhật tặng bạn 200k
+326,đi ăn cưới bạn thân 500k,500000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 09:00:00,2026-04-13 09:00:00,đi ăn cưới bạn thân 500k
+327,tặng quà kỷ niệm người yêu 350k,350000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 10:00:00,2026-04-13 10:00:00,tặng quà kỷ_niệm người_yêu 350k
+328,góp tiền mua bánh tặng sinh nhật 50k,50000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 11:00:00,2026-04-13 11:00:00,góp tiền mua bánh_tặng sinh_nhật 50k
+329,mừng cưới đồng nghiệp 1 triệu,1000000,Chi tiêu,Giao lưu,Bình thường,2026-04-13 12:00:00,2026-04-13 12:00:00,mừng cưới đồng_nghiệp 1triệu
+330,mua hoa tặng bạn gái 150k,150000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 13:00:00,2026-04-13 13:00:00,mua hoa tặng bạn gái 150k
+331,mua quà sinh nhật cho em trai 250k,250000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 14:00:00,2026-04-13 14:00:00,mua quà sinh_nhật cho em_trai 250k
+332,tiền mừng cưới anh họ 500k,500000,Chi tiêu,Giao lưu,Bình thường,2026-04-13 15:00:00,2026-04-13 15:00:00,tiền mừng cưới anh họ 500k
+333,mua đồ tặng bạn cùng phòng 80k,80000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 16:00:00,2026-04-13 16:00:00,mua đồ tặng bạn cùng phòng 80k
+334,đi ăn cùng bạn bè 300k,300000,Chi tiêu,Giao lưu,Bình thường,2026-04-13 17:00:00,2026-04-13 17:00:00,đi ăn cùng bạn_bè 300k
+335,tặng bạn cuốn sách 120k,120000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 18:00:00,2026-04-13 18:00:00,tặng bạn cuốn sách 120k
+336,mua quà sinh nhật sếp 400k,400000,Chi tiêu,Giao lưu,Bình thường,2026-04-13 19:00:00,2026-04-13 19:00:00,mua quà sinh_nhật sếp 400k
+337,đi ăn cưới ngoài quê 300k,300000,Chi tiêu,Giao lưu,Bình thường,2026-04-13 20:00:00,2026-04-13 20:00:00,đi ăn_cưới ngoài quê 300k
+338,tặng gấu bông cho bạn gái 200k,200000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 21:00:00,2026-04-13 21:00:00,tặng gấu_bông cho bạn gái 200k
+339,mua quà đầy tháng cháu 150k,150000,Chi tiêu,Giao lưu,Tích cực,2026-04-13 22:00:00,2026-04-13 22:00:00,mua quà đầy tháng cháu 150k
+340,mua áo khoác mùa đông 350k,350000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 08:00:00,2026-04-14 08:00:00,mua áo_khoác mùa đông 350k
+341,sắm đôi giày sneaker 500k,500000,Chi tiêu,Mua sắm,Tích cực,2026-04-14 09:00:00,2026-04-14 09:00:00,sắm đôi giày sneaker 500k
+342,mua cái quần jean mới 250k,250000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 10:00:00,2026-04-14 10:00:00,mua cái quần_jean mới 250k
+343,mua thỏi son tặng bản thân 150k,150000,Chi tiêu,Mua sắm,Tích cực,2026-04-14 11:00:00,2026-04-14 11:00:00,mua thỏi son_tặng bản_thân 150k
+344,đi siêu thị mua đồ dùng cá nhân 300k,300000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 12:00:00,2026-04-14 12:00:00,đi siêu_thị mua đồ_dùng cá_nhân 300k
+345,mua áo thun mặc ở nhà 100k,100000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 13:00:00,2026-04-14 13:00:00,mua áo thun mặc ở nhà 100k
+346,sắm balo đi học 200k,200000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 14:00:00,2026-04-14 14:00:00,sắm balo đi học 200k
+347,mua chai nước hoa chiết 120k,120000,Chi tiêu,Mua sắm,Tích cực,2026-04-14 15:00:00,2026-04-14 15:00:00,mua chai nước hoa chiết 120k
+348,mua ốp lưng điện thoại 50k,50000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 16:00:00,2026-04-14 16:00:00,mua ốp lưng điện_thoại 50k
+349,sắm chiếc váy mới đi chơi 300k,300000,Chi tiêu,Mua sắm,Tích cực,2026-04-14 17:00:00,2026-04-14 17:00:00,sắm chiếc váy mới đi chơi 300k
+350,mua đôi dép lê đi trong nhà 30k,30000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 18:00:00,2026-04-14 18:00:00,mua đôi dép lê đi trong nhà 30k
+351,mua kem chống nắng 200k,200000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 19:00:00,2026-04-14 19:00:00,mua kem chống nắng 200k
+352,sắm vài đôi tất vớ 20k,20000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 20:00:00,2026-04-14 20:00:00,sắm vài đôi tất_vớ 20k
+353,mua mũ bảo hiểm mới 150k,150000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 21:00:00,2026-04-14 21:00:00,mua mũ_bảo_hiểm mới 150k
+354,mua sữa rửa mặt 80k,80000,Chi tiêu,Mua sắm,Bình thường,2026-04-14 22:00:00,2026-04-14 22:00:00,mua sữa rửa mặt 80k
+355,sắm túi xách đeo chéo 180k,180000,Chi tiêu,Mua sắm,Tích cực,2026-04-15 08:00:00,2026-04-15 08:00:00,sắm túi_xách đeo_chéo 180k
+356,mua lược và dây thun 15k,15000,Chi tiêu,Mua sắm,Bình thường,2026-04-15 09:00:00,2026-04-15 09:00:00,mua lược và dây thun 15k
+357,mua móc quần áo 40k,40000,Chi tiêu,Mua sắm,Bình thường,2026-04-15 10:00:00,2026-04-15 10:00:00,mua móc quần_áo 40k
+358,sắm cái kính râm 100k,100000,Chi tiêu,Mua sắm,Tích cực,2026-04-15 11:00:00,2026-04-15 11:00:00,sắm cái kính râm 100k
+359,mua áo sơ mi trắng 150k,150000,Chi tiêu,Mua sắm,Bình thường,2026-04-15 12:00:00,2026-04-15 12:00:00,mua áo sơ_mi trắng 150k
+360,ăn cơm tấm sườn chéo 45k,45000,Chi tiêu,Ăn uống,Bình thường,2026-04-15 13:00:00,2026-04-15 13:00:00,ăn cơm tấm sườn chéo 45k
+361,uống cafe sữa đá lề đường 20k,20000,Chi tiêu,Ăn uống,Bình thường,2026-04-15 14:00:00,2026-04-15 14:00:00,uống cafe sữa đá lề_đường 20k
+362,đi ăn bún chả hà nội 35k,35000,Chi tiêu,Ăn uống,Tích cực,2026-04-15 15:00:00,2026-04-15 15:00:00,đi ăn bún_chả hà_nội 35k
+363,ăn xôi gà xíu mại 25k,25000,Chi tiêu,Ăn uống,Bình thường,2026-04-15 16:00:00,2026-04-15 16:00:00,ăn_xôi gà xíu_mại 25k
+364,mua ổ bánh mì chả lụa 15k,15000,Chi tiêu,Ăn uống,Bình thường,2026-04-15 17:00:00,2026-04-15 17:00:00,mua ổ bánh_mì chả_lụa 15k
+365,đi ăn lẩu nướng cuối tuần 200k,200000,Chi tiêu,Ăn uống,Tích cực,2026-04-15 18:00:00,2026-04-15 18:00:00,đi ăn_lẩu nướng cuối tuần 200k
+366,uống trà sữa trân châu 40k,40000,Chi tiêu,Ăn uống,Tích cực,2026-04-15 19:00:00,2026-04-15 19:00:00,uống trà_sữa trân_châu 40k
+367,mua thịt heo quay về ăn cơm 50k,50000,Chi tiêu,Ăn uống,Bình thường,2026-04-15 20:00:00,2026-04-15 20:00:00,mua thịt heo quay về ăn cơm 50k
+368,mua bó rau củ nấu canh 30k,30000,Chi tiêu,Ăn uống,Bình thường,2026-04-15 21:00:00,2026-04-15 21:00:00,mua bó rau_củ nấu canh 30k
+369,ăn mì cay 7 cấp độ 50k,50000,Chi tiêu,Ăn uống,Tiêu cực,2026-04-15 22:00:00,2026-04-15 22:00:00,ăn mì_cay 7 cấp_độ 50k
+370,ăn phở cuốn tây hồ 40k,40000,Chi tiêu,Ăn uống,Tích cực,2026-04-16 08:00:00,2026-04-16 08:00:00,ăn phở cuốn tây hồ 40k
+371,đi uống nước ép trái cây 35k,35000,Chi tiêu,Ăn uống,Bình thường,2026-04-16 09:00:00,2026-04-16 09:00:00,đi uống nước ép trái_cây 35k
+372,mua bánh ngọt ăn vặt chiều 20k,20000,Chi tiêu,Ăn uống,Bình thường,2026-04-16 10:00:00,2026-04-16 10:00:00,mua bánh ngọt ăn vặt chiều 20k
+373,ăn bún đậu mắm tôm 45k,45000,Chi tiêu,Ăn uống,Tích cực,2026-04-16 11:00:00,2026-04-16 11:00:00,ăn bún_đậu mắm_tôm 45k
+374,uống trà chanh giã tay 25k,25000,Chi tiêu,Ăn uống,Bình thường,2026-04-16 12:00:00,2026-04-16 12:00:00,uống trà_chanh_giã tay 25k
+375,mua hộp cơm rang dưa bò 40k,40000,Chi tiêu,Ăn uống,Bình thường,2026-04-16 13:00:00,2026-04-16 13:00:00,mua hộp cơm rang dưa bò 40k
+376,đi ăn lẩu thái ngon tuyệt 150k,150000,Chi tiêu,Ăn uống,Tích cực,2026-04-16 14:00:00,2026-04-16 14:00:00,đi ăn lẩu_thái ngon_tuyệt 150k
+377,mua ít thịt bò xào rau 60k,60000,Chi tiêu,Ăn uống,Bình thường,2026-04-16 15:00:00,2026-04-16 15:00:00,mua ít thịt bò xào rau 60k
+378,ăn cốc chè thái sầu riêng 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-04-16 16:00:00,2026-04-16 16:00:00,ăn_cốc chè_thái sầu riêng 30k
+379,mua gói mì tôm úp vội 10k,10000,Chi tiêu,Ăn uống,Tiêu cực,2026-04-16 17:00:00,2026-04-16 17:00:00,mua gói mì tôm_úp vội 10k
+380,mua sách giáo khoa 150k,150000,Chi tiêu,Học tập,Bình thường,2026-04-17 08:00:00,2026-04-17 08:00:00,mua sách_giáo_khoa 150k
+381,đóng học phí tháng này 2 triệu,2000000,Chi tiêu,Học tập,Tiêu cực,2026-04-17 09:00:00,2026-04-17 09:00:00,đóng học_phí tháng này 2triệu
+382,mua vở ghi chép trên trường 50k,50000,Chi tiêu,Học tập,Bình thường,2026-04-17 10:00:00,2026-04-17 10:00:00,mua vở ghi_chép trên trường 50k
+383,sắm usb lưu tài liệu 120k,120000,Chi tiêu,Học tập,Bình thường,2026-04-17 11:00:00,2026-04-17 11:00:00,sắm usb_lưu tài_liệu 120k
+384,mua bút bi và thước kẻ 20k,20000,Chi tiêu,Học tập,Bình thường,2026-04-17 12:00:00,2026-04-17 12:00:00,mua bút_bi và thước_kẻ 20k
+385,in ấn tài liệu môn csdl 40k,40000,Chi tiêu,Học tập,Bình thường,2026-04-17 13:00:00,2026-04-17 13:00:00,in_ấn tài_liệu môn csdl 40k
+386,đăng ký khóa học tiếng anh 1tr5,1500000,Chi tiêu,Học tập,Tích cực,2026-04-17 14:00:00,2026-04-17 14:00:00,đăng_ký khóa_học tiếng anh 1tr5
+387,mua chuột máy tính mới 200k,200000,Chi tiêu,Mua sắm,Bình thường,2026-04-17 15:00:00,2026-04-17 15:00:00,mua chuột máy_tính mới 200k
+388,đóng tiền quỹ lớp 100k,100000,Chi tiêu,Học tập,Bình thường,2026-04-17 16:00:00,2026-04-17 16:00:00,đóng tiền quỹ lớp 100k
+389,mua tài khoản học online 300k,300000,Chi tiêu,Học tập,Tích cực,2026-04-17 17:00:00,2026-04-17 17:00:00,mua tài_khoản học online 300k
+390,nhận lương part time 2 củ,2000000,Thu nhập,Thu nhập,Tích cực,2026-04-18 08:00:00,2026-04-18 08:00:00,nhận lương part time 2củ
+391,tiền thưởng kpi tháng 500k,500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 09:00:00,2026-04-18 09:00:00,tiền thưởng kpi tháng 500k
+392,được mẹ cho 1 triệu tiêu vặt,1000000,Thu nhập,Thu nhập,Tích cực,2026-04-18 10:00:00,2026-04-18 10:00:00,được mẹ cho 1triệu tiêu vặt
+393,hoàn tiền qua thẻ tín dụng 150k,150000,Thu nhập,Thu nhập,Tích cực,2026-04-18 11:00:00,2026-04-18 11:00:00,hoàn tiền qua thẻ_tín_dụng 150k
+394,bán giáo trình cũ được 80k,80000,Thu nhập,Thu nhập,Bình thường,2026-04-18 12:00:00,2026-04-18 12:00:00,bán giáo_trình cũ được 80k
+395,trúng mini game được 200k,200000,Thu nhập,Thu nhập,Tích cực,2026-04-18 13:00:00,2026-04-18 13:00:00,trúng mini game được 200k
+396,khách trả nợ cũ 500k,500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 14:00:00,2026-04-18 14:00:00,khách trả nợ cũ 500k
+397,nhận lì xì đầu năm 1 triệu,1000000,Thu nhập,Thu nhập,Tích cực,2026-04-18 15:00:00,2026-04-18 15:00:00,nhận lì_xì đầu năm 1triệu
+398,tiền lãi tiết kiệm 30k,30000,Thu nhập,Thu nhập,Bình thường,2026-04-18 16:00:00,2026-04-18 16:00:00,tiền lãi tiết_kiệm 30k
+399,thu nhập từ việc ctv 1.5 triệu,1500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 17:00:00,2026-04-18 17:00:00,thu_nhập từ việc ctv 1 5triệu

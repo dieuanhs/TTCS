@@ -4,86 +4,66 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.metrics import classification_report
 import joblib
-
-
-from preprocessing import clean_text
-
-
+from utils import save_evaluation_log
 # ======================
 # 1. Load data
 # ======================
 df = pd.read_csv("../data/dataset_v1_clean.csv")
 
-
-# ======================
-# 2. Preprocess
-# ======================
-df["clean_text"] = df["Raw Text (Câu văn thô)"].apply(clean_text)
-
-
-# ======================
-# 3. Feature + Label
-# ======================
+df = df.dropna(subset=["clean_text", "Category"])
 X = df["clean_text"]
-y = df["auto_category"]
-
+y = df["Category"]
 
 # ======================
-# 4. Vectorize (CẢI TIẾN)
+# 2. Vectorize (TRỌN VẸN TỪ KHÓA)
 # ======================
 vectorizer = TfidfVectorizer(
-   ngram_range=(1, 2),      # 🔥 cực quan trọng
-   max_features=5000        # tránh overfit
+    ngram_range=(1, 2),
+    sublinear_tf=True
 )
-
 
 X_vec = vectorizer.fit_transform(X)
 
-
 # ======================
-# 5. Train/Test split (CẢI TIẾN)
+# 3. Split
 # ======================
 X_train, X_test, y_train, y_test = train_test_split(
-   X_vec,
-   y,
-   test_size=0.2,
-   random_state=42,
-   stratify=y   # 🔥 giữ phân bố class
+    X_vec, y,
+    test_size=0.15,
+    random_state=42,
+    stratify=y
 )
 
-
 # ======================
-# 6. Train model (CẢI TIẾN)
+# 4. Train (
 # ======================
 model = LinearSVC(
-   class_weight='balanced',   # 🔥 fix imbalance
-   max_iter=2000
+    class_weight='balanced',
+    C=5.0,
+    max_iter=5000,
+    random_state=42
 )
-
-
 model.fit(X_train, y_train)
 
-
 # ======================
-# 7. Evaluate (FIX WARNING)
+# 5. Evaluate
 # ======================
 y_pred = model.predict(X_test)
 
-
 print("=== Classification Report ===")
-print(classification_report(
-   y_test,
-   y_pred,
-   zero_division=0   # 🔥 tránh warning
-))
+report = classification_report(y_test, y_pred, zero_division=0)
+print(report)
 
+
+save_evaluation_log(
+    model_name="LinearSVC (Category)",
+    config_info="C=5.0, ngram_range=(1,2), sublinear_tf=True",
+    report_text=report
+)
 
 # ======================
-# 8. Save model
+# 6. Save
 # ======================
 joblib.dump(model, "../models/category_model.pkl")
 joblib.dump(vectorizer, "../models/vectorizer.pkl")
-
-
-print("✅ Model saved!")
-
+print(" Model saved!")

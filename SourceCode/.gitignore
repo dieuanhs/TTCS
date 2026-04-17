@@ -1,0 +1,13 @@
+# Ignore model files
+*.pth
+*.safetensors
+*.pkl
+
+# Ignore cache
+__pycache__/
+
+# Ignore logs
+*.log
+*.txt
+
+
