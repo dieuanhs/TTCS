@@ -2,11 +2,15 @@ import streamlit as st
 import requests
 import sys
 import os
+CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../")) # Lùi 2 bước ra SourceCode
 
-# THÊM ĐOẠN NÀY VÀO TRƯỚC DÒNG IMPORT STYLES
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
-from styles import apply_common_styles, render_header
+
+
+from frontend.styles import apply_common_styles, render_header
 
 # 1. Cấu hình trang và Styles
 st.set_page_config(layout="wide") # Nên thêm dòng này để giao diện rộng đẹp như hình mẫu

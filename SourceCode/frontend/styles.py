@@ -1,55 +1,94 @@
 import streamlit as st
 
+
 def apply_common_styles():
-    st.markdown("""
-<style>
-    /* 1. Xóa khoảng trắng và ép trang rộng ra */
-    .block-container {
-        padding-top: 2rem !important;
-        padding-bottom: 0rem !important;
-        max-width: 95% !important;
-    }
+    st.markdown(
+        """
+        <style>
+        /* Ẩn chữ "app" sidebar */
+        section[data-testid="stSidebar"] h1 {
+            display: none !important;
+        }
 
-    /* 2. Ẩn thanh công cụ mặc định của Streamlit */
-    /* Chỉ ẩn các nút bên phải (Deploy, Settings), giữ lại nút Sidebar bên trái */
-    [data-testid="stHeaderActionElements"] {
-        display: none;
-    }
+        /* Sidebar màu */
+        [data-testid="stSidebar"] {
+            background-color: #F5E6DA !important;
+        }
 
-    /* 3. Màu nền Sidebar (Cam đào) */
-    [data-testid="stSidebar"] {
-        background-color: #F5E6DA !important;
-    }
+        /* Background */
+        .stApp {
+            background-color: #F8F9FE;
+        }
 
-    /* 4. Chỉnh màu nền toàn trang */
-    .stApp {
-        background-color: #F8F9FE;
-    }
-</style>
-    """, unsafe_allow_html=True)
-
-def render_header(title, user_name="User"):
-    display_name = user_name if user_name else "User"
-    initial = display_name[0].upper()
+        /* Container rộng */
+        .block-container {
+            padding-top: 1.5rem !important;
+            max-width: 95% !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 
-    header_html = f"""
-<div style="background-color: #A093F2; padding: 15px 30px; border-radius: 20px; display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(160, 147, 242, 0.2);">
-    <div style="flex-shrink: 0;">
-        <h2 style="color: white; margin: 0; font-size: 24px; white-space: nowrap; font-family: sans-serif;">{title}</h2>
-    </div>
-    <div style="display: flex; align-items: center; gap: 20px;">
-        <div style="background: rgba(255, 255, 255, 0.2); padding: 8px 15px; border-radius: 12px; display: flex; align-items: center; min-width: 150px;">
-            <span style="margin-right: 10px;">🔍</span>
-            <span style="color: rgba(255,255,255,0.8); font-size: 14px;">Search...</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; color: white; font-family: sans-serif;">
-            <span style="font-weight: 500; white-space: nowrap;">{display_name}</span>
-            <div style="width: 40px; height: 40px; background-color: white; color: #A093F2; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px;">
-                {initial}
+def render_header(title, user_name=None):
+    is_logged_in = st.session_state.get("logged_in", False)
+
+    if not is_logged_in:
+        avatar = "Login"
+        display_name = ""
+    else:
+        name = user_name if user_name else "User"
+        display_name = name.split()[-1]
+        avatar = display_name[0].upper()
+
+    col1, col2, col3 = st.columns([5, 3, 1])
+
+    with col1:
+        st.markdown(
+            f"""
+            <div style="
+                background-color: #A093F2;
+                padding: 18px;
+                border-radius: 20px;
+                color: white;
+                font-size: 24px;
+                font-weight: bold;
+                height: 60px;
+                display: flex;
+                align-items: center;
+            ">
+                {title}
             </div>
-        </div>
-    </div>
-</div>
-"""
-    st.markdown(header_html, unsafe_allow_html=True)
+            """,
+            unsafe_allow_html=True
+        )
+
+    with col2:
+        st.markdown(
+            """
+            <div style="
+                background-color: #A093F2;
+                padding: 18px;
+                border-radius: 20px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            ">
+                🔍 Search...
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    with col3:
+        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+
+        if st.button(avatar):
+            if is_logged_in:
+                st.session_state.clear()
+                st.rerun()
+            else:
+                st.switch_page("app.py")

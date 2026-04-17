@@ -54,3 +54,14 @@ class Budget(BudgetBase):
 
     class Config:
         from_attributes = True
+# SCHEMA CHO SMART INPUT
+class SmartInputRequest(BaseModel):
+    text: str
+
+class SmartInputResponse(BaseModel):
+    text: str
+    amount: Optional[int] = 0
+    category: str
+    emotion: str
+    type: str
+    error: Optional[str] = None

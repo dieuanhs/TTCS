@@ -1,3 +1,9 @@
+import os
+import sys
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from datetime import datetime
@@ -6,10 +12,12 @@ from ..database import SessionLocal
 from ..models import Transaction
 from .. import schemas
 
+from ai.src.ai_models import predict_all
 router = APIRouter(
     prefix="/transactions",
     tags=["Transactions"]
 )
+
 
 
 # Database dependency
@@ -74,37 +82,25 @@ def delete_transaction(transaction_id: int, db: Session = Depends(get_db)):
     db.commit()
 
     return {"message": "Transaction deleted"}
+# SMART INPUT (AI INTEGRATION THỰC SỰ)
+@router.post("/smart-input", response_model=schemas.SmartInputResponse)
+def smart_input_transaction(request: schemas.SmartInputRequest):
+    """
+    Bước 1: Gửi câu nói vào đây
+    """
+    if not request.text.strip():
+        raise HTTPException(status_code=400, detail="Văn bản không được để trống!")
 
+    try:
+        # Chuyền văn bản cho hàm predict_all của file ai_models.py
+        ai_result = predict_all(request.text)
 
-# -----------------------------
-# ANALYZE TEXT TRANSACTION
-# -----------------------------
-@router.post("/analyze")
-def analyze_transaction(data: dict):
-    text = data.get("text", "").lower()
+        # Kiểm tra nếu AI báo lỗi trong quá trình xử lý (như lỗi Regex, Tokenizer)
+        if "error" in ai_result:
+            raise HTTPException(status_code=500, detail=ai_result["error"])
 
-    category = "Other"
-    emotion = "Neutral"
-    amount = 0
+        return ai_result
 
-    if "coffee" in text:
-        category = "Drink"
-        amount = 45000
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi tích hợp AI: {str(e)}")
 
-    if "ăn" in text or "food" in text:
-        category = "Food"
-
-    if "taxi" in text or "grab" in text:
-        category = "Transport"
-
-    if "mệt" in text:
-        emotion = "Tired"
-
-    if "stress" in text:
-        emotion = "Stress"
-
-    return {
-        "amount": amount,
-        "category": category,
-        "emotion": emotion
-    }

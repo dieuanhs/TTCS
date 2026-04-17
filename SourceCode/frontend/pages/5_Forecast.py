@@ -4,10 +4,12 @@ import plotly.express as px
 import pandas as pd
 import sys
 import os
+CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../")) # Lùi 2 bước ra SourceCode
 
-# 1. Cấu hình đường dẫn và Styles
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from styles import apply_common_styles, render_header
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+from frontend.styles import apply_common_styles, render_header
 
 st.set_page_config(layout="wide")
 apply_common_styles()

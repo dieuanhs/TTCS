@@ -2,7 +2,15 @@ import streamlit as st
 import requests
 import plotly.express as px
 import pandas as pd
-from styles import apply_common_styles, render_header
+from frontend.styles import apply_common_styles, render_header
+
+import os
+import sys
+CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../")) # Lùi 2 bước ra SourceCode
+
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 # 1. Cấu hình trang và Styles
 st.set_page_config(layout="wide")
