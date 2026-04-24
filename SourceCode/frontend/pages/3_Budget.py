@@ -3,7 +3,7 @@ import requests
 import sys
 import os
 CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
-PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../")) # Lùi 2 bước ra SourceCode
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
 
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)

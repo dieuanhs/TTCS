@@ -3,17 +3,15 @@ import requests
 import os
 import sys
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))  # Đang ở frontend/pages
-PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))  # Lùi 2 bước ra SourceCode
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
 
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 from frontend.styles import apply_common_styles, render_header
 
-# ==========================================
-# KHAI BÁO TỪ ĐIỂN DỊCH THUẬT Ở ĐÂY
-# ==========================================
+
 CATEGORY_MAP = {
     "Ăn uống": 1,
     "Di chuyển": 2,
@@ -25,7 +23,7 @@ CATEGORY_MAP = {
     "Thu nhập": 8,
     "Khác": 9
 }
-# Từ điển dịch ngược: 1 -> "Ăn uống" để hiển thị ra bảng
+
 REVERSE_CAT_MAP = {v: k for k, v in CATEGORY_MAP.items()}
 
 # ==========================================
@@ -76,7 +74,7 @@ if btn_analyze:
     else:
         st.error("Vui lòng nhập nội dung!")
 
-# Nếu AI đã phân tích xong, hiển thị kết quả để người dùng Review
+# Hiển thị kết quả để người dùng Review
 if st.session_state.ai_result:
     detected = st.session_state.ai_result
 
@@ -95,9 +93,9 @@ if st.session_state.ai_result:
     # Nút Xác nhận lưu vào Database
     if st.button("✅ Xác nhận"):
         try:
-            # chuyen danh muc ve so
+            # Chuyển danh mục về số
             cat_name = detected["category"]
-            cat_id_number = CATEGORY_MAP.get(cat_name, 9)  # Nếu chữ lạ, cho vào nhóm 9 (Khác)
+            cat_id_number = CATEGORY_MAP.get(cat_name, 9)
 
             payload = {
                 "user_id": 1,

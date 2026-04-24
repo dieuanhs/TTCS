@@ -6,8 +6,8 @@ from frontend.styles import apply_common_styles, render_header
 
 import os
 import sys
-CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
-PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../")) # Lùi 2 bước ra SourceCode
+CURRENT_DIR= os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
 
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
@@ -29,7 +29,7 @@ try:
     response = requests.get(f"{BASE_URL}/dashboard/")
     data = response.json() if response.status_code == 200 else {}
 
-    # --- PHẦN 1: 3 THẺ METRIC MÀU SẮC (Top Row) ---
+    # --- PHẦN 1: 3 THẺ METRIC MÀU SẮC  ---
     col1, col2, col3 = st.columns(3)
 
     def styled_metric(label, value, bg_color):
@@ -47,7 +47,7 @@ try:
     with col3:
         styled_metric("Expense this month", data.get('total_expense', 0), "#FADBD8") # Đỏ nhạt
 
-    st.write("") # Tạo khoảng cách
+    st.write("")
 
     # --- PHẦN 2: BIỂU ĐỒ (Middle Row) ---
     c_left, c_right = st.columns(2)
@@ -74,7 +74,7 @@ try:
         fig_bar.update_layout(margin=dict(t=0, b=0, l=0, r=0), height=300, xaxis_title=None, yaxis_title=None)
         st.plotly_chart(fig_bar, use_container_width=True)
 
-    # --- PHẦN 3: AI ALERT (Bottom Row) ---
+    # --- PHẦN 3: AI ALERT  ---
     st.markdown(f"""
         <div style="background-color: #FFF9C4; padding: 25px; border-radius: 15px; margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
             <div>

@@ -4,8 +4,8 @@ import plotly.express as px
 import pandas as pd
 import sys
 import os
-CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
-PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../")) # Lùi 2 bước ra SourceCode
+CURRENT_DIR= os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
 
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
@@ -24,7 +24,7 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
 
 try:
     # 2. Lấy dữ liệu từ Backend
-    # Giả định Backend trả về: { "predicted_income": 8500000, "income_change": 12.5, ... }
+
     response = requests.get(f"{BASE_URL}/forecast/")
     data = response.json() if response.status_code == 200 else {}
 

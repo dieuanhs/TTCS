@@ -4,8 +4,8 @@ import plotly.express as px
 import pandas as pd
 import sys
 import os
-CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
-PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../")) # Lùi 2 bước ra SourceCode
+CURRENT_DIR= os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
 
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
@@ -24,12 +24,11 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.stop()
 
 try:
-    # 2. Lấy dữ liệu từ Backend (Giả sử endpoint là /reports/)
-    # Nếu backend chưa có, cậu có thể dùng tạm dữ liệu từ /dashboard/ và /budgets/progress
+    # 2. Lấy dữ liệu từ Backend
     response = requests.get(f"{BASE_URL}/reports/")
     data = response.json() if response.status_code == 200 else {}
 
-    # --- PHẦN 1: REPORT OVERVIEW (3 Thẻ màu) ---
+    # --- PHẦN 1: REPORT OVERVIEW ---
     st.subheader("Report Overview")
     c1, c2, c3 = st.columns(3)
 
@@ -57,7 +56,7 @@ try:
 
     with col_left:
         st.subheader("Spending Trend")
-        # Dữ liệu mẫu cho biểu đồ cột thu nhập theo tháng
+        # Dữ liệu mẫu
         trend_data = data.get('monthly_trend', {
             "Jan": 2000000, "Feb": 3500000, "Mar": 4500000, "Apr": 7000000, "May": 8500000
         })
@@ -82,7 +81,7 @@ try:
     headers = ["Category", "Transactions", "Amount", "Limit", "Status", "Diff"]
     for col, h in zip(t_col, headers): col.write(f"**{h}**")
 
-    # Dữ liệu bảng (Lấy từ budgets/progress hoặc data['top_spending'])
+    # Dữ liệu bảng
     spending_list = data.get('spending_details', [
         {"cat": "Food", "count": 12, "amt": 2300000, "lim": 2300000, "status": "Overspent", "diff": -4300000},
         {"cat": "Shopping", "count": 8, "amt": 1200000, "lim": 1000000, "status": "Lack of 250", "diff": -500000},
@@ -110,7 +109,7 @@ try:
         row[5].markdown(f"<span style='color:{diff_color}; font-weight:bold;'>{item['diff']:,}</span>",
                         unsafe_allow_html=True)
 
-    # --- PHẦN 4: AI INSIGHT (Bottom) ---
+    # --- PHẦN 4: AI INSIGHT  ---
     st.write("")
     st.markdown(f"""
         <div style="background-color: #FFF3E0; padding: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid #FFB74D;">
