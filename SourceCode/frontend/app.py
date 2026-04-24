@@ -13,7 +13,7 @@ from styles import apply_common_styles
 
 st.set_page_config(page_title="Smart Finance - Login/Register", layout="centered")
 
-# Gọi hàm style chung (Hàm này sẽ lo việc ẩn chữ 'app' ở sidebar)
+# Gọi hàm style chung
 apply_common_styles()
 
 # 1. Khởi tạo trạng thái đăng nhập
