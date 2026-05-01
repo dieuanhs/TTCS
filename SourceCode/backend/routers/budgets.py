@@ -81,8 +81,8 @@ def category_progress(db: Session = Depends(get_db)):
 
         spent = db.query(func.sum(Transaction.amount)).filter(
             Transaction.category_id == b.category_id,
-            Transaction.type == "expense",
-            func.strftime("%Y-%m", Transaction.transaction_time)
+            # Transaction.type == "expense",
+             func.strftime("%Y-%m", Transaction.transaction_time)
             == now.strftime("%Y-%m")
         ).scalar() or 0
 
