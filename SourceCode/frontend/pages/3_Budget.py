@@ -1,141 +1,149 @@
 import streamlit as st
 import requests
-import sys
+import datetime
 import os
-CURRENT_DIR= os.path.dirname(os.path.abspath(__file__)) # Đang ở frontend/pages
-PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
+import sys
 
+# --- CẤU TRÌNH ĐƯỜNG DẪN ---
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-
-
 from frontend.styles import apply_common_styles, render_header
 
-# 1. Cấu hình trang và Styles
-st.set_page_config(layout="wide") # Nên thêm dòng này để giao diện rộng đẹp như hình mẫu
+# --- 1. CẤU HÌNH TRANG ---
+st.set_page_config(page_title="Smart Finance - Budget", layout="wide")
 apply_common_styles()
+
+# Lấy thông tin user
 user_name = st.session_state.get("user_name", "User")
-render_header("Budget", user_name=user_name)
+render_header("Budget Management", user_name=user_name)
+
 BASE_URL = "http://127.0.0.1:8000"
 
-if "logged_in" not in st.session_state or not st.session_state.logged_in:
-    st.warning("Vui lòng đăng nhập trước!")
+# Kiểm tra đăng nhập
+if not st.session_state.get("logged_in", False):
+    st.warning("⚠️ Vui lòng đăng nhập để sử dụng chức năng này!")
     st.stop()
 
+# --- 2. PHẦN THIẾT LẬP NGÂN SÁCH (FORM NHẬP) ---
+st.markdown("### ⚙️ Thiết lập ngân sách mới")
+with st.expander("➕ Bấm vào đây để Thêm hoặc Cập nhật hạn mức chi tiêu", expanded=False):
+    with st.form("budget_form"):
+        col1, col2 = st.columns(2)
+
+        with col1:
+            # Mapping tên hiển thị và ID (Khớp với Database của Ánh)
+            cat_options = {"Ăn uống": 1, "Di chuyển": 2, "Mua sắm": 3, "Giải trí": 4, "Hóa đơn": 5}
+            selected_cat = st.selectbox("Chọn danh mục chi tiêu", list(cat_options.keys()))
+            limit_amount = st.number_input("Hạn mức tối đa (VND)", min_value=0, value=3000000, step=100000)
+
+        with col2:
+            now = datetime.datetime.now()
+            month = st.number_input("Tháng", min_value=1, max_value=12, value=now.month)
+            year = st.number_input("Năm", min_value=2000, max_value=2100, value=now.year)
+
+        submit_btn = st.form_submit_button("💾 Lưu Ngân Sách", type="primary", use_container_width=True)
+
+        if submit_btn:
+            payload = {
+                "category_id": cat_options[selected_cat],
+                "limit": limit_amount,
+                "month": month,
+                "year": year
+            }
+            try:
+                # Gọi API
+                post_res = requests.post(f"{BASE_URL}/budgets/", json=payload)
+                if post_res.status_code == 200:
+                    st.success(f"🎉 Đã thiết lập {limit_amount:,} VND cho mục {selected_cat} thành công!")
+                    st.rerun()
+                else:
+                    st.error(f"Lỗi: {post_res.text}")
+            except Exception as e:
+                st.error(f"Không thể kết nối đến máy chủ: {e}")
+
+st.divider()
+
+# --- 3. PHẦN HIỂN THỊ TRẠNG THÁI NGÂN SÁCH ---
 try:
+    # Gọi API lấy tiến độ ngân sách tháng hiện tại
     response = requests.get(f"{BASE_URL}/budgets/progress")
-    data_json = response.json()
 
-    # 1. XỬ LÝ AN TOÀN: Kiểm tra data_json là List hay Dict
-    if isinstance(data_json, list):
-        budgets = data_json
-        total_limit = sum(b.get('limit', b.get('limit_amount', 0)) for b in budgets)
-    else:
-        # Nếu là Dict thì lấy trong key 'categories'
-        budgets = data_json.get('categories', [])
-        total_limit = data_json.get('total_budget', sum(b.get('limit', 0) for b in budgets))
+    if response.status_code == 200:
+        budgets = response.json()
 
-    # Mapping dữ liệu để hiển thị
-    cat_map = {1: "Food", 2: "Transport", 3: "Shopping", 4: "Entertainment"}
-    icons = {"Food": "🍕", "Transport": "🚗", "Shopping": "🛍️", "Entertainment": "🎬"}
-    colors = {"Food": "#E8F5E9", "Transport": "#E3F2FD", "Shopping": "#FCE4EC", "Entertainment": "#F3E5F5"}
+        if budgets and len(budgets) > 0:
+            # Tính toán tổng quan
+            total_limit = sum(b.get('limit', 0) for b in budgets)
+            total_spent = sum(b.get('spent', 0) for b in budgets)
+            remaining_total = total_limit - total_spent
 
-    if budgets:
-        total_spent = sum(b.get('spent', 0) for b in budgets)
-        remaining_all = total_limit - total_spent
-        total_progress = min(total_spent / total_limit, 1.0) if total_limit > 0 else 0
-
-        # --- PHẦN 1: 3 THẺ TỔNG QUAN ---
-        st.subheader("Monthly Budget Overview")
-        m1, m2, m3 = st.columns(3)
+            # --- Layout 3 thẻ Metric ---
+            m1, m2, m3 = st.columns(3)
 
 
-        def card(label, value, color_bg, text_color):
-            st.markdown(f"""
-                <div style="background-color: {color_bg}; padding: 15px; border-radius: 12px; text-align: center;">
-                    <p style="margin:0; font-size: 14px; color: #666;">{label}</p>
-                    <h3 style="margin:0; color: {text_color}; font-size: 20px;">{value:,} VND</h3>
-                </div>
-            """, unsafe_allow_html=True)
-
-
-        with m1:
-            card("Total Budget", total_limit, "#E3F2FD", "#1976D2")
-        with m2:
-            card("Total Spent", -total_spent, "#FCE4EC", "#C2185B")
-        with m3:
-            card("Remaining", remaining_all, "#E8F5E9", "#388E3C")
-
-        # --- PHẦN 2: THANH TIẾN ĐỘ TỔNG ---
-        st.write("")
-        st.markdown(f"""
-            <div style="margin: 10px 0;">
-                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: bold; color: #C2185B; margin-bottom: 5px;">
-                    <span>📍 {total_spent:,} VND</span>
-                    <span style="color: #999;">{total_limit:,} VND</span>
-                </div>
-                <div style="background-color: #eee; border-radius: 10px; height: 12px; width: 100%;">
-                    <div style="background: linear-gradient(90deg, #F06292 {total_progress * 100}%, #64B5F6 {total_progress * 100}%); 
-                                width: 100%; height: 100%; border-radius: 10px;"></div>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
-
-        # --- PHẦN 3: CÁC THẺ DANH MỤC (Grid 4 cột) ---
-        st.write("")
-        cols = st.columns(4)
-        for i, b in enumerate(budgets[:4]):
-            # Lấy tên Category (Ưu tiên tên từ Backend, không có thì dùng map)
-            c_name = b.get('category') or cat_map.get(b.get('category_id'), "Other")
-
-            spent = b.get('spent', 0)
-            limit = b.get('limit') or b.get('limit_amount', 0)
-            rem = limit - spent
-            prog = min(spent / limit, 1.0) if limit > 0 else 0
-
-            with cols[i]:
+            def draw_metric_card(label, value, color_bg, text_color):
                 st.markdown(f"""
-                    <div style="background-color: {colors.get(c_name, '#f9f9f9')}; padding: 15px; border-radius: 15px; border: 1px solid rgba(0,0,0,0.05); min-height: 150px;">
-                        <p style="margin:0; font-size: 14px; font-weight: bold;">{icons.get(c_name, '💰')} {c_name}</p>
-                        <h4 style="margin: 5px 0; color: #2E7D32;">{rem:,} <small style="font-size:10px; color:#999;">left</small></h4>
-                        <div style="background-color: rgba(0,0,0,0.05); border-radius: 5px; height: 6px; width: 100%; margin-top: 10px;">
-                            <div style="background-color: #A093F2; width: {prog * 100}%; height: 100%; border-radius: 5px;"></div>
-                        </div>
-                        <p style="margin: 5px 0 0 0; font-size: 10px; color: #888; text-align: center;">{spent:,} / {limit:,}</p>
+                    <div style="background-color: {color_bg}; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                        <p style="margin:0; font-size: 14px; color: #666; font-weight: 500;">{label}</p>
+                        <h2 style="margin:5px 0; color: {text_color};">{value:,} VND</h2>
                     </div>
                 """, unsafe_allow_html=True)
 
-        # --- PHẦN 4: BẢNG CHI TIẾT ---
-        st.write("")
-        st.markdown("### Detailed Budget Status")
-        t_col = st.columns([2, 2, 2, 2, 1.5])
-        headers = ["Category", "Limit", "Spent", "Remaining", "Status"]
-        for col, h in zip(t_col, headers):
-            col.write(f"**{h}**")
 
-        for b in budgets:
-            c_name = b.get('category') or cat_map.get(b.get('category_id'), "Other")
-            limit = b.get('limit') or b.get('limit_amount', 1)  # Tránh chia cho 0
-            spent = b.get('spent', 0)
-            rem = limit - spent
+            with m1:
+                draw_metric_card("Tổng hạn mức", total_limit, "#E3F2FD", "#1976D2")
+            with m2:
+                draw_metric_card("Tổng đã tiêu", total_spent, "#FCE4EC", "#C2185B")
+            with m3:
+                # Màu xanh nếu còn tiền, màu cam nếu tiêu quá
+                rem_color = "#388E3C" if remaining_total >= 0 else "#D32F2F"
+                draw_metric_card("Còn lại", remaining_total, "#E8F5E9", rem_color)
 
-            status_val = int(abs(rem / limit * 100))
-            status = "On Track" if rem >= 0 else f"{status_val}% Over"
-            status_color = "#4CAF50" if rem >= 0 else "#FF9800"
+            # --- Danh sách tiến độ từng mục ---
+            st.write("")
+            st.markdown("### 📊 Tiến độ chi tiêu theo danh mục")
 
-            row = st.columns([2, 2, 2, 2, 1.5])
-            row[0].write(f"{icons.get(c_name, '🔹')} {c_name}")
-            row[1].write(f"{limit:,} VND")
-            row[2].write(f"{spent:,}")
-            row[3].write(f"<span style='color: {status_color}; font-weight:bold;'>{rem:,} VND</span>",
-                         unsafe_allow_html=True)
-            row[4].markdown(
-                f"<span style='background-color: {status_color}22; color: {status_color}; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: bold;'>{status}</span>",
-                unsafe_allow_html=True)
+            # Chia grid 3 cột cho các thẻ danh mục
+            cat_cols = st.columns(3)
+            cat_names = {1: "Food", 2: "Transport", 3: "Shopping", 4: "Entertainment", 5: "Bills"}
+            cat_icons = {"Food": "🍕", "Transport": "🚗", "Shopping": "🛍️", "Entertainment": "🎬", "Bills": "💵"}
 
+            for idx, b in enumerate(budgets):
+                col_idx = idx % 3
+                c_id = b.get('category_id')
+                c_name = cat_names.get(c_id, "Khác")
+                limit = b.get('limit', 1)
+                spent = b.get('spent', 0)
+                rem = b.get('remaining', 0)
+                # Tính % tiến độ
+                progress_pct = min((spent / limit) * 100, 100)
+                bar_color = "#A093F2" if spent <= limit else "#FF5252"
+
+                with cat_cols[col_idx]:
+                    st.markdown(f"""
+                        <div style="background: white; padding: 15px; border-radius: 15px; border: 1px solid #eee; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-weight: bold; color: #333;">{cat_icons.get(c_name, '💰')} {c_name}</span>
+                                <span style="font-size: 12px; color: {'#388E3C' if rem >= 0 else '#D32F2F'}; font-weight: bold;">
+                                    {rem:,} VND left
+                                </span>
+                            </div>
+                            <div style="background-color: #f0f0f0; border-radius: 10px; height: 10px; width: 100%; margin: 10px 0;">
+                                <div style="background-color: {bar_color}; width: {progress_pct}%; height: 100%; border-radius: 10px;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
+                                <span>Tiêu: {spent:,}</span>
+                                <span>Hạn mức: {limit:,}</span>
+                            </div>
+                        </div>
+                    """, unsafe_allow_html=True)
+        else:
+            st.info("💡 Bạn chưa thiết lập ngân sách cho tháng này. Hãy sử dụng form phía trên để bắt đầu nhé!")
     else:
-        st.info("Chưa có dữ liệu ngân sách.")
+        st.error(f"❌ Không thể tải dữ liệu từ máy chủ (Mã lỗi: {response.status_code})")
 
 except Exception as e:
-    st.error(f"Lỗi: {e}")
+    st.error(f"🚑 Lỗi kết nối hệ thống: {e}")

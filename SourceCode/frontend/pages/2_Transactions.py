@@ -15,13 +15,15 @@ from frontend.styles import apply_common_styles, render_header
 CATEGORY_MAP = {
     "Ăn uống": 1,
     "Di chuyển": 2,
-    "Hóa đơn": 3,
-    "Học tập": 4,
-    "Mua sắm": 5,
-    "Sức khỏe": 6,
-    "Giao lưu": 7,
-    "Thu nhập": 8,
-    "Khác": 9
+    "Giao lưu": 3,
+    "Giải trí": 4,
+    "Hóa đơn": 5,
+    "Học tập": 6,
+    "Mua sắm": 7,
+    "Phát sinh": 8,
+    "Sức khỏe": 9,
+    "Thu nhập": 10,
+
 }
 
 REVERSE_CAT_MAP = {v: k for k, v in CATEGORY_MAP.items()}
@@ -40,7 +42,7 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.warning("Vui lòng đăng nhập trước!")
     st.stop()
 
-# Khởi tạo bộ nhớ tạm để giữ kết quả AI không bị mất khi load lại trang
+# Khởi tạo bộ nhớ tạm
 if "ai_result" not in st.session_state:
     st.session_state.ai_result = None
 
@@ -81,12 +83,12 @@ if st.session_state.ai_result:
     st.write("### 🤖 Trợ lý AI nhận diện:")
     col_a, col_b, col_c, col_d = st.columns(4)
 
-    # Hiển thị số tiền định dạng có dấu phẩy (VD: 45,000)
+    # Hiển thị số tiền
     col_a.metric("Số tiền", f"{detected['amount']:,} đ")
     col_b.write(f"**Danh mục:** 🏷️ {detected['category']}")
     col_c.write(f"**Cảm xúc:** 🎭 {detected['emotion']}")
 
-    # Hiển thị Loại (Thu nhập/Chi tiêu) với màu sắc
+    # Hiển thị Loại (Thu nhập/Chi tiêu)
     type_color = "🟢" if detected['type'] == "Thu nhập" else "🔴"
     col_d.write(f"**Loại:** {type_color} {detected['type']}")
 
