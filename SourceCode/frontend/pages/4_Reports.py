@@ -46,7 +46,7 @@ try:
     with c1:
         report_card("Tổng Thu Nhập", data.get('total_income', 0), "#E3F2FD")
     with c2:
-        report_card("Tổng Chi Tiêu", data.get('total_expense', 0), "#FCE4EC")  # Đã bỏ dấu trừ (-) vì lấy abs
+        report_card("Tổng Chi Tiêu", data.get('total_expense', 0), "#FCE4EC")
     with c3:
         report_card("Số Dư (Net Balance)", data.get('net_balance', 0), "#E8F5E9")
 
@@ -83,7 +83,7 @@ try:
     headers = ["Danh mục", "Số giao dịch", "Đã tiêu", "Ngân sách (Limit)", "Trạng thái", "Chênh lệch"]
     for col, h in zip(t_col, headers): col.write(f"**{h}**")
 
-    # Từ điển Icon chuẩn 10 danh mục
+    # Từ điển Icon
     icons = {
         "Ăn uống": "🍕", "Di chuyển": "🚗", "Giao lưu": "🍻",
         "Giải trí": "🎬", "Hóa đơn": "💵", "Học tập": "📚",
@@ -149,7 +149,7 @@ try:
                         st.plotly_chart(fig_emo, use_container_width=True)
 
                     with c2:
-                        # Hiển thị Chỉ số Tương quan
+                        # Hiển thị chỉ số tương quan
                         corr_val = analytics_data.get('correlation', 0)
                         st.markdown(f"""
                             <div style="background-color: #F8F9FA; padding: 20px; border-radius: 10px; border-left: 5px solid #6C63FF;">

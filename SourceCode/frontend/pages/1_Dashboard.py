@@ -43,7 +43,7 @@ try:
 
 
     with col1:
-        styled_metric("Net Balance", data.get('net_balance', 0), "#D6EAF8")  # Đã fix key net_balance
+        styled_metric("Net Balance", data.get('net_balance', 0), "#D6EAF8")
     with col2:
         styled_metric("Income this month", data.get('total_income', 0), "#D5F5E3")
     with col3:
@@ -65,7 +65,7 @@ try:
             hole=0.4,
             color_discrete_sequence=px.colors.qualitative.Pastel
         )
-        # Ẩn chú thích nếu là mảng rỗng để giao diện sạch sẽ
+        # Ẩn chú thích nếu là mảng rỗng
         if "Chưa có dữ liệu" in cat_data:
             fig_pie.update_traces(textinfo='none')
 

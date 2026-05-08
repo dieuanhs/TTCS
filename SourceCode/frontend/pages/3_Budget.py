@@ -34,7 +34,7 @@ with st.expander("➕ Bấm vào đây để Thêm hoặc Cập nhật hạn m�
         col1, col2 = st.columns(2)
 
         with col1:
-            # Mapping tên hiển thị và ID (Khớp với Database của Ánh)
+            # Mapping tên hiển thị và ID
             cat_options = {"Ăn uống": 1, "Di chuyển": 2, "Mua sắm": 3, "Giải trí": 4, "Hóa đơn": 5}
             selected_cat = st.selectbox("Chọn danh mục chi tiêu", list(cat_options.keys()))
             limit_amount = st.number_input("Hạn mức tối đa (VND)", min_value=0, value=3000000, step=100000)
