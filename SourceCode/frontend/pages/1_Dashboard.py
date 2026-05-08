@@ -25,7 +25,7 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.stop()
 
 try:
-    # 2. Lấy dữ liệu từ Backend
+    # 2. Lấy dữ liệu
     response = requests.get(f"{BASE_URL}/dashboard/")
     data = response.json() if response.status_code == 200 else {}
 
@@ -56,7 +56,7 @@ try:
 
     with c_left:
         st.markdown("<h4 style='text-align: center; color: #333;'>Expense by Category</h4>", unsafe_allow_html=True)
-        # Lấy dữ liệu thật từ DB
+        # Lấy dữ liệu
         cat_data = data.get('expense_by_category', {"Chưa có dữ liệu": 1})
 
         fig_pie = px.pie(
@@ -75,7 +75,7 @@ try:
     with c_right:
         st.markdown("<h4 style='text-align: center; color: #333;'>Emotion vs Spending (VND)</h4>",
                     unsafe_allow_html=True)
-        # Lấy dữ liệu thật từ DB
+        # Lấy dữ liệu
         emo_data = data.get('emotion_spending', {"Chưa có": 0})
         df_emo = pd.DataFrame(list(emo_data.items()), columns=['Cảm xúc', 'Tổng tiền (VND)'])
 

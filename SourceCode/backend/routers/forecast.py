@@ -25,14 +25,15 @@ def forecast(db: Session = Depends(get_db)):
     month = now.month
     current_day = now.day
 
-    # 1. Số ngày trong tháng & Số ngày đã qua (Tối thiểu là 7 để tránh nhiễu)
+    # 1. Cấu hình thời gian
     _, days_in_month = calendar.monthrange(year, month)
+    # Tối thiểu 7 ngày để thuật toán Burn Rate ổn định
     days_passed = current_day if current_day >= 7 else 7
     current_ym = now.strftime("%Y-%m")
 
-    # 2. Tính Tổng Thu Nhập (Lấy Ngân sách hoặc Thu nhập thực tế, cái nào lớn hơn)
+    # 2. Thu nhập mục tiêu
     total_income = db.query(func.sum(Transaction.amount)).filter(
-        Transaction.type == "income",
+        Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
         func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
     ).scalar() or 0
 
@@ -40,22 +41,45 @@ def forecast(db: Session = Depends(get_db)):
         Budget.month == month,
         Budget.year == year
     ).scalar() or 0
-
     base_income = max(total_income, total_budget)
 
-    # 3. Tính Tổng Chi Tiêu từ đầu tháng
-    total_expense = db.query(func.sum(Transaction.amount)).filter(
+    # 3. TÁCH CHI TIÊU: BIẾN ĐỔI VS CỐ ĐỊNH (Hóa đơn - ID: 5)
+    # Chi tiêu biến đổi (Ăn uống, Mua sắm, Giải trí...)
+    variable_expense = db.query(func.sum(Transaction.amount)).filter(
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
+        Transaction.category_id != 5,
         func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
     ).scalar() or 0
-    total_expense = abs(total_expense)
+    variable_expense = abs(variable_expense)
 
-    # 4. THUẬT TOÁN DỰ BÁO CỐT LÕI
-    daily_average = total_expense / days_passed
-    predicted_expense = daily_average * days_in_month
+    # Chi tiêu cố định thực tế đã tiêu (Hóa đơn)
+    fixed_spent = db.query(func.sum(Transaction.amount)).filter(
+        Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
+        Transaction.category_id == 5,
+        func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
+    ).scalar() or 0
+    fixed_spent = abs(fixed_spent)
+
+    # Lấy ngân sách Hóa đơn để dự báo chính xác nếu chưa đóng tiền
+    fixed_budget = db.query(func.sum(Budget.limit)).filter(
+        Budget.category_id == 5,
+        Budget.month == month,
+        Budget.year == year
+    ).scalar() or 0
+
+    # Dự báo Hóa đơn: Lấy số đã tiêu hoặc Ngân sách
+    predicted_fixed = max(fixed_spent, fixed_budget)
+
+    # 4. THUẬT TOÁN DỰ BÁO
+    # Tốc độ đốt tiền chỉ tính trên các khoản chi tiêu biến đổi
+    daily_average_var = variable_expense / days_passed
+    predicted_variable = daily_average_var * days_in_month
+
+    # Tổng dự báo = (Trung bình biến đổi * số ngày) + Tiền hóa đơn cố định
+    predicted_expense = predicted_variable + predicted_fixed
     projected_balance = base_income - predicted_expense
 
-    # 5. Dự báo chi tiết cho từng Danh mục (Để vẽ biểu đồ)
+    # 5. Dự báo chi tiết từng Danh mục
     cat_expenses = db.query(
         Transaction.category_id,
         func.sum(Transaction.amount)
@@ -64,29 +88,35 @@ def forecast(db: Session = Depends(get_db)):
         func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
     ).group_by(Transaction.category_id).all()
 
-    # Ánh xạ Category ID -> Tên
-    cat_names = {1: "Ăn uống", 2: "Di chuyển", 3: "Mua sắm", 4: "Giải trí", 5: "Hóa đơn"}
+    cat_names = {
+        1: "Ăn uống", 2: "Di chuyển", 3: "Giao lưu", 4: "Giải trí", 5: "Hóa đơn",
+        6: "Học tập", 7: "Mua sắm", 8: "Phát sinh", 9: "Sức khỏe", 10: "Thu nhập"
+    }
     category_forecast = {}
 
     for c_id, amt in cat_expenses:
         c_name = cat_names.get(c_id, "Khác")
-        # Dự báo danh mục = (Đã tiêu danh mục / số ngày) * tổng số ngày tháng
-        cat_predicted = (abs(amt) / days_passed) * days_in_month
-        category_forecast[c_name] = cat_predicted
+        actual_amt = abs(amt)
 
-    # Nếu chưa tiêu gì, cho mảng rỗng để Frontend không bị lỗi biểu đồ
-    if not category_forecast:
+        if c_id == 5:
+            # Hóa đơn không nhân theo ngày
+            category_forecast[c_name] = predicted_fixed
+        else:
+            # Các mục khác dự báo theo Burn Rate
+            category_forecast[c_name] = (actual_amt / days_passed) * days_in_month
+
+    if not category_forecast or (len(category_forecast) == 1 and "Chưa có dữ liệu" in category_forecast):
         category_forecast = {"Chưa có dữ liệu": 0}
 
-    # 6. Tạo lời khuyên AI động (AI Prediction)
+    # 6. Lời khuyên AI (AI Prediction)
     if base_income == 0:
         ai_text = "Bạn chưa thiết lập ngân sách hoặc thu nhập tháng này nên AI không thể đưa ra cảnh báo chính xác."
     elif predicted_expense > base_income:
-        ai_text = f"🚨 CẢNH BÁO ĐỎ: Tốc độ tiêu tiền hiện tại quá nhanh ({daily_average:,.0f}đ/ngày). Dự kiến cuối tháng bạn sẽ ÂM {abs(projected_balance):,.0f}đ. Hãy đóng băng các khoản mua sắm ngay!"
+        ai_text = f"🚨 CẢNH BÁO ĐỎ: Tốc độ chi tiêu biến đổi đang ở mức {daily_average_var:,.0f}đ/ngày. Dự kiến cuối tháng bạn sẽ ÂM {abs(projected_balance):,.0f}đ (đã bao gồm các hóa đơn cố định). Hãy thắt chặt chi tiêu ngay!"
     elif predicted_expense > base_income * 0.8:
-        ai_text = "⚠️ Chú ý: Bạn dự kiến sẽ tiêu hết 80% ngân sách trong tháng này. Hãy rà soát lại các khoản chi phí giải trí nhé."
+        ai_text = "⚠️ Chú ý: Dự báo bạn sẽ tiêu hết hơn 80% ngân sách tháng này. Hãy hạn chế các khoản mua sắm không cần thiết để giữ an toàn tài chính."
     else:
-        ai_text = f"✅ Tuyệt vời! Bạn đang quản lý rất tốt. Dự kiến cuối tháng bạn sẽ để ra được khoản tiết kiệm {projected_balance:,.0f}đ."
+        ai_text = f"✅ Tuyệt vời! Bạn đang quản lý rất tốt. Dự kiến sau khi trừ các hóa đơn cố định, bạn vẫn để ra được {projected_balance:,.0f}đ tiền tiết kiệm."
 
     return {
         "predicted_income": base_income,

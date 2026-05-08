@@ -108,9 +108,30 @@ try:
 
             # Chia grid 3 cột cho các thẻ danh mục
             cat_cols = st.columns(3)
-            cat_names = {1: "Food", 2: "Transport", 3: "Shopping", 4: "Entertainment", 5: "Bills"}
-            cat_icons = {"Food": "🍕", "Transport": "🚗", "Shopping": "🛍️", "Entertainment": "🎬", "Bills": "💵"}
-
+            cat_names = {
+                1: "Ăn uống",
+                2: "Di chuyển",
+                3: "Giao lưu",
+                4: "Giải trí",
+                5: "Hóa đơn",
+                6: "Học tập",
+                7: "Mua sắm",
+                8: "Phát sinh",
+                9: "Sức khỏe",
+                10: "Thu nhập"
+            }
+            cat_icons = {
+                "Ăn uống": "🍕",
+                "Di chuyển": "🚗",
+                "Giao lưu": "🍻",
+                "Giải trí": "🎬",
+                "Hóa đơn": "💵",
+                "Học tập": "📚",
+                "Mua sắm": "🛍️",
+                "Phát sinh": "⚠️",
+                "Sức khỏe": "💊",
+                "Thu nhập": "💰"
+            }
             for idx, b in enumerate(budgets):
                 col_idx = idx % 3
                 c_id = b.get('category_id')

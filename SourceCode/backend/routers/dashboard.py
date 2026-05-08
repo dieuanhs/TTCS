@@ -45,7 +45,18 @@ def dashboard(db: Session = Depends(get_db)):
     ).group_by(models.Transaction.category_id).all()
 
     # Ánh xạ ID sang tên danh mục
-    cat_names = {1: "Ăn uống", 2: "Di chuyển", 3: "Mua sắm", 4: "Giải trí", 5: "Hóa đơn"}
+    cat_names = {
+        1: "Ăn uống",
+        2: "Di chuyển",
+        3: "Giao lưu",
+        4: "Giải trí",
+        5: "Hóa đơn",
+        6: "Học tập",
+        7: "Mua sắm",
+        8: "Phát sinh",
+        9: "Sức khỏe",
+        10: "Thu nhập"
+        }
     expense_by_category = {}
 
     for c_id, amt in cat_data:
@@ -64,7 +75,7 @@ def dashboard(db: Session = Depends(get_db)):
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).group_by(models.Transaction.emotion).all()
 
-    # Mồi sẵn 3 cảm xúc mặc định ở mức 0 để biểu đồ luôn hiện 3 cột
+
     emotion_spending = {
         "Tích cực": 0,
         "Tiêu cực": 0,

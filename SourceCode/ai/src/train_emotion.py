@@ -19,7 +19,7 @@ print(f"Đang sử dụng thiết bị: {device}")
 # ============================
 df = pd.read_csv("../data/dataset_v1_clean.csv")
 df = df.dropna(subset=["clean_text", "Emotion"])
-
+df["Emotion"] = df["Emotion"].astype(str).str.strip()
 # Encode label
 label_map = {"Tiêu cực": 0, "Bình thường": 1, "Tích cực": 2}
 df["label"] = df["Emotion"].map(label_map)
