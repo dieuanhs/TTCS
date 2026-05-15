@@ -25,8 +25,8 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.stop()
 
 try:
-    # Lấy dữ liệu
-    response = requests.get(f"{BASE_URL}/reports/")
+    user_id = st.session_state.get("user_id")
+    response = requests.get(f"{BASE_URL}/reports/?user_id={user_id}")
     data = response.json() if response.status_code == 200 else {}
 
     # --- PHẦN 1: REPORT OVERVIEW ---
@@ -128,7 +128,7 @@ try:
         st.subheader("🧠 Phân tích Hành vi & Tâm lý (Behavioral Analytics)")
 
         try:
-            res = requests.get(f"{BASE_URL}/analytics/emotion-spending")
+            res = requests.get(f"{BASE_URL}/analytics/emotion-spending?user_id={user_id}")
             if res.status_code == 200:
                 analytics_data = res.json()
                 emo_list = analytics_data.get("emotion_data", [])

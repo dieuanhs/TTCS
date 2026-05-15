@@ -19,7 +19,7 @@ def get_db():
 
 
 @router.get("/")
-def forecast(db: Session = Depends(get_db)):
+def forecast(user_id: int, db: Session = Depends(get_db)):
     now = datetime.now()
     year = now.year
     month = now.month
@@ -33,11 +33,13 @@ def forecast(db: Session = Depends(get_db)):
 
     # 2. Thu nhập mục tiêu
     total_income = db.query(func.sum(Transaction.amount)).filter(
+        Transaction.user_id == user_id,
         Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
         func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
     ).scalar() or 0
 
     total_budget = db.query(func.sum(Budget.limit)).filter(
+        Budget.user_id == user_id,
         Budget.month == month,
         Budget.year == year
     ).scalar() or 0
@@ -46,6 +48,7 @@ def forecast(db: Session = Depends(get_db)):
     # 3. TÁCH CHI TIÊU: BIẾN ĐỔI VS CỐ ĐỊNH (Hóa đơn - ID: 5)
     # Chi tiêu biến đổi (Ăn uống, Mua sắm, Giải trí...)
     variable_expense = db.query(func.sum(Transaction.amount)).filter(
+        Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         Transaction.category_id != 5,
         func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
@@ -54,14 +57,16 @@ def forecast(db: Session = Depends(get_db)):
 
     # Chi tiêu cố định thực tế đã tiêu (Hóa đơn)
     fixed_spent = db.query(func.sum(Transaction.amount)).filter(
+        Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         Transaction.category_id == 5,
         func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
     ).scalar() or 0
     fixed_spent = abs(fixed_spent)
 
-    # Lấy ngân sách Hóa đơn để dự báo chính xác nếu chưa đóng tiền
+
     fixed_budget = db.query(func.sum(Budget.limit)).filter(
+        Budget.user_id == user_id,
         Budget.category_id == 5,
         Budget.month == month,
         Budget.year == year
@@ -84,6 +89,7 @@ def forecast(db: Session = Depends(get_db)):
         Transaction.category_id,
         func.sum(Transaction.amount)
     ).filter(
+        Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
     ).group_by(Transaction.category_id).all()

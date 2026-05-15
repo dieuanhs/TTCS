@@ -13,6 +13,15 @@ class UserOut(BaseModel):
     email: str
     model_config = ConfigDict(from_attributes=True)
 
+class UserLogin(BaseModel):
+    username: str
+    password: str
+class UpdateProfile(BaseModel):
+    full_name: str
+    email: str
+class ChangePassword(BaseModel):
+    old_password: str
+    new_password: str
 # TRANSACTIONS
 
 class TransactionBase(BaseModel):
@@ -39,6 +48,7 @@ class Transaction(TransactionBase):
 # BUDGETS
 
 class BudgetBase(BaseModel):
+    user_id: int
     category_id: int
     limit: float
     month: int

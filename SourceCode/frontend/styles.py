@@ -1,15 +1,28 @@
 import streamlit as st
-
+from dialogs import show_profile_dialog, show_change_password_dialog
 
 def apply_common_styles():
     st.markdown(
         """
         <style>
-        /* Ẩn chữ "app" sidebar */
         section[data-testid="stSidebar"] h1 {
             display: none !important;
         }
 
+        /* Ẩn trang "App" trong navigation */
+        [data-testid="stSidebarNavItems"] li:first-child {
+            display: none !important;
+        }
+        [data-testid="stSidebarNav"]::before {
+            content: "Smart Finance";
+            display: block;
+            text-align: center;
+            color: #A093F2;
+            font-size: 26px;
+            font-weight: bold;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
         /* Sidebar màu */
         [data-testid="stSidebar"] {
             background-color: #F5E6DA !important;
@@ -40,55 +53,65 @@ def render_header(title, user_name=None):
     else:
         name = user_name if user_name else "User"
         display_name = name.split()[-1]
-        avatar = display_name[0].upper()
+        avatar = f"👤 {display_name}"
 
-    col1, col2, col3 = st.columns([5, 3, 1])
+    st.markdown(
+        """
+        <style>
+        div[data-testid="stHorizontalBlock"]:has(.header-anchor) {
+            background-color: #A093F2;
+            padding: 15px 25px;
+            border-radius: 20px;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        /* Chữ bên trong dải header màu trắng */
+        div[data-testid="stHorizontalBlock"]:has(.header-anchor) * {
+            color: white !important;
+        }
+        
+        div[data-testid="stHorizontalBlock"]:has(.header-anchor) button {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+        div[data-testid="stHorizontalBlock"]:has(.header-anchor) button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-color: white;
+        }
+        /* Chọn màu đen cho chữ trong popover*/
+        div[data-testid="stPopoverBody"] * {
+            color: #333 !important;
+        }
+        div[data-testid="stPopoverBody"] button {
+            background-color: #f0f0f0 !important;
+            border: none !important;
+            margin-top: 5px;
+        }
+        div[data-testid="stPopoverBody"] button:hover {
+            background-color: #e0e0e0 !important;
+            color: black !important;
+        }
+        </style>
+        """, unsafe_allow_html=True
+    )
+
+    col1, col2 = st.columns([5, 2])
 
     with col1:
-        st.markdown(
-            f"""
-            <div style="
-                background-color: #A093F2;
-                padding: 18px;
-                border-radius: 20px;
-                color: white;
-                font-size: 24px;
-                font-weight: bold;
-                height: 60px;
-                display: flex;
-                align-items: center;
-            ">
-                {title}
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown(f"<div class='header-anchor' style='font-size: 24px; font-weight: bold;'>{title}</div>", unsafe_allow_html=True)
 
     with col2:
-        st.markdown(
-            """
-            <div style="
-                background-color: #A093F2;
-                padding: 18px;
-                border-radius: 20px;
-                height: 60px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-            ">
-                🔍 Search...
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    with col3:
-        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
-
-        if st.button(avatar):
-            if is_logged_in:
-                st.session_state.clear()
-                st.rerun()
-            else:
+        if is_logged_in:
+            with st.popover(avatar):
+                st.write(f"**Xin chào, {user_name}**")
+                if st.button("Xem Profile", use_container_width=True):
+                    show_profile_dialog(user_name)
+                if st.button("Đổi mật khẩu", use_container_width=True):
+                    show_change_password_dialog()
+                if st.button("Đăng xuất", use_container_width=True):
+                    st.session_state.clear()
+                    st.switch_page("app.py")
+        else:
+            if st.button("Login"):
                 st.switch_page("app.py")

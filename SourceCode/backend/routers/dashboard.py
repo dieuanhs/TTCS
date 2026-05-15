@@ -17,17 +17,19 @@ def get_db():
 
 
 @router.get("/")
-def dashboard(db: Session = Depends(get_db)):
+def dashboard(user_id: int, db: Session = Depends(get_db)):
     now = datetime.now()
     current_ym = now.strftime("%Y-%m")
 
     # 1. TỔNG THU & CHI (Chỉ lấy trong tháng hiện tại)
     income = db.query(func.sum(models.Transaction.amount)).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).scalar() or 0
 
     expense = db.query(func.sum(models.Transaction.amount)).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).scalar() or 0
@@ -40,6 +42,7 @@ def dashboard(db: Session = Depends(get_db)):
         models.Transaction.category_id,
         func.sum(models.Transaction.amount)
     ).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).group_by(models.Transaction.category_id).all()
@@ -71,6 +74,7 @@ def dashboard(db: Session = Depends(get_db)):
         models.Transaction.emotion,
         func.sum(models.Transaction.amount)
     ).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).group_by(models.Transaction.emotion).all()

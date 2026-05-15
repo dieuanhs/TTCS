@@ -48,6 +48,7 @@ with st.expander("➕ Bấm vào đây để Thêm hoặc Cập nhật hạn m�
 
         if submit_btn:
             payload = {
+                "user_id": st.session_state.get("user_id"),
                 "category_id": cat_options[selected_cat],
                 "limit": limit_amount,
                 "month": month,
@@ -69,7 +70,8 @@ st.divider()
 # --- 3. PHẦN HIỂN THỊ TRẠNG THÁI NGÂN SÁCH ---
 try:
     # Gọi API lấy tiến độ ngân sách tháng hiện tại
-    response = requests.get(f"{BASE_URL}/budgets/progress")
+    user_id = st.session_state.get("user_id")
+    response = requests.get(f"{BASE_URL}/budgets/progress?user_id={user_id}")
 
     if response.status_code == 200:
         budgets = response.json()

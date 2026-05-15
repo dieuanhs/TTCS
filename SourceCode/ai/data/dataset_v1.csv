@@ -397,4 +397,9 @@ STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transactio
 396,khách trả nợ cũ 500k,500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 14:00:00,2026-04-18 14:00:00
 397,nhận lì xì đầu năm 1 triệu,1000000,Thu nhập,Thu nhập,Tích cực,2026-04-18 15:00:00,2026-04-18 15:00:00
 398,tiền lãi tiết kiệm 30k,30000,Thu nhập,Thu nhập,Bình thường,2026-04-18 16:00:00,2026-04-18 16:00:00
-399,thu nhập từ việc ctv 1.5 triệu,1500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 17:00:00,2026-04-18 17:00:00
+399,thu nhập từ việc ctv 1.5 triệu,1500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 17:00:00,2026-04-18 17:00:00402,Order trà sữa 50k,50000,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00
+403,mua ly trà sữa thái 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
+404,uống trà sữa matcha 60k,60000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
+405,order ly trà sữa kem cheese 45k,45000,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00
+406,trà sữa trân châu đường đen 50k,50000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
+407,order trà sữa,0,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00

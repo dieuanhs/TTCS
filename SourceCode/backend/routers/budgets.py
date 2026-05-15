@@ -28,6 +28,7 @@ def get_db():
 def create_budget(data: schemas.BudgetCreate, db: Session = Depends(get_db)):
 
     budget = Budget(
+        user_id=data.user_id,
         category_id=data.category_id,
         limit=data.limit,
         month=data.month,
@@ -45,9 +46,10 @@ def create_budget(data: schemas.BudgetCreate, db: Session = Depends(get_db)):
 # GET BUDGETS OF A MONTH
 # ---------------------------
 @router.get("/monthly")
-def get_monthly_budget(month: int, year: int, db: Session = Depends(get_db)):
+def get_monthly_budget(user_id: int, month: int, year: int, db: Session = Depends(get_db)):
 
     budgets = db.query(Budget).filter(
+        Budget.user_id == user_id,
         Budget.month == month,
         Budget.year == year
     ).all()
@@ -66,11 +68,12 @@ def get_monthly_budget(month: int, year: int, db: Session = Depends(get_db)):
 # CATEGORY BUDGET PROGRESS
 # ---------------------------
 @router.get("/progress")
-def category_progress(db: Session = Depends(get_db)):
+def category_progress(user_id: int, db: Session = Depends(get_db)):
 
     now = datetime.now()
 
     budgets = db.query(Budget).filter(
+        Budget.user_id == user_id,
         Budget.month == now.month,
         Budget.year == now.year
     ).all()
@@ -80,6 +83,7 @@ def category_progress(db: Session = Depends(get_db)):
     for b in budgets:
 
         spent = db.query(func.sum(Transaction.amount)).filter(
+            Transaction.user_id == user_id,
             Transaction.category_id == b.category_id,
             # Transaction.type == "expense",
              func.strftime("%Y-%m", Transaction.transaction_time)
@@ -100,16 +104,18 @@ def category_progress(db: Session = Depends(get_db)):
 # MONTHLY BUDGET OVERVIEW
 # ---------------------------
 @router.get("/overview")
-def budget_overview(db: Session = Depends(get_db)):
+def budget_overview(user_id: int, db: Session = Depends(get_db)):
 
     now = datetime.now()
 
     total_budget = db.query(func.sum(Budget.limit)).filter(
+        Budget.user_id == user_id,
         Budget.month == now.month,
         Budget.year == now.year
     ).scalar() or 0
 
     total_spent = db.query(func.sum(Transaction.amount)).filter(
+        Transaction.user_id == user_id,
         Transaction.type == "expense",
         func.strftime("%Y-%m", Transaction.transaction_time)
         == now.strftime("%Y-%m")

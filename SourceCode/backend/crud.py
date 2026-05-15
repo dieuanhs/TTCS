@@ -100,12 +100,12 @@ def create_user(db: Session, user: schemas.UserCreate):
     db_user = models.User(
         full_name=user.full_name,
         email=user.email,
-        password=user.password  # Trong thực tế nên dùng thư viện passlib để hash
+        password=user.password
     )
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
-    #print(f"DEBUG: ID vừa tạo là: {db_user.user_id}")
+
     return db_user
 
 def get_all_users(db: Session):

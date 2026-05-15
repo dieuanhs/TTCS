@@ -26,10 +26,9 @@ BASE_URL = "http://127.0.0.1:8000"
 if not st.session_state.logged_in:
     st.title("🔐 Hệ Thống Smart Finance")
 
-    # Ẩn hoàn toàn menu sidebar khi chưa đăng nhập
     st.markdown("<style>section[data-testid='stSidebar'] {display: none;}</style>", unsafe_allow_html=True)
 
-    # TẠO TAB ĐỂ CHỌN ĐĂNG NHẬP HOẶC ĐĂNG KÝ
+
     tab_login, tab_register = st.tabs(["🔑 Đăng nhập", "📝 Đăng ký mới"])
 
     # --- TAB ĐĂNG NHẬP ---
@@ -47,8 +46,9 @@ if not st.session_state.logged_in:
                         data = response.json()
                         st.session_state.logged_in = True
                         st.session_state.user_name = data.get("full_name", username)
+                        st.session_state.user_id = data.get("user_id")
+                        st.session_state.email=data.get("email")
 
-                        # ✨ DÒNG LỆNH THẦN THÁNH: Đăng nhập xong là nhảy thẳng vào Dashboard
                         st.switch_page("pages/1_Dashboard.py")
                     else:
                         error_msg = response.json().get("detail", "Sai tài khoản hoặc mật khẩu!")

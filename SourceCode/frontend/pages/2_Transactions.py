@@ -100,7 +100,7 @@ if st.session_state.ai_result:
             cat_id_number = CATEGORY_MAP.get(cat_name, 9)
 
             payload = {
-                "user_id": 1,
+                "user_id": st.session_state.get("user_id"),
                 "description": detected["text"],
                 "category_id": cat_id_number,
                 "amount": detected["amount"],
@@ -127,7 +127,8 @@ st.subheader("Lịch sử giao dịch")
 
 try:
     # GỌI API
-    response = requests.get(f"{BASE_URL}/transactions/")
+    user_id = st.session_state.get("user_id")
+    response = requests.get(f"{BASE_URL}/transactions/?user_id={user_id}")
     if response.status_code == 200:
         transactions = response.json()
 

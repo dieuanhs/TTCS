@@ -26,7 +26,8 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
 
 try:
     # 2. Lấy dữ liệu
-    response = requests.get(f"{BASE_URL}/dashboard/")
+    user_id = st.session_state.get("user_id")
+    response = requests.get(f"{BASE_URL}/dashboard/?user_id={user_id}")
     data = response.json() if response.status_code == 200 else {}
 
     # --- PHẦN 1: 3 THẺ METRIC MÀU SẮC ---

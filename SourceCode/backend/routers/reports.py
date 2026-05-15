@@ -15,7 +15,7 @@ def get_db():
         db.close()
 
 @router.get("/")
-def get_reports(db: Session = Depends(get_db)):
+def get_reports(user_id: int, db: Session = Depends(get_db)):
     now = datetime.now()
     current_ym = now.strftime("%Y-%m")
 
@@ -27,11 +27,13 @@ def get_reports(db: Session = Depends(get_db)):
 
     # --- 1. TỔNG QUAN THÁNG NÀY ---
     total_income = db.query(func.sum(models.Transaction.amount)).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).scalar() or 0
 
     total_expense = db.query(func.sum(models.Transaction.amount)).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).scalar() or 0
@@ -49,9 +51,10 @@ def get_reports(db: Session = Depends(get_db)):
             y -= 1
 
         ym_str = f"{y}-{m:02d}"
-        month_label = f"T{m}"  # Hiển thị "T1", "T2"
+        month_label = f"T{m}"
 
         monthly_exp = db.query(func.sum(models.Transaction.amount)).filter(
+            models.Transaction.user_id == user_id,
             models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
             func.strftime("%Y-%m", models.Transaction.transaction_time) == ym_str
         ).scalar() or 0
@@ -62,6 +65,7 @@ def get_reports(db: Session = Depends(get_db)):
         func.sum(models.Transaction.amount),
         func.count(models.Transaction.transaction_id)
     ).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
     ).group_by(models.Transaction.category_id).all()
@@ -78,6 +82,7 @@ def get_reports(db: Session = Depends(get_db)):
 
         # Lấy ngân sách (Budget) của danh mục
         budget = db.query(models.Budget).filter(
+            models.Budget.user_id == user_id,
             models.Budget.category_id == c_id,
             models.Budget.month == now.month,
             models.Budget.year == now.year

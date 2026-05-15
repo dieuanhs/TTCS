@@ -35,7 +35,7 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
 class TextDataset(Dataset):
     def __init__(self, texts, labels):
-        self.encodings = tokenizer(list(texts), truncation=True, padding=True, max_length=64)
+        self.encodings = tokenizer(list(texts), truncation=True, padding=True, max_length=128)
         self.labels = list(labels)
 
     def __getitem__(self, idx):
@@ -61,14 +61,14 @@ model = AutoModelForSequenceClassification.from_pretrained(
 )
 model.to(device)
 
-optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
+optimizer = torch.optim.AdamW(model.parameters(), lr=3e-5, weight_decay=0.01)
 
 # ============================
 # 5. VÒNG LẶP HUẤN LUYỆN (TRAIN)
 # ============================
 print("Bắt đầu huấn luyện...")
 model.train()
-for epoch in range(4):
+for epoch in range(5):
     total_loss = 0
     for batch in train_loader:
         input_ids = batch["input_ids"].to(device)
@@ -84,7 +84,7 @@ for epoch in range(4):
         optimizer.zero_grad()
 
     avg_loss = total_loss / len(train_loader)
-    print(f"Epoch {epoch+1}/4 hoàn tất - Loss: {avg_loss:.4f}")
+    print(f"Epoch {epoch+1}/5 hoàn tất - Loss: {avg_loss:.4f}")
 
 # ============================
 # 6. ĐÁNH GIÁ MÔ HÌNH (EVALUATE)
@@ -115,7 +115,7 @@ print(report)
 # lưu log
 save_evaluation_log(
     model_name="PhoBERT-base-v2 (Emotion)",
-    config_info="epochs=4, batch_size=16, lr=2e-5, max_length=64, input=clean_text",
+    config_info="epochs=5, batch_size=16, lr=3e-5, max_length=128, weight_decay=0.01",
     report_text=report
 )
 

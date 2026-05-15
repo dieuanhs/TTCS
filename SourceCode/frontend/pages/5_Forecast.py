@@ -25,8 +25,9 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.stop()
 
 try:
-    # Lấy dữ liệu Dự báo từ Backend
-    response = requests.get(f"{BASE_URL}/forecast/")
+    # Lấy dữ liệu Dự báo
+    user_id = st.session_state.get("user_id")
+    response = requests.get(f"{BASE_URL}/forecast/?user_id={user_id}")
     if response.status_code == 200:
         data = response.json()
     else:

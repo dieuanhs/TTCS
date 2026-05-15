@@ -33,8 +33,10 @@ def get_db():
 # GET ALL TRANSACTIONS
 # -----------------------------
 @router.get("/")
-def read_transactions(db: Session = Depends(get_db)):
-    transactions = db.query(Transaction).order_by(
+def read_transactions(user_id: int, db: Session = Depends(get_db)):
+    transactions = db.query(Transaction).filter(
+        Transaction.user_id == user_id
+    ).order_by(
         Transaction.transaction_time.desc()
     ).all()
 
@@ -82,7 +84,7 @@ def delete_transaction(transaction_id: int, db: Session = Depends(get_db)):
     db.commit()
 
     return {"message": "Transaction deleted"}
-# SMART INPUT (AI INTEGRATION THỰC SỰ)
+# SMART INPUT
 @router.post("/smart-input", response_model=schemas.SmartInputResponse)
 def smart_input_transaction(request: schemas.SmartInputRequest):
     """

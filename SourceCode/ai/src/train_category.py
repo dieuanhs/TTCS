@@ -15,7 +15,7 @@ X = df["clean_text"]
 y = df["Category"]
 
 # ======================
-# 2. Vectorize (TRỌN VẸN TỪ KHÓA)
+# 2. Vectorize (Tối ưu hóa params)
 # ======================
 vectorizer = TfidfVectorizer(
     ngram_range=(1, 2),
@@ -34,36 +34,58 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-# ======================
-# 4. Train (
-# ======================
-model = LinearSVC(
-    class_weight='balanced',
-    C=5.0,
-    max_iter=5000,
-    random_state=42
-)
-model.fit(X_train, y_train)
+#4. Train
+from sklearn.model_selection import GridSearchCV
+from sklearn.linear_model import LogisticRegression
 
-# ======================
-# 5. Evaluate
-# ======================
-y_pred = model.predict(X_test)
+if __name__ == "__main__":
+    # Tìm kiếm tham số tốt nhất giữa các cấu hình LinearSVC và LogisticRegression
+    param_grid = [
+        {
+            'estimator': [LinearSVC(random_state=42)],
+            'estimator__C': [1.0, 5.0, 10.0],
+            'estimator__class_weight': ['balanced', None]
+        },
+        {
+            'estimator': [LogisticRegression(random_state=42, max_iter=1000)],
+            'estimator__C': [1.0, 5.0, 10.0],
+            'estimator__class_weight': ['balanced', None]
+        }
+    ]
 
-print("=== Classification Report ===")
-report = classification_report(y_test, y_pred, zero_division=0)
-print(report)
+    from sklearn.pipeline import Pipeline
+    pipeline = Pipeline([('estimator', LinearSVC())])
+    
+    grid_search = GridSearchCV(
+        pipeline,
+        param_grid,
+        cv=5,
+        scoring='accuracy',
+        n_jobs=1
+    )
+    grid_search.fit(X_train, y_train)
 
+    model = grid_search.best_estimator_.named_steps['estimator']
+    print(f"Best params found: {grid_search.best_params_}")
 
-save_evaluation_log(
-    model_name="LinearSVC (Category)",
-    config_info="C=5.0, ngram_range=(1,2), sublinear_tf=True",
-    report_text=report
-)
+    # ======================
+    # 5. Evaluate
+    # ======================
+    y_pred = model.predict(X_test)
 
-# ======================
-# 6. Save
-# ======================
-joblib.dump(model, "../models/category_model.pkl")
-joblib.dump(vectorizer, "../models/vectorizer.pkl")
-print(" Model saved!")
+    print("=== Classification Report ===")
+    report = classification_report(y_test, y_pred, zero_division=0)
+    print(report)
+
+    save_evaluation_log(
+        model_name=model.__class__.__name__ + " (Tuned)",
+        config_info=f"Best params: {grid_search.best_params_}, ngram_range=(1,2)",
+        report_text=report
+    )
+
+    # ======================
+    # 6. Save
+    # ======================
+    joblib.dump(model, "../models/category_model.pkl")
+    joblib.dump(vectorizer, "../models/vectorizer.pkl")
+    print(" Model saved!")

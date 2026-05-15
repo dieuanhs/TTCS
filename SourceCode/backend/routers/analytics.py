@@ -19,7 +19,7 @@ def get_db():
 
 
 @router.get("/emotion-spending")
-def emotion_spending(db: Session = Depends(get_db)):
+def emotion_spending(user_id: int, db: Session = Depends(get_db)):
     now = datetime.now()
     current_ym = now.strftime("%Y-%m")
 
@@ -28,6 +28,7 @@ def emotion_spending(db: Session = Depends(get_db)):
         models.Transaction.emotion,
         models.Transaction.amount
     ).filter(
+        models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         models.Transaction.category_id != 5,
         func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym  # <--- Thêm lọc theo tháng

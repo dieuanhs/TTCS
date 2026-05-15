@@ -2,7 +2,7 @@
 1,Sáng nay mệt mỏi quá nên ăn bát phở 45k,45000,Chi tiêu,Ăn uống,Tiêu cực,2026-01-02 08:15:30,2026-01-02 08:15:30,sáng nay mệt_mỏi quá nên ăn_bát phở 45k
 2,Mới nhận lương làm thêm 2 triệu vui quá xá,2000000,Thu nhập,Thu nhập,Tích cực,2026-01-05 17:40:12,2026-01-05 17:40:12,mới nhận lương làm thêm 2triệu vui quá_xá
 3,Đóng tiền học phí 5tr mà xót hết cả ruột,5000000,Chi tiêu,Học tập,Tiêu cực,2026-01-08 10:20:00,2026-01-08 10:20:00,đóng tiền học_phí 5tr mà xót hết cả ruột
-4,Tối đi trà sữa với hội bạn hết 120k vui cực,120000,Chi tiêu,Giải trí,Tích cực,2026-01-12 20:45:15,2026-01-12 20:45:15,tối đi trà_sữa với hội bạn hết 120k vui cực
+4,Tối đi trà sữa với hội bạn hết 120k vui cực,120000,Chi tiêu,Ăn uống,Tích cực,2026-01-12 20:45:15,2026-01-12 20:45:15,tối đi trà_sữa với hội bạn hết 120k vui cực
 5,Mua cuốn giáo trình 80k,80000,Chi tiêu,Học tập,Bình thường,2026-01-15 14:30:05,2026-01-15 14:30:05,mua cuốn giáo_trình 80k
 6,Đổ xăng 50k mà giá lại tăng chán ghét,50000,Chi tiêu,Di chuyển,Tiêu cực,2026-01-18 07:10:40,2026-01-18 07:10:40,đổ xăng 50k mà giá lại tăng chán ghét
 7,Đặt đồ ăn đêm hết 35k,35000,Chi tiêu,Ăn uống,Bình thường,2026-01-20 23:15:22,2026-01-20 23:15:22,đặt đồ_ăn đêm hết 35k
@@ -134,7 +134,7 @@
 133,Ăn tối muộn bát cháo đêm 25k cho ấm bụng,25000,Chi tiêu,Ăn uống,Bình thường,2026-03-11 23:30:00,2026-03-11 23:30:00,ăn tối_muộn bát cháo đêm 25k cho ấm bụng
 134,Thuê truyện tranh đọc giải trí hết 15k vui vẻ,15000,Chi tiêu,Giải trí,Tích cực,2026-03-13 18:00:00,2026-03-13 18:00:00,thuê truyện_tranh đọc giải_trí hết 15k vui_vẻ
 135,Mua hộp đựng cơm 55k để mang đồ ăn đi học tiết kiệm,55000,Chi tiêu,Mua sắm,Tích cực,2026-03-15 11:20:00,2026-03-15 11:20:00,mua hộp đựng cơm 55k để mang đồ_ăn đi học tiết_kiệm
-136,Đi dạo phố uống ly trà chanh 20k với người yêu vui,20000,Chi tiêu,Giải trí,Tích cực,2026-03-17 20:45:00,2026-03-17 20:45:00,đi dạo phố uống ly trà_chanh 20k với người_yêu vui
+136,Đi dạo phố uống ly trà chanh 20k với người yêu vui,20000,Chi tiêu,Ăn uống,Tích cực,2026-03-17 20:45:00,2026-03-17 20:45:00,đi dạo phố uống ly trà_chanh 20k với người_yêu vui
 137,Mua gói khăn giấy 5k bỏ túi dùng dần cho sạch,5000,Chi tiêu,Mua sắm,Bình thường,2026-03-19 14:10:00,2026-03-19 14:10:00,mua gói khăn giấy 5k bỏ_túi dùng dần cho sạch
 138,Trả tiền in đồ án màu 120k thấy áp lực tiền bạc quá,120000,Chi tiêu,Học tập,Tiêu cực,2026-03-21 16:50:00,2026-03-21 16:50:00,trả tiền in đồ_án màu 120k thấy áp_lực tiền_bạc quá
 139,Thanh lý được cái áo cũ trên Facebook được 150k hên,150000,Thu nhập,Thu nhập,Tích cực,2026-03-22 15:30:00,2026-03-22 15:30:00,thanh_lý được cái áo cũ trên facebook được 150k hên
@@ -262,7 +262,7 @@
 261,đăng ký gói tập gym 500k cho khỏe,500000,Chi tiêu,Sức khỏe,Tích cực,2026-03-26 08:00:00,2026-03-26 08:00:00,đăng_ký gói tập gym 500k cho khỏe
 262,mua thuốc đau đầu panadol 20k,20000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-27 15:40:00,2026-03-27 15:40:00,mua thuốc đau_đầu panadol 20k
 263,khám tai mũi họng 150k,150000,Chi tiêu,Sức khỏe,Bình thường,2026-03-28 09:25:00,2026-03-28 09:25:00,khám tai mũi họng 150k
-264,mua trà gừng uống cho ấm 30k,30000,Chi tiêu,Sức khỏe,Tích cực,2026-03-29 10:55:00,2026-03-29 10:55:00,mua trà gừng uống cho ấm 30k
+264,mua trà gừng uống cho ấm 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-03-29 10:55:00,2026-03-29 10:55:00,mua trà gừng uống cho ấm 30k
 265,miếng dán hạ sốt 45k,45000,Chi tiêu,Sức khỏe,Tiêu cực,2026-03-30 14:10:00,2026-03-30 14:10:00,miếng dán hạ sốt 45k
 266,mua thuốc ngủ thảo dược 120k,120000,Chi tiêu,Sức khỏe,Bình thường,2026-03-31 18:20:00,2026-03-31 18:20:00,mua thuốc ngủ thảo_dược 120k
 267,đi tiêm vaccine phòng cúm 350k,350000,Chi tiêu,Sức khỏe,Tích cực,2026-04-01 19:30:00,2026-04-01 19:30:00,đi tiêm vaccine phòng cúm 350k
@@ -398,3 +398,9 @@
 397,nhận lì xì đầu năm 1 triệu,1000000,Thu nhập,Thu nhập,Tích cực,2026-04-18 15:00:00,2026-04-18 15:00:00,nhận lì_xì đầu năm 1triệu
 398,tiền lãi tiết kiệm 30k,30000,Thu nhập,Thu nhập,Bình thường,2026-04-18 16:00:00,2026-04-18 16:00:00,tiền lãi tiết_kiệm 30k
 399,thu nhập từ việc ctv 1.5 triệu,1500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 17:00:00,2026-04-18 17:00:00,thu_nhập từ việc ctv 1 5triệu
+402,Order trà sữa 50k,50000,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00,order trà_sữa 50k
+403,mua ly trà sữa thái 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00,mua ly trà_sữa thái 30k
+404,uống trà sữa matcha 60k,60000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00,uống trà_sữa matcha 60k
+405,order ly trà sữa kem cheese 45k,45000,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00,order ly trà_sữa kem cheese 45k
+406,trà sữa trân châu đường đen 50k,50000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00,trà_sữa trân_châu đường_đen 50k
+407,order trà sữa,0,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00,order trà_sữa

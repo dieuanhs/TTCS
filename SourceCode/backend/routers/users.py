@@ -6,8 +6,8 @@ from ..database import get_db
 
 # Khởi tạo Router
 router = APIRouter(
-    prefix="/users", # Tất cả các đường dẫn trong này sẽ bắt đầu bằng /users
-    tags=["users"]   # Gom nhóm lại trong trang /docs cho dễ nhìn
+    prefix="/users",
+    tags=["users"]
 )
 @router.post("/", response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
@@ -18,12 +18,37 @@ def read_users(db: Session = Depends(get_db)):
     return users
 
 @router.post("/login")
-def login(payload: dict, db: Session = Depends(get_db)):
-    # Tìm user theo full_name (tên đăng nhập)
-    user = db.query(models.User).filter(models.User.full_name == payload.get("username")).first()
-
-    # Kiểm tra xem có user đó không và mật khẩu có khớp không
-    if not user or user.password != payload.get("password"):
+def login(payload: schemas.UserLogin, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.full_name == payload.username).first()
+    if not user or user.password != payload.password:
         raise HTTPException(status_code=401, detail="Sai tài khoản hoặc mật khẩu")
 
-    return {"status": "success", "full_name": user.full_name}
+    return {
+        "status": "success",
+        "full_name": user.full_name,
+        "user_id": user.user_id,
+        "email": user.email
+    }
+@router.put("/{user_id}/update-profile")
+def update_profile(user_id: int, payload: schemas.UpdateProfile, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.user_id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="Không tìm thấy người dùng")
+
+    user.full_name = payload.full_name
+    user.email = payload.email
+    db.commit()
+    return {"status": "success", "full_name": user.full_name, "email": user.email}
+
+@router.put("/{user_id}/change-password")
+def change_password(user_id: int, payload: schemas.ChangePassword, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.user_id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="Không tìm thấy người dùng")
+
+    if user.password != payload.old_password:
+        raise HTTPException(status_code=400, detail="Mật khẩu hiện tại không đúng")
+
+    user.password = payload.new_password
+    db.commit()
+    return {"status": "success"}
