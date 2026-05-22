@@ -12,9 +12,6 @@ from torch.utils.data import Dataset, DataLoader
 from utils import save_evaluation_log
 from tqdm import tqdm
 
-# ============================
-# TỰ ĐỘNG DÒ TÌM ĐƯỜNG DẪN CẤU TRÚC THƯ MỤC
-# ============================
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))  # Thư mục src/
 DATA_FILE = os.path.join(CURRENT_DIR, "../data/dataset_v1_clean.csv")
 MODEL_SAVE_DIR = os.path.join(CURRENT_DIR, "../models/emotion_phobert")
@@ -206,14 +203,14 @@ save_evaluation_log(
 )
 
 # ============================
-# 7. LƯU MÔ HÌNH (ĐỒNG BỘ CẤU TRÚC FOLDER AI/MODELS)
+# 7. LƯU MÔ HÌNH
 # ============================
 try:
-    # 1. Lưu folder chuẩn HuggingFace
+    # 1. Lưu folder
     model.save_pretrained(MODEL_SAVE_DIR, safe_serialization=False)
     tokenizer.save_pretrained(MODEL_SAVE_DIR)
 
-    # 2. Lưu file weights .pth (Như trong hình của bạn đang có)
+    # 2. Lưu file weights .pth
     torch.save(model.state_dict(), PTH_FILE)
 
     print(f"\n✅ Đã lưu thư mục HuggingFace vào: {MODEL_SAVE_DIR}")
