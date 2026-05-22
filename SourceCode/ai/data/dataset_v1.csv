@@ -397,9 +397,84 @@ STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transactio
 396,khách trả nợ cũ 500k,500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 14:00:00,2026-04-18 14:00:00
 397,nhận lì xì đầu năm 1 triệu,1000000,Thu nhập,Thu nhập,Tích cực,2026-04-18 15:00:00,2026-04-18 15:00:00
 398,tiền lãi tiết kiệm 30k,30000,Thu nhập,Thu nhập,Bình thường,2026-04-18 16:00:00,2026-04-18 16:00:00
-399,thu nhập từ việc ctv 1.5 triệu,1500000,Thu nhập,Thu nhập,Tích cực,2026-04-18 17:00:00,2026-04-18 17:00:00402,Order trà sữa 50k,50000,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00
-403,mua ly trà sữa thái 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
-404,uống trà sữa matcha 60k,60000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
-405,order ly trà sữa kem cheese 45k,45000,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00
-406,trà sữa trân châu đường đen 50k,50000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
-407,order trà sữa,0,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00
+399,mua ly trà sữa thái 30k,30000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
+400,uống trà sữa matcha 60k,60000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
+401,order ly trà sữa kem cheese 45k,45000,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00
+402,trà sữa trân châu đường đen 50k,50000,Chi tiêu,Ăn uống,Tích cực,2026-05-15 10:00:00,2026-05-15 10:00:00
+403,order trà sữa,0,Chi tiêu,Ăn uống,Bình thường,2026-05-15 10:00:00,2026-05-15 10:00:00
+404,đi thủy cung hết 200k,200000,Chi tiêu,Giải trí,Bình thường ,2026-03-12 08:00:00,2026-03-12 08:00:00
+405,mua vé đi công viên nước hết 250k,,Chi tiêu,Giải trí,Bình thường,,
+406,mua vé thủy cung hết 300k,300000,Chi tiêu,Giải trí,Bình thường,,
+407,đi chơi công viên,,Chi tiêu,Giải trí,Bình thường,,
+408,mua vé vào công viên thủ lệ,,Chi tiêu,Giải trí,Bình thường,,
+409,đi chơi thủy cung time city khá vui,,Chi tiêu,Giải trí,Tích cực,,
+,tham quan thủy cung cuối tuần,,Chi tiêu,Giải trí,Bình thường,,
+,vui quá nên mua nửa con vịt quay,,Chi tiêu,Ăn uống,Bình thường ,,
+,ăn bún ngan chấm,,Chi tiêu,Ăn uống,Bình thường,,
+,mua ngan cháy tỏi,,Chi tiêu,Ăn uống,Bình thường,,
+,thịt ngan luộc,,Chi tiêu,Ăn uống,Bình thường,,
+,mua thịt vịt về nấu cơm,,Chi tiêu,Ăn uống,Bình thường,,
+,đi ăn thịt bò nướng,,Chi tiêu,Ăn uống,Bình thường,,
+,mua 5 lạng thịt bò,,Chi tiêu,Ăn uống,Bình thường,,
+,lẩu bò ba chỉ,,Chi tiêu,Ăn uống,Bình thường,,
+,mua hải sản tôm cua,,Chi tiêu,Ăn uống,Bình thường,,
+,đi ăn buffet hải sản ngon quá,,Chi tiêu,Ăn uống,Tích cực,,
+,mua mực và ghẹ tươi,,Chi tiêu,Ăn uống,Bình thường,,
+,trả tiền ăn hải sản,,Chi tiêu,Ăn uống,Bình thường,,
+424,sắm cái áo phông đi chơi cho vui,150000,Chi tiêu,Mua sắm,Tích cực,2026-05-10 14:00:00,2026-05-10 14:00:00
+425,sắm đôi giày thể thao mới khá đẹp,850000,Chi tiêu,Mua sắm,Tích cực,2026-05-11 09:30:00,2026-05-11 09:30:00
+426,mua cái ốp lưng điện thoại,50000,Chi tiêu,Mua sắm,Bình thường,2026-05-12 16:15:00,2026-05-12 16:15:00
+427,sắm cái ví da,"",Chi tiêu,Mua sắm,Bình thường,2026-05-13 19:00:00,2026-05-13 19:00:00
+428,mua cái quần jean,"",Chi tiêu,Mua sắm,Bình thường,2026-05-14 10:20:00,2026-05-14 10:20:00
+429,sắm thỏi son dưỡng môi do thích,"",Chi tiêu,Mua sắm,Tích cực,2026-05-15 11:45:00,2026-05-15 11:45:00
+430,mua cái balo đi học mới,"",Chi tiêu,Mua sắm,Bình thường,2026-05-16 08:00:00,2026-05-16 08:00:00
+431,mua cái kính cận mới,"",Chi tiêu,Mua sắm,Bình thường,2026-05-17 15:30:00,2026-05-17 15:30:00
+432,sắm cái thắt lưng da,"",Chi tiêu,Mua sắm,Bình thường,2026-05-18 13:10:00,2026-05-18 13:10:00
+433,mua cái áo khoác gió do thấy thích,"",Chi tiêu,Mua sắm,Tích cực,2026-05-19 17:25:00,2026-05-19 17:25:00
+434,mua quyển sách lập trình java yêu thích,"",Chi tiêu,Học tập,Tích cực,2026-05-10 08:30:00,2026-05-10 08:30:00
+435,đóng tiền học phí học kỳ hơi xót,"",Chi tiêu,Học tập,Tiêu cực,2026-05-10 10:00:00,2026-05-10 10:00:00
+436,mua bộ sách giáo trình toán cao cấp,"",Chi tiêu,Học tập,Bình thường,2026-05-11 14:15:00,2026-05-11 14:15:00
+437,mua khóa học python trên udemy giá hời,"",Chi tiêu,Học tập,Tích cực,2026-05-11 20:00:00,2026-05-11 20:00:00
+438,mua bút bi và sổ ghi chép,"",Chi tiêu,Học tập,Bình thường,2026-05-12 09:00:00,2026-05-12 09:00:00
+439,thanh toán phí gia hạn gói github copilot,"",Chi tiêu,Học tập,Bình thường,2026-05-12 23:10:00,2026-05-12 23:10:00
+440,mua tài liệu ôn thi toeic,"",Chi tiêu,Học tập,Bình thường,2026-05-13 15:45:00,2026-05-13 15:45:00
+441,đóng tiền quỹ lớp học kỳ này,"",Chi tiêu,Học tập,Bình thường,2026-05-13 11:00:00,2026-05-13 11:00:00
+442,in tài liệu bài tập nhóm,"",Chi tiêu,Học tập,Bình thường,2026-05-14 14:20:00,2026-05-14 14:20:00
+443,mua giáo trình cơ sở dữ liệu phân tán,"",Chi tiêu,Học tập,Bình thường,2026-05-14 16:30:00,2026-05-14 16:30:00
+444,đăng ký thi chứng chỉ tiếng anh,"",Chi tiêu,Học tập,Bình thường,2026-05-15 09:15:00,2026-05-15 09:15:00
+445,mua sách thuật toán cấu trúc dữ liệu,"",Chi tiêu,Học tập,Bình thường,2026-05-15 13:00:00,2026-05-15 13:00:00
+446,đang vui nên mua khóa học sql server nâng cao,"",Chi tiêu,Học tập,Tích cực,2026-05-16 19:45:00,2026-05-16 19:45:00
+447,mua ram máy tính,"",Chi tiêu,Học tập,Bình thường,2026-05-16 10:30:00,2026-05-16 10:30:00
+448,in slide bài giảng giải tích,"",Chi tiêu,Học tập,Bình thường,2026-05-17 11:20:00,2026-05-17 11:20:00
+449,mua combo bút chì và tẩy,"",Chi tiêu,Học tập,Bình thường,2026-05-17 16:00:00,2026-05-17 16:00:00
+450,thanh toán tiền mạng học online,"",Chi tiêu,Học tập,Bình thường,2026-05-18 08:10:00,2026-05-18 08:10:00
+451,mua sách lập trình web với spring boot yêu thích,"",Chi tiêu,Học tập,Tích cực,2026-05-18 15:40:00,2026-05-18 15:40:00
+452,mua bản quyền phần mềm vẽ sơ đồ erd,"",Chi tiêu,Học tập,Bình thường,2026-05-19 21:15:00,2026-05-19 21:15:00
+453,tiền mua tài liệu học máy sklearn khá hữu ích,"",Chi tiêu,Học tập,Tích cực,2026-05-19 14:00:00,2026-05-19 14:00:00
+454,đổ xăng xe máy hết 50k,"",Chi tiêu,Di chuyển,Bình thường,2026-05-10 07:15:00,2026-05-10 07:15:00
+455,bắt grab bike đi học,"",Chi tiêu,Di chuyển,Bình thường,2026-05-11 07:30:00,2026-05-11 07:30:00
+456,nạp tiền thẻ xe buýt tháng,"",Chi tiêu,Di chuyển,Bình thường,2026-05-11 17:00:00,2026-05-11 17:00:00
+457,tiền gửi xe máy ở trường,"",Chi tiêu,Di chuyển,Bình thường,2026-05-12 08:00:00,2026-05-12 08:00:00
+458,bắt grab car đi chơi do trời mưa,"",Chi tiêu,Di chuyển,Tiêu cực,2026-05-12 18:30:00,2026-05-12 18:30:00
+459,đổ xăng đầy bình xe tay ga,"",Chi tiêu,Di chuyển,Bình thường,2026-05-13 12:00:00,2026-05-13 12:00:00
+460,mua vé xe khách về quê vui quá,"",Chi tiêu,Di chuyển,Tích cực,2026-05-14 16:00:00,2026-05-14 16:00:00
+461,tiền sạc pin xe máy điện,"",Chi tiêu,Di chuyển,Bình thường,2026-05-15 22:00:00,2026-05-15 22:00:00
+462,gọi xe ôm công nghệ đi nhà sách,"",Chi tiêu,Di chuyển,Bình thường,2026-05-16 14:15:00,2026-05-16 14:15:00
+463,thanh toán tiền vé tàu điện trên cao,"",Chi tiêu,Di chuyển,Bình thường,2026-05-17 09:00:00,2026-05-17 09:00:00
+64,bị công an giao thông thổi phạt,250000,Chi tiêu,Phát sinh,Tiêu cực,2026-05-18 10:00:00,2026-05-18 10:00:00
+465,rơi mất ví tiền trên đường,500000,Chi tiêu,Phát sinh,Tiêu cực,2026-05-18 11:30:00,2026-05-18 11:30:00
+466,đền tiền làm vỡ cốc ở quán cafe,50000,Chi tiêu,Phát sinh,Tiêu cực,2026-05-19 09:15:00,2026-05-19 09:15:00
+467,rớt mất tờ một trăm nghìn,100000,Chi tiêu,Phát sinh,Tiêu cực,2026-05-19 14:20:00,2026-05-19 14:20:00
+468,chuyển khoản nhầm tiền cho người khác,200000,Chi tiêu,Phát sinh,Tiêu cực,2026-05-20 08:00:00,2026-05-20 08:00:00
+469,tiền sửa xe máy bị thủng săm giữa đường,80000,Chi tiêu,Phát sinh,Tiêu cực,2026-05-20 16:45:00,2026-05-20 16:45:00
+470,phí rút tiền khác cây atm,3300,Chi tiêu,Phát sinh,Bình thường,2026-05-21 10:10:00,2026-05-21 10:10:00
+471,ủng hộ quỹ từ thiện trẻ em,100000,Chi tiêu,Phát sinh,Tích cực,2026-05-21 15:30:00,2026-05-21 15:30:00
+472,tiền mừng cưới bạn đại học,500000,Chi tiêu,Phát sinh,Tích cực,2026-05-22 11:00:00,2026-05-22 11:00:00
+479,mua thuốc cảm cúm ở hiệu thuốc,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-25 09:00:00,2026-05-25 09:00:00
+480,đi khám tổng quát định kỳ,2000000,Chi tiêu,Sức khỏe,Bình thường,2026-05-25 14:00:00,2026-05-25 14:00:00
+481,nhổ răng khôn ở nha khoa,1500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-26 10:30:00,2026-05-26 10:30:00
+482,mua hộp vitamin c sủi,65000,Chi tiêu,Sức khỏe,Tích cực,2026-05-26 18:15:00,2026-05-26 18:15:00
+483,đóng tiền bảo hiểm y tế tự nguyện,800000,Chi tiêu,Sức khỏe,Bình thường,2026-05-27 08:45:00,2026-05-27 08:45:00
+484,tiền viện phí nằm viện,3500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-27 16:00:00,2026-05-27 16:00:00
+485,mua thuốc đau dạ dày,120000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-28 11:20:00,2026-05-28 11:20:00
+486,khám mắt và đo độ cận,250000,Chi tiêu,Sức khỏe,Bình thường,2026-05-28 15:30:00,2026-05-28 15:30:00

@@ -66,11 +66,15 @@ try:
             hole=0.4,
             color_discrete_sequence=px.colors.qualitative.Pastel
         )
-        # Ẩn chú thích nếu là mảng rỗng
         if "Chưa có dữ liệu" in cat_data:
             fig_pie.update_traces(textinfo='none')
 
-        fig_pie.update_layout(margin=dict(t=20, b=20, l=0, r=0), height=320)
+        fig_pie.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(t=20, b=20, l=0, r=0),
+            height=320
+        )
         st.plotly_chart(fig_pie, use_container_width=True)
 
     with c_right:
@@ -87,7 +91,14 @@ try:
             color_discrete_sequence=['#A093F2'],
             text_auto='.2s'
         )
-        fig_bar.update_layout(margin=dict(t=20, b=20, l=0, r=0), height=320, xaxis_title=None, yaxis_title=None)
+        fig_bar.update_layout(
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            margin=dict(t=20, b=20, l=0, r=0),
+            height=320,
+            xaxis_title=None,
+            yaxis_title=None
+        )
         st.plotly_chart(fig_bar, use_container_width=True)
 
     # --- PHẦN 3: AI ALERT ---

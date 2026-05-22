@@ -102,6 +102,7 @@ with col1:
             json.dump(updated_settings, f, ensure_ascii=False, indent=4)
 
         st.success("Đã lưu cài đặt thành công!")
+        st.rerun()
 
 # ==================================================
 # RIGHT SIDE

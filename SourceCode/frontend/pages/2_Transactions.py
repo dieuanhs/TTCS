@@ -37,19 +37,17 @@ render_header("Transactions", user_name=user_name)
 
 BASE_URL = "http://127.0.0.1:8000"
 
-# Kiểm tra đăng nhập
 if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.warning("Vui lòng đăng nhập trước!")
     st.stop()
 
-# Khởi tạo bộ nhớ tạm
 if "ai_result" not in st.session_state:
     st.session_state.ai_result = None
 
 # --- PHẦN 1: NHẬP LIỆU ---
 input_text = st.text_input("Nhập chi tiêu (VD: Đi ăn bún bò hết 45k thấy hơi mệt)", placeholder="AI đang lắng nghe...")
 
-# Tạo 2 cột nhỏ cho nút bấm
+
 col_btn1, col_btn2, _ = st.columns([0.15, 0.2, 0.65])
 
 with col_btn1:
@@ -76,7 +74,7 @@ if btn_analyze:
     else:
         st.error("Vui lòng nhập nội dung!")
 
-# Hiển thị kết quả để người dùng Review
+# Hiển thị kết quả
 if st.session_state.ai_result:
     detected = st.session_state.ai_result
 
@@ -97,7 +95,7 @@ if st.session_state.ai_result:
         try:
             # Chuyển danh mục về số
             cat_name = detected["category"]
-            cat_id_number = CATEGORY_MAP.get(cat_name, 9)
+            cat_id_number = CATEGORY_MAP.get(cat_name, 8)
 
             payload = {
                 "user_id": st.session_state.get("user_id"),
@@ -152,7 +150,7 @@ try:
                 cols[1].write(f"**{tx.get('description', '')}**")
 
                 # DỊCH NGƯỢC TỪ SỐ SANG CHỮ CHO BẢNG LỊCH SỬ
-                db_cat_id = tx.get("category_id", 9)
+                db_cat_id = tx.get("category_id", 8)
                 display_cat_name = REVERSE_CAT_MAP.get(db_cat_id, "Khác")
 
                 cols[2].markdown(

@@ -1,7 +1,16 @@
 import streamlit as st
 from dialogs import show_profile_dialog, show_change_password_dialog
 
+import json
+import os
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../"))
+SETTINGS_FILE = os.path.join(PROJECT_ROOT, "data", "user_settings.json")
+
 def apply_common_styles():
+    st.session_state.dark_mode = False
+
     st.markdown(
         """
         <style>
@@ -33,10 +42,18 @@ def apply_common_styles():
             background-color: #F8F9FE;
         }
 
-        /* Container rộng */
+        /* Container rộng full */
         .block-container {
-            padding-top: 1.5rem !important;
-            max-width: 95% !important;
+            padding-top: 0rem !important;
+            padding-left: 0rem !important;
+            padding-right: 0rem !important;
+            max-width: 100% !important;
+        }
+
+        /* Padding cho phần nội dung khác không phải header */
+        div.block-container > div[data-testid="stVerticalBlock"] > div:not(:has(.header-anchor)) {
+            padding-left: 3rem !important;
+            padding-right: 3rem !important;
         }
         </style>
         """,
@@ -59,11 +76,14 @@ def render_header(title, user_name=None):
         """
         <style>
         div[data-testid="stHorizontalBlock"]:has(.header-anchor) {
-            background-color: #A093F2;
-            padding: 15px 25px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #6C63FF 0%, #9B8DF2 100%);
+            padding: 15px 30px;
+            border-radius: 0px;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.2);
+            margin-top: 0px !important;
+            margin-bottom: 25px;
+            width: 100% !important;
         }
         /* Chữ bên trong dải header màu trắng */
         div[data-testid="stHorizontalBlock"]:has(.header-anchor) * {
@@ -71,26 +91,34 @@ def render_header(title, user_name=None):
         }
         
         div[data-testid="stHorizontalBlock"]:has(.header-anchor) button {
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            background-color: rgba(255, 255, 255, 0.2);
-            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 5px 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         div[data-testid="stHorizontalBlock"]:has(.header-anchor) button:hover {
-            background-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.3);
             border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         /* Chọn màu đen cho chữ trong popover*/
         div[data-testid="stPopoverBody"] * {
             color: #333 !important;
         }
         div[data-testid="stPopoverBody"] button {
-            background-color: #f0f0f0 !important;
-            border: none !important;
-            margin-top: 5px;
+            background-color: #f8f9fa !important;
+            border: 1px solid #eee !important;
+            border-radius: 8px !important;
+            margin-top: 8px;
+            transition: all 0.2s ease;
         }
         div[data-testid="stPopoverBody"] button:hover {
-            background-color: #e0e0e0 !important;
-            color: black !important;
+            background-color: #A093F2 !important;
+            color: white !important;
         }
         </style>
         """, unsafe_allow_html=True

@@ -234,3 +234,273 @@ weighted avg       0.79      0.75      0.76        61
 
 ============================================================
 
+============================================================
+ THỜI GIAN: 2026-05-21 18:44:57
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'C': 0.5, 'class_weight': 'balanced'}, ngram_range=(1,2), min_df=1
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       1.00      0.75      0.86         4
+    Giao lưu       0.75      0.75      0.75         4
+    Giải trí       0.80      0.67      0.73         6
+     Hóa đơn       1.00      0.78      0.88         9
+     Học tập       0.50      0.50      0.50         4
+     Mua sắm       0.44      0.57      0.50         7
+   Phát sinh       1.00      0.50      0.67         2
+    Sức khỏe       0.69      0.82      0.75        11
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.73      0.80      0.76        10
+
+    accuracy                           0.74        61
+   macro avg       0.79      0.71      0.74        61
+weighted avg       0.77      0.74      0.74        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-21 18:48:48
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'estimator': LinearSVC(random_state=42), 'estimator__C': 1.0, 'estimator__class_weight': 'balanced'}, ngram_range=(1,2)
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       1.00      0.75      0.86         4
+    Giao lưu       0.75      0.75      0.75         4
+    Giải trí       1.00      0.67      0.80         6
+     Hóa đơn       1.00      0.89      0.94         9
+     Học tập       0.50      0.50      0.50         4
+     Mua sắm       0.44      0.57      0.50         7
+   Phát sinh       1.00      0.50      0.67         2
+    Sức khỏe       0.69      0.82      0.75        11
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.73      0.80      0.76        10
+
+    accuracy                           0.75        61
+   macro avg       0.81      0.72      0.75        61
+weighted avg       0.79      0.75      0.76        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 01:07:13
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'estimator': LinearSVC(random_state=42), 'estimator__C': 1.0, 'estimator__class_weight': 'balanced'}, ngram_range=(1,2)
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       1.00      0.75      0.86         4
+    Giao lưu       0.75      0.75      0.75         4
+    Giải trí       1.00      0.67      0.80         6
+     Hóa đơn       1.00      0.89      0.94         9
+     Học tập       0.50      0.50      0.50         4
+     Mua sắm       0.44      0.57      0.50         7
+   Phát sinh       1.00      0.50      0.67         2
+    Sức khỏe       0.69      0.82      0.75        11
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.73      0.80      0.76        10
+
+    accuracy                           0.75        61
+   macro avg       0.81      0.72      0.75        61
+weighted avg       0.79      0.75      0.76        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 01:07:13
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'estimator': LinearSVC(random_state=42), 'estimator__C': 1.0, 'estimator__class_weight': 'balanced'}, ngram_range=(1,2)
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       1.00      0.75      0.86         4
+    Giao lưu       0.75      0.75      0.75         4
+    Giải trí       1.00      0.67      0.80         6
+     Hóa đơn       1.00      0.89      0.94         9
+     Học tập       0.50      0.50      0.50         4
+     Mua sắm       0.44      0.57      0.50         7
+   Phát sinh       1.00      0.50      0.67         2
+    Sức khỏe       0.69      0.82      0.75        11
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.73      0.80      0.76        10
+
+    accuracy                           0.75        61
+   macro avg       0.81      0.72      0.75        61
+weighted avg       0.79      0.75      0.76        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 01:15:03
+ MÔ HÌNH:   PhoBERT-base-v2 (Emotion)
+CẤU HÌNH:  epochs=5, batch_size=16, lr=3e-5, max_length=128, weight_decay=0.01
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.82      0.90      0.86        10
+ Bình thường       0.73      0.84      0.78        32
+    Tích cực       0.77      0.53      0.62        19
+
+    accuracy                           0.75        61
+   macro avg       0.77      0.76      0.75        61
+weighted avg       0.76      0.75      0.75        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 01:24:08
+ MÔ HÌNH:   PhoBERT-base-v2 (Emotion V2)
+CẤU HÌNH:  epochs=5, batch_size=16, lr=2e-05, max_length=64, class_weights=True
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.90      0.90      0.90        10
+ Bình thường       0.76      0.88      0.81        32
+    Tích cực       0.79      0.58      0.67        19
+
+    accuracy                           0.79        61
+   macro avg       0.81      0.78      0.79        61
+weighted avg       0.79      0.79      0.78        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 01:29:23
+ MÔ HÌNH:   PhoBERT-base-v2 (Production Pipeline)
+CẤU HÌNH:  epochs=10 (Early Stop), batch=16, lr=2e-05, max_len=128, Dropout=0.3, Soft_Class_Weights=True
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.00      0.00      0.00        10
+ Bình thường       0.54      1.00      0.70        32
+    Tích cực       1.00      0.11      0.19        19
+
+    accuracy                           0.56        61
+   macro avg       0.51      0.37      0.30        61
+weighted avg       0.60      0.56      0.43        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 01:41:51
+ MÔ HÌNH:   PhoBERT-base-v2 (Production Pipeline v2)
+CẤU HÌNH:  epochs=6 (Early Stop), batch=16, lr=3e-05, max_len=64, Soft_Weights_Log
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.75      0.90      0.82        10
+ Bình thường       0.82      0.84      0.83        32
+    Tích cực       0.81      0.68      0.74        19
+
+    accuracy                           0.80        61
+   macro avg       0.79      0.81      0.80        61
+weighted avg       0.81      0.80      0.80        61
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 19:41:22
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'estimator': LinearSVC(random_state=42), 'estimator__C': 5.0, 'estimator__class_weight': 'balanced'}, ngram_range=(1,2)
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       0.60      0.75      0.67         4
+    Giao lưu       1.00      0.75      0.86         4
+    Giải trí       0.67      0.57      0.62         7
+     Hóa đơn       0.78      0.78      0.78         9
+     Học tập       0.00      0.00      0.00         4
+     Mua sắm       0.50      0.43      0.46         7
+   Phát sinh       1.00      0.33      0.50         3
+    Sức khỏe       0.79      1.00      0.88        11
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.79      1.00      0.88        11
+
+    accuracy                           0.73        64
+   macro avg       0.71      0.66      0.66        64
+weighted avg       0.72      0.73      0.71        64
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 19:54:07
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'estimator': LinearSVC(random_state=42), 'estimator__C': 5.0, 'estimator__class_weight': 'balanced'}, ngram_range=(1,2)
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       0.80      0.67      0.73         6
+    Giao lưu       1.00      0.75      0.86         4
+    Giải trí       0.88      1.00      0.93         7
+     Hóa đơn       0.88      0.78      0.82         9
+     Học tập       0.83      0.71      0.77         7
+     Mua sắm       0.45      0.56      0.50         9
+   Phát sinh       0.00      0.00      0.00         2
+    Sức khỏe       0.70      0.64      0.67        11
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.67      0.91      0.77        11
+
+    accuracy                           0.74        70
+   macro avg       0.72      0.70      0.70        70
+weighted avg       0.74      0.74      0.73        70
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 20:04:53
+ MÔ HÌNH:   PhoBERT-base-v2 (Production Pipeline v2)
+CẤU HÌNH:  epochs=6 (Early Stop), batch=16, lr=3e-05, max_len=64, Soft_Weights_Log
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.85      1.00      0.92        11
+ Bình thường       0.81      0.87      0.84        39
+    Tích cực       0.76      0.59      0.67        22
+
+    accuracy                           0.81        72
+   macro avg       0.81      0.82      0.81        72
+weighted avg       0.80      0.81      0.80        72
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 20:06:21
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'estimator': LinearSVC(random_state=42), 'estimator__C': 1.0, 'estimator__class_weight': None}, ngram_range=(1,2)
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       0.80      0.80      0.80         5
+    Giao lưu       0.75      0.75      0.75         4
+    Giải trí       0.88      1.00      0.93         7
+     Hóa đơn       1.00      0.78      0.88         9
+     Học tập       0.83      0.71      0.77         7
+     Mua sắm       0.56      0.56      0.56         9
+   Phát sinh       1.00      0.25      0.40         4
+    Sức khỏe       0.69      0.75      0.72        12
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.67      0.91      0.77        11
+
+    accuracy                           0.76        72
+   macro avg       0.82      0.75      0.76        72
+weighted avg       0.79      0.76      0.76        72
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-05-22 21:25:14
+ MÔ HÌNH:   PhoBERT-base-v2 (Production Pipeline v2)
+CẤU HÌNH:  epochs=6 (Early Stop), batch=16, lr=3e-05, max_len=64, Soft_Weights_Log
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.85      1.00      0.92        11
+ Bình thường       0.81      0.87      0.84        39
+    Tích cực       0.76      0.59      0.67        22
+
+    accuracy                           0.81        72
+   macro avg       0.81      0.82      0.81        72
+weighted avg       0.80      0.81      0.80        72
+
+============================================================
+

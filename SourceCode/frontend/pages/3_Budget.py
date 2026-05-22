@@ -4,7 +4,7 @@ import datetime
 import os
 import sys
 
-# --- CẤU TRÌNH ĐƯỜNG DẪN ---
+
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "../../"))
 if PROJECT_ROOT not in sys.path:
@@ -35,7 +35,7 @@ with st.expander("➕ Bấm vào đây để Thêm hoặc Cập nhật hạn m�
 
         with col1:
             # Mapping tên hiển thị và ID
-            cat_options = {"Ăn uống": 1, "Di chuyển": 2, "Mua sắm": 3, "Giải trí": 4, "Hóa đơn": 5}
+            cat_options = {"Ăn uống": 1, "Di chuyển": 2, "Giao lưu": 3, "Giải trí": 4, "Hóa đơn": 5, "Học tập":6, "Mua sắm":7,"Phát sinh":8, "Sức khỏe":9}
             selected_cat = st.selectbox("Chọn danh mục chi tiêu", list(cat_options.keys()))
             limit_amount = st.number_input("Hạn mức tối đa (VND)", min_value=0, value=3000000, step=100000)
 

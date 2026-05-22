@@ -76,7 +76,13 @@ try:
             fig_cat = px.bar(df_cat, x='Danh mục', y='Dự báo (VND)', color='Danh mục',
                              color_discrete_sequence=px.colors.qualitative.Pastel,
                              text_auto='.2s')  # Hiển thị số rút gọn trên cột
-            fig_cat.update_layout(height=400, showlegend=False, margin=dict(t=20, b=10, l=10, r=10))
+            fig_cat.update_layout(
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                height=400,
+                showlegend=False,
+                margin=dict(t=20, b=10, l=10, r=10)
+            )
             st.plotly_chart(fig_cat, use_container_width=True)
         else:
             st.info("Chưa có đủ dữ liệu giao dịch trong tháng để vẽ biểu đồ dự báo.")
@@ -88,15 +94,30 @@ try:
         bal = data.get('projected_balance', 0)
         ai_bg = "#FFF9C4" if bal >= 0 else "#FFEBEE"
         ai_border = "#FBC02D" if bal >= 0 else "#F44336"
+        
+        # Lấy danh sách nguyên nhân cảm xúc
+        emotion_reasons = data.get('emotion_reasons', [])
 
         st.markdown(f"""
-            <div style="background-color: {ai_bg}; padding: 25px; border-radius: 15px; border-left: 6px solid {ai_border}; height: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <div style="background-color: {ai_bg}; padding: 25px; border-radius: 15px; border-left: 6px solid {ai_border}; height: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 15px;">
                 <div style="font-size: 30px; margin-bottom: 10px;">{'💡' if bal >= 0 else '🚨'}</div>
                 <p style="color: #333; font-size: 16px; line-height: 1.6; font-weight: 500;">
                     {data.get('ai_prediction_text', '')}
                 </p>
             </div>
         """, unsafe_allow_html=True)
+        
+        if emotion_reasons:
+            reasons_html = "".join([f"<li style='margin-bottom: 5px; color: #424242;'>{r}</li>" for r in emotion_reasons])
+            st.markdown(f"""
+                <div style="background-color: #E1F5FE; padding: 15px; border-radius: 10px; border-left: 5px solid #03A9F4;">
+                    <p style="margin: 0 0 10px 0; font-size: 15px; font-weight: bold; color: #0277BD;">🧠 AI phát hiện hành vi chi tiêu bốc đồng</p>
+                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #333;">Nguyên nhân chính:</p>
+                    <ul style="margin: 5px 0 0 20px; font-size: 13px;">
+                        {reasons_html}
+                    </ul>
+                </div>
+            """, unsafe_allow_html=True)
 
 except Exception as e:
     st.error(f"Lỗi: {e}")

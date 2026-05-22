@@ -11,11 +11,12 @@ def generate_mock_data():
 
     USER_ID = 1
 
-    # 2. CHUẨN BỊ TỪ ĐIỂN DỮ LIỆU (Đã update theo AI model của Ánh)
+    # 2. CHUẨN BỊ TỪ ĐIỂN DỮ LIỆU
     categories = [
-        (1, "Ăn uống"), (2, "Di chuyển"),
-        (3, "Mua sắm"), (4, "Giải trí"), (5, "Hóa đơn")
+        (1, "Ăn uống"), (2, "Di chuyển"),(3, "Giao lưu"), (4, "Giải trí"), (5, "Hóa đơn"),
+        (6, "Học tập"),(7,"Mua sắm"),(8,"Phát sinh"),(9,"Sức khỏe"),(10,"Thu nhập")
     ]
+
     # Cập nhật đúng 3 nhãn cảm xúc từ AI
     emotions = ["tích cực", "tiêu cực", "bình thường"]
 
@@ -87,7 +88,7 @@ def generate_mock_data():
 
     conn.commit()
     conn.close()
-    print("🎉 Bơm dữ liệu chuẩn AI thành công! Ánh kiểm tra Database nhé!")
+    print("🎉 Bơm dữ liệu chuẩn AI thành công!")
 
 
 if __name__ == "__main__":
