@@ -151,7 +151,7 @@ try:
                 else:
                     # 1. Các chỉ số phân tích và Risk Meter
                     c1, c2 = st.columns([1, 1])
-                    
+
                     corr_val = analytics_data.get('correlation', 0.0)
                     if corr_val <= -0.4:
                         corr_class = "Trung bình - Cao"
@@ -168,7 +168,7 @@ try:
                     else:
                         corr_class = "Thấp"
                         corr_desc = "Tâm trạng hầu như không ảnh hưởng đến số tiền chi tiêu của bạn."
-                    
+
                     risk_score = analytics_data.get('risk_score', 10)
                     if risk_score >= 70:
                         risk_status = "Emotional spending risk (Rủi ro chi tiêu theo cảm xúc)"
@@ -210,11 +210,11 @@ try:
                         """, unsafe_allow_html=True)
 
                     st.write("")
-                    
+
                     # 2. AI Insight Alert
                     pattern = analytics_data.get('behavior_pattern', 'stable')
                     insight = analytics_data.get("insight", "")
-                    
+
                     if pattern == "stress":
                         st.error(insight)
                     elif pattern == "euphoric":
@@ -222,7 +222,66 @@ try:
                     else:
                         st.success(insight)
 
-                    # 3. Biểu đồ chi tiết
+                    # 3. Anomaly Detection Alert (Phát hiện bất thường)
+                    anomalies = analytics_data.get("anomalies", [])
+                    if anomalies:
+                        st.write("")
+
+                        # Mapping tag -> (label, color)
+                        tag_styles = {
+                            "amount": ("💰 Số tiền", "#E65100", "#FFF3E0"),
+                            "time": ("🕐 Giờ giấc", "#1565C0", "#E3F2FD"),
+                            "category": ("📂 Danh mục", "#6A1B9A", "#F3E5F5"),
+                            "combined": ("🔍 Tổng hợp", "#455A64", "#ECEFF1"),
+                        }
+
+                        # Build anomaly cards
+                        cards_html = ""
+                        for ano in anomalies:
+                            # Render tag badges
+                            tags_html = ""
+                            for tag in ano.get("anomaly_tags", []):
+                                label, color, bg = tag_styles.get(tag, ("🔍 Khác", "#757575", "#F5F5F5"))
+                                tags_html += f"""<span style="display:inline-block; background:{bg}; color:{color}; padding:3px 10px; border-radius:12px; font-size:12px; font-weight:600; margin-right:6px; border:1px solid {color}33;">{label}</span>"""
+
+                            # Render detail reasons
+                            reasons_html = ""
+                            for reason in ano.get("reasons", []):
+                                reasons_html += f"""<li style="margin-bottom:4px; color:#424242; font-size:13px; line-height:1.5;">{reason}</li>"""
+
+                            hour_str = f"{ano.get('hour', 0):02d}:00" if 'hour' in ano else ""
+                            cat_str = ano.get("category", "")
+                            meta_parts = [f"{ano['date']}"]
+                            if hour_str:
+                                meta_parts.append(hour_str)
+                            if cat_str:
+                                meta_parts.append(cat_str)
+                            meta_str = " · ".join(meta_parts)
+
+                            cards_html += f"""
+<div style="background:#FFFFFF; border:1px solid #FFCDD2; border-radius:10px; padding:14px 18px; margin-bottom:10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div>
+            <span style="font-weight:700; color:#C62828; font-size:15px;">{ano['amount']:,.0f}đ</span>
+            <span style="color:#888; font-size:13px; margin-left:8px;">— {ano['description']}</span>
+        </div>
+        <span style="color:#999; font-size:12px; white-space:nowrap;">{meta_str}</span>
+    </div>
+    <div style="margin-bottom:8px;">{tags_html}</div>
+    <ul style="margin:0; padding-left:20px;">{reasons_html}</ul>
+</div>
+"""
+
+                        html_content = f"""
+<div style="background-color: #FFEBEE; padding: 20px; border-radius: 12px; border-left: 5px solid #F44336; margin-bottom: 15px;">
+    <h4 style="margin-top: 0; color: #D32F2F; font-size:18px;">🚨 Cảnh báo Giao dịch Bất thường (Anomaly Detection)</h4>
+    <p style="font-size: 14px; color: #333; margin-bottom: 12px;">AI Isolation Forest đã phát hiện <b>{len(anomalies)}</b> giao dịch lệch khỏi thói quen chi tiêu thường ngày:</p>
+    {cards_html}
+</div>
+"""
+                        st.markdown(html_content, unsafe_allow_html=True)
+
+                    # 4. Biểu đồ chi tiết
                     st.write("")
                     c_chart1, c_chart2 = st.columns([1.2, 1])
 
@@ -235,7 +294,8 @@ try:
                             fig_trend = px.line(
                                 df_trend, x="date", y="amount", color="emotion",
                                 title="📈 Xu hướng Chi tiêu & Cảm xúc theo Ngày",
-                                color_discrete_map={"Tích cực": "#4CAF50", "Bình thường": "#9E9E9E", "Tiêu cực": "#F44336"},
+                                color_discrete_map={"Tích cực": "#4CAF50", "Bình thường": "#9E9E9E",
+                                                    "Tiêu cực": "#F44336"},
                                 markers=True
                             )
                             fig_trend.update_layout(
@@ -253,12 +313,14 @@ try:
                     with c_chart2:
                         if heatmap_list:
                             df_heat = pd.DataFrame(heatmap_list)
-                            category_order = df_heat.groupby("category_name")["amount"].sum().sort_values(ascending=False).index.tolist()
+                            category_order = df_heat.groupby("category_name")["amount"].sum().sort_values(
+                                ascending=False).index.tolist()
                             fig_heat = px.bar(
                                 df_heat, x="category_name", y="amount", color="emotion",
                                 barmode="group",
                                 title="🛍️ Chi tiêu Danh mục phân bổ theo Cảm xúc",
-                                color_discrete_map={"Tích cực": "#4CAF50", "Bình thường": "#9E9E9E", "Tiêu cực": "#F44336"},
+                                color_discrete_map={"Tích cực": "#4CAF50", "Bình thường": "#9E9E9E",
+                                                    "Tiêu cực": "#F44336"},
                                 category_orders={"category_name": category_order}
                             )
                             fig_heat.update_layout(
@@ -284,7 +346,7 @@ try:
     if spending_list:
         top_cat = spending_list[0].get("cat", "Khác")
         top_cat_desc = spending_list[0].get("descriptions", [])
-        
+
     SAVINGS_TIPS = {
         "Ăn uống": [
             "🍳 **Tự nấu ăn tại nhà**: Chuẩn bị bữa trưa mang đi làm có thể tiết kiệm tới 50% chi phí ăn uống.",
@@ -324,7 +386,7 @@ try:
         "Sức khỏe": [
             "🏃‍♂️ **Tự tập thể dục**: Tận dụng công viên hoặc các bài tập tại nhà thay vì đăng ký gói gym đắt đỏ nhưng ít đi.",
             "🍎 **Ăn uống khoa học**: Phòng bệnh hơn chữa bệnh, duy trì lối sống lành mạnh giúp giảm chi phí thuốc men dài hạn.",
-            "🏥 **Mua bảo hiểm y tế**: Chu bị bảo hiểm y tế đầy đủ để tránh gánh nặng tài chính lớn khi có rủi ro sức khỏe."
+            "🏥 **Mua bảo hiểm y tế**: Chuẩn bị bảo hiểm y tế đầy đủ để tránh gánh nặng tài chính lớn khi có rủi ro sức khỏe."
         ],
         "Khác": [
             "💰 **Tự động tiết kiệm**: Trích lập tự động 10-20% thu nhập ngay khi nhận lương vào tài khoản tiết kiệm.",
@@ -332,10 +394,10 @@ try:
             "❌ **Hủy dịch vụ không dùng**: Rà soát và hủy toàn bộ các dịch vụ đăng ký hàng tháng (Netflix, Spotify...) nếu 2 tháng qua không dùng tới."
         ]
     }
-    
+
     tips = SAVINGS_TIPS.get(top_cat, SAVINGS_TIPS["Khác"])
     if top_cat == "Hóa đơn":
-        #phân biệt tiền trọ với các loại hóa đơn khác
+        # phân biệt tiền trọ với các loại hóa đơn khác
         rent_keywords = ["trọ", "nhà", "phòng", "rent", "thuê", "chung cư", "apartment", "mặt bằng"]
         is_rent = any(any(k in desc.lower() for k in rent_keywords) for desc in top_cat_desc)
         if is_rent:
@@ -353,7 +415,7 @@ try:
             </p>
         </div>
     """, unsafe_allow_html=True)
-    
+
     # GỢI Ý
     with st.popover(f"💡 Xem gợi ý tiết kiệm cho mục '{top_cat}'", use_container_width=True):
         st.markdown(f"#### 💡 Gợi ý tiết kiệm tốt nhất cho danh mục **{top_cat}**:")

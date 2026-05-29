@@ -51,21 +51,28 @@ class AIModel:
     # Category Prediction
     # ======================
     def predict_category(self, text: str):
-        text_lower = text.lower()
+        text_lower = f'{text.lower()}'
 
-        # 1. BỘ LỌC DỰ PHÒNG (Rule-based)
-        if any(kw in text_lower for kw in ["tiền nhà", "thuê nhà", "phòng trọ", "tiền điện", "tiền nước", "wifi"]):
+        def match_keywords(keywords):
+            return any(f" {kw} " in text_lower for kw in keywords)
+
+        #1. BỘ LỌC DỰ PHÒNG (Rule-based)
+        if match_keywords(["tiền nhà", "thuê nhà", "phòng trọ", "tiền điện", "tiền nước", "wifi"]):
             return "Hóa đơn"
-        if any(kw in text_lower for kw in ["học phí", "giáo trình", "tiền học", "quỹ lớp"]):
+        if match_keywords(["học phí", "giáo trình", "tiền học", "quỹ lớp"]):
             return "Học tập"
-        if any(kw in text_lower for kw in ["xăng", "taxi", "grab", "xe bus", "vé xe"]):
+        if match_keywords(["xăng", "taxi", "grab", "xe bus", "vé xe"]):
             return "Di chuyển"
-        if any(kw in text_lower for kw in ["ăn", "uống", "trà sữa", "bún", "bánh mì", "cơm", "phở", "lẩu", "nhậu", "cà phê", "cafe", "ăn ngoài"]):
-            return "Ăn uống"
-        if any(kw in text_lower for kw in ["thuốc", "khám", "bệnh viện", "bác sĩ", "hiệu thuốc", "y tế", "thuốc cảm", "spa"]):
-            return "Sức khỏe"
-        if any(kw in text_lower for kw in ["mua sắm", "quần áo", "giày", "shopee", "tiki", "lazada"]):
+
+        if match_keywords(["mua sắm", "quần áo", "áo", "quần", "váy", "giày", "dép", "shopee", "tiki", "lazada", "mỹ phẩm",
+                     "kem dưỡng", "skincare", "son", "chống nắng", "túi xách", "serum", "toner"]):
             return "Mua sắm"
+        if match_keywords(["ăn", "uống", "trà sữa", "bún", "bánh mì", "cơm", "phở", "lẩu", "nhậu", "cà phê", "cafe",
+                            "ăn ngoài"]):
+            return "Ăn uống"
+
+        if match_keywords(["thuốc", "khám", "bệnh viện", "bác sĩ", "hiệu thuốc", "y tế", "thuốc cảm", "spa"]):
+            return "Sức khỏe"
 
         # 2. HỌC MÁY
         clean = clean_text(text)

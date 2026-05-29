@@ -470,11 +470,64 @@ STT,Raw Text (Câu văn thô),Amount,Type,Category,Emotion,created_at,transactio
 470,phí rút tiền khác cây atm,3300,Chi tiêu,Phát sinh,Bình thường,2026-05-21 10:10:00,2026-05-21 10:10:00
 471,ủng hộ quỹ từ thiện trẻ em,100000,Chi tiêu,Phát sinh,Tích cực,2026-05-21 15:30:00,2026-05-21 15:30:00
 472,tiền mừng cưới bạn đại học,500000,Chi tiêu,Phát sinh,Tích cực,2026-05-22 11:00:00,2026-05-22 11:00:00
-479,mua thuốc cảm cúm ở hiệu thuốc,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-25 09:00:00,2026-05-25 09:00:00
-480,đi khám tổng quát định kỳ,2000000,Chi tiêu,Sức khỏe,Bình thường,2026-05-25 14:00:00,2026-05-25 14:00:00
-481,nhổ răng khôn ở nha khoa,1500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-26 10:30:00,2026-05-26 10:30:00
-482,mua hộp vitamin c sủi,65000,Chi tiêu,Sức khỏe,Tích cực,2026-05-26 18:15:00,2026-05-26 18:15:00
-483,đóng tiền bảo hiểm y tế tự nguyện,800000,Chi tiêu,Sức khỏe,Bình thường,2026-05-27 08:45:00,2026-05-27 08:45:00
-484,tiền viện phí nằm viện,3500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-27 16:00:00,2026-05-27 16:00:00
-485,mua thuốc đau dạ dày,120000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-28 11:20:00,2026-05-28 11:20:00
-486,khám mắt và đo độ cận,250000,Chi tiêu,Sức khỏe,Bình thường,2026-05-28 15:30:00,2026-05-28 15:30:00
+473,mua thuốc cảm cúm ở hiệu thuốc,150000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-25 09:00:00,2026-05-25 09:00:00
+474,đi khám tổng quát định kỳ,2000000,Chi tiêu,Sức khỏe,Bình thường,2026-05-25 14:00:00,2026-05-25 14:00:00
+475,nhổ răng khôn ở nha khoa,1500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-26 10:30:00,2026-05-26 10:30:00
+476,mua hộp vitamin c sủi,65000,Chi tiêu,Sức khỏe,Tích cực,2026-05-26 18:15:00,2026-05-26 18:15:00
+477,đóng tiền bảo hiểm y tế tự nguyện,800000,Chi tiêu,Sức khỏe,Bình thường,2026-05-27 08:45:00,2026-05-27 08:45:00
+478,tiền viện phí nằm viện,3500000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-27 16:00:00,2026-05-27 16:00:00
+479,mua thuốc đau dạ dày,120000,Chi tiêu,Sức khỏe,Tiêu cực,2026-05-28 11:20:00,2026-05-28 11:20:00
+480,khám mắt và đo độ cận,250000,Chi tiêu,Sức khỏe,Bình thường,2026-05-28 15:30:00,2026-05-28 15:30:00
+481,mua kem dưỡng da ban đêm,350000,Chi tiêu,Mua sắm,Bình thường,2026-05-10 14:00:00,2026-05-10 14:00:00
+482,săn sale kem dưỡng ẩm,150000,Chi tiêu,Mua sắm,Tích cực,2026-05-11 09:30:00,2026-05-11 09:30:00
+483,mua áo chống nắng uniqlo,450000,Chi tiêu,Mua sắm,Bình thường,2026-05-12 16:15:00,2026-05-12 16:15:00
+484,săn sale áo chống nắng mới,170000,Chi tiêu,Mua sắm,Tích cực,2026-05-13 19:00:00,2026-05-13 19:00:00
+485,mua tuýp kem chống nắng,250000,Chi tiêu,Mua sắm,Bình thường,2026-05-14 10:20:00,2026-05-14 10:20:00
+486,thanh toán tiền mỹ phẩm skincare,800000,Chi tiêu,Mua sắm,Bình thường,2026-05-15 11:45:00,2026-05-15 11:45:00
+487,mua đồ trang điểm,500000,Chi tiêu,Mua sắm,Tích cực,2026-05-16 08:00:00,2026-05-16 08:00:00
+488,sắm tẩy trang và sữa rửa mặt,200000,Chi tiêu,Mua sắm,Bình thường,2026-05-17 15:30:00,2026-05-17 15:30:00
+489,mua áo khoác chống nắng mùa hè,300000,Chi tiêu,Mua sắm,Bình thường,2026-05-18 13:10:00,2026-05-18 13:10:00
+490,chốt đơn shopee kem dưỡng thể,180000,Chi tiêu,Mua sắm,Tích cực,2026-05-19 17:25:00,2026-05-19 17:25:00
+491,mua serum phục hồi da,400000,Chi tiêu,Mua sắm,Tích cực,2026-05-20 20:00:00,2026-05-20 20:00:00
+492,mua quần áo chống nắng đi biển,250000,Chi tiêu,Mua sắm,Tích cực,2026-05-21 14:00:00,2026-05-21 14:00:00
+493, đặt mua toner và mặt nạ,150000,Chi tiêu,Mua sắm,Bình thường,2026-05-22 10:30:00,2026-05-22 10:30:00
+494,mua son môi và phấn phủ,350000,Chi tiêu,Mua sắm,Tích cực,2026-05-23 09:00:00,2026-05-23 09:00:00
+495,săn sale đồ skincare mùng 5 tháng 5,500000,Chi tiêu,Mua sắm,Tích cực,2026-05-24 23:30:00,2026-05-24 23:30:00
+496,mua mỹ phẩm kem dưỡng da ban đêm,350000,Chi tiêu,Mua sắm,Bình thường,2026-05-10 14:00:00,2026-05-10 14:00:00
+497,mua đồ skincare kem chống nắng,250000,Chi tiêu,Mua sắm,Bình thường,2026-05-14 10:20:00,2026-05-14 10:20:00
+498,mua quần áo chống nắng mùa hè,300000,Chi tiêu,Mua sắm,Bình thường,2026-05-18 13:10:00,2026-05-18 13:10:00
+499,mua tuýp kem chống nắng matte kiềm dầu 450k,450000,Chi tiêu,Mua sắm,Bình thường,2026-05-25 10:00:00,2026-05-25 10:00:00
+500,sắm tinh chất serum vitamin c obagi 1tr2,1200000,Chi tiêu,Mua sắm,Bình thường,2026-05-25 14:20:00,2026-05-25 14:20:00
+501,chốt đơn kem dưỡng phục hồi da retinol 800k,800000,Chi tiêu,Mua sắm,Bình thường,2026-05-25 18:30:00,2026-05-25 18:30:00
+502,mua áo khoác chống nắng uniqlo 550 cành,550000,Chi tiêu,Mua sắm,Bình thường,2026-05-26 09:15:00,2026-05-26 09:15:00
+503,thanh toán lọ kem chống nắng vật lý 500 ngàn,500000,Chi tiêu,Mua sắm,Bình thường,2026-05-26 11:40:00,2026-05-26 11:40:00
+504,mua váy thiết kế đi tiệc mùa hè 650k,650000,Chi tiêu,Mua sắm,Tích cực,2026-05-26 16:00:00,2026-05-26 16:00:00
+505,săn sale obagi retinol trên shopee 900k,900000,Chi tiêu,Mua sắm,Tích cực,2026-05-26 20:25:00,2026-05-26 20:25:00
+506,đặt mua quần áo thể thao tập gym 400k,400000,Chi tiêu,Mua sắm,Bình thường,2026-05-27 23:10:00,2026-05-27 23:10:00
+507,mua áo sơ mi công sở trắng 350k,350000,Chi tiêu,Mua sắm,Bình thường,2026-05-27 00:05:00,2026-05-27 00:05:00
+508,chốt đơn set mỹ phẩm skincare 2 triệu,2000000,Chi tiêu,Mua sắm,Tích cực,2026-05-27 13:50:00,2026-05-27 13:50:00
+509,mua quần jean ống rộng 450k,450000,Chi tiêu,Mua sắm,Bình thường,2026-05-27 15:15:00,2026-05-27 15:15:00
+510,mua nước hoa hồng toner cấp ẩm 300k,300000,Chi tiêu,Mua sắm,Bình thường,2026-05-28 09:45:00,2026-05-28 09:45:00
+511,sắm kem dưỡng ẩm ban đêm 600000,600000,Chi tiêu,Mua sắm,Bình thường,2026-05-28 10:30:00,2026-05-28 10:30:00
+512,mua áo thun cộc tay mùa hè 200k,200000,Chi tiêu,Mua sắm,Bình thường,2026-05-28 14:00:00,2026-05-28 14:00:00
+513,đặt hàng mặt nạ phục hồi da b5 250k,250000,Chi tiêu,Mua sắm,Bình thường,2026-05-28 17:20:00,2026-05-28 17:20:00
+514,săn sale áo chống nắng toàn thân 350k,350000,Chi tiêu,Mua sắm,Tích cực,2026-05-28 19:10:00,2026-05-28 19:10:00
+515,mua chân váy chữ a phối đồ 280k,280000,Chi tiêu,Mua sắm,Bình thường,2026-05-29 22:40:00,2026-05-29 22:40:00
+516,thanh toán đơn hàng tẩy trang dịu nhẹ 400k,400000,Chi tiêu,Mua sắm,Bình thường,2026-05-29 11:15:00,2026-05-29 11:15:00
+517,mua serum cấp ẩm làm sáng da 700k,700000,Chi tiêu,Mua sắm,Bình thường,2026-05-29 15:35:00,2026-05-29 15:35:00
+518,sắm áo len tăm tay dài thời trang 300k,300000,Chi tiêu,Mua sắm,Bình thường,2026-05-29 16:50:00,2026-05-29 16:50:00
+519,săn sale shopee mùng 5 tháng 5,450000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 10:00:00,2026-05-30 10:00:00
+520,săn sale quần áo mùa hè,300000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 11:00:00,2026-05-30 11:00:00
+521,săn sale mỹ phẩm chính hãng,500000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 12:00:00,2026-05-30 12:00:00
+522,thức đêm săn sale đồ skincare,600000,Chi tiêu,Mua sắm,Tiêu cực,2026-05-30 01:00:00,2026-05-30 01:00:00
+523,săn sale áo chống nắng lazada,250000,Chi tiêu,Mua sắm,Bình thường,2026-05-30 14:00:00,2026-05-30 14:00:00
+524,săn sale túi xách và giày dép,800000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 15:00:00,2026-05-30 15:00:00
+525,chớp deal săn sale son môi,350000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 16:00:00,2026-05-30 16:00:00
+526,săn sale flash sale lúc nửa đêm,400000,Chi tiêu,Mua sắm,Tiêu cực,2026-05-30 23:30:00,2026-05-30 23:30:00
+527,săn sale đồ điện tử gia dụng,1200000,Chi tiêu,Mua sắm,Bình thường,2026-05-30 18:00:00,2026-05-30 18:00:00
+528,săn sale váy vóc trên tiktok shop,320000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 19:00:00,2026-05-30 19:00:00
+529,mã giảm giá săn sale đồ trang điểm,450000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 20:00:00,2026-05-30 20:00:00
+530,săn sale kem dưỡng da ban đêm,550000,Chi tiêu,Mua sắm,Bình thường,2026-05-30 21:00:00,2026-05-30 21:00:00
+531,săn sale quần jean áo thun,400000,Chi tiêu,Mua sắm,Tích cực,2026-05-30 22:00:00,2026-05-30 22:00:00
+532,thức khuya săn sale chốt đơn shopee,750000,Chi tiêu,Mua sắm,Tiêu cực,2026-05-31 00:30:00,2026-05-31 00:30:00
+533,săn sale ngày đôi mùng 6 tháng 6,900000,Chi tiêu,Mua sắm,Tích cực,2026-05-31 09:00:00,2026-05-31 09:00:00

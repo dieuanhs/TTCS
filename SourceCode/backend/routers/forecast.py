@@ -27,13 +27,13 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     month = now.month
     current_day = now.day
 
-    # 1. Cấu hình thời gian
+    # 1. CẤU HÌNH THỜI GIAN
     _, days_in_month = calendar.monthrange(year, month)
     # Tối thiểu 7 ngày để thuật toán Burn Rate ổn định
     days_passed = current_day if current_day >= 7 else 7
     current_ym = now.strftime("%Y-%m")
 
-    # 2. Thu nhập mục tiêu
+    # 2. THU NHẬP MỤC TIÊU
     total_income = db.query(func.sum(Transaction.amount)).filter(
         Transaction.user_id == user_id,
         Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
@@ -66,7 +66,6 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     ).scalar() or 0
     fixed_spent = abs(fixed_spent)
 
-
     fixed_budget = db.query(func.sum(Budget.limit)).filter(
         Budget.user_id == user_id,
         Budget.category_id == 5,
@@ -77,7 +76,22 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     # Dự báo Hóa đơn: Lấy số đã tiêu hoặc Ngân sách
     predicted_fixed = max(fixed_spent, fixed_budget)
 
-    # 4. TÍNH TOÁN YẾU TỐ CẢM XÚC THEO DANH MỤC
+    # 4. TÍNH TOÁN YẾU TỐ CẢM XÚC & HIỆU ỨNG NGÀY LƯƠNG (PAYDAY EFFECT)
+    # Lấy danh sách ngày nhận lương
+    income_txs = db.query(Transaction.description, Transaction.transaction_time).filter(
+        Transaction.user_id == user_id,
+        Transaction.type.in_(["income", "Thu nhập", "thu nhập"])
+    ).all()
+
+    paydays = set()
+    for desc, t_time in income_txs:
+        if desc and "lương" in str(desc).lower():
+            paydays.add(pd.to_datetime(t_time).day)
+
+    # Kiểm tra xem hôm nay có nằm trong [Ngày lương -> Ngày lương + 3]
+    is_payday_effect = any(0 <= (current_day - pd_day) <= 3 for pd_day in paydays)
+
+    # Tính EMA Cảm xúc
     var_txs = db.query(Transaction.emotion, Transaction.amount, Transaction.transaction_time).filter(
         Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
@@ -88,19 +102,20 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     correlation_strength = 0.0
     emotion_trend_score = 0.0
     confidence_score = 0.4
-    
+
     if var_txs:
         df_tx = pd.DataFrame(var_txs, columns=["emotion", "amount", "time"])
         df_tx["amount"] = df_tx["amount"].abs()
-        df_tx["emotion"] = df_tx["emotion"].apply(lambda x: str(x).strip().capitalize() if pd.notnull(x) else "Bình thường")
+        df_tx["emotion"] = df_tx["emotion"].apply(
+            lambda x: str(x).strip().capitalize() if pd.notnull(x) else "Bình thường")
         score_map = {"Tích cực": 1, "Bình thường": 0.0, "Tiêu cực": -1}
         df_tx["sentiment_score"] = df_tx["emotion"].map(score_map).fillna(0.0)
-        
+
         # Calculate Correlation
         if df_tx["sentiment_score"].nunique() > 1 and df_tx["amount"].nunique() > 1:
             correlation_strength = df_tx["sentiment_score"].corr(df_tx["amount"])
             if math.isnan(correlation_strength): correlation_strength = 0.0
-            
+
         # Confidence Score
         n_txs = len(df_tx)
         if n_txs < 5:
@@ -109,8 +124,8 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
             confidence_score = 0.7
         else:
             confidence_score = 1.0
-            
-        # EMA
+
+        # Thuật toán EMA 3 ngày gần nhất
         df_tx["date"] = pd.to_datetime(df_tx["time"]).dt.date
         daily_sentiment = df_tx.groupby("date")["sentiment_score"].mean().tail(3).values
         if len(daily_sentiment) == 3:
@@ -134,7 +149,7 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
         1: "Ăn uống", 2: "Di chuyển", 3: "Giao lưu", 4: "Giải trí", 5: "Hóa đơn",
         6: "Học tập", 7: "Mua sắm", 8: "Phát sinh", 9: "Sức khỏe", 10: "Thu nhập"
     }
-    
+
     category_sensitivity = {
         1: 0.6, 2: 0.3, 3: 0.5, 4: 0.5, 5: 0.1,
         6: 0.2, 7: 0.8, 8: 0.4, 9: 0.3, 10: 0.0
@@ -143,9 +158,13 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     category_forecast = {}
     predicted_variable = 0.0
     emotion_reasons = []
-    
+
     max_increase_ratio = 0
     max_increase_cat = ""
+
+    if is_payday_effect:
+        emotion_reasons.append(
+            "💸 **Hiệu ứng Ngày Lương (Payday Effect)**: AI phát hiện bạn vừa nhận lương. Dữ liệu hành vi cho thấy người dùng dễ nới lỏng 'Kế toán tâm lý' trong 3 ngày này, dễ dẫn đến chi tiêu bốc đồng.")
 
     for c_id, amt in cat_expenses:
         c_name = cat_names.get(c_id, "Khác")
@@ -156,14 +175,20 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
             category_forecast[c_name] = predicted_fixed
         else:
             sens = category_sensitivity.get(c_id, 0.4)
-            # Công thức Adaptive Emotion Factor cho danh mục
+            # Công thức Adaptive Emotion Factor
             raw_factor = 1.0 + (correlation_strength * emotion_trend_score * confidence_score * sens * 0.4)
-            cat_factor = max(0.9, min(raw_factor, 1.15))
-            
+
+            # Áp dụng Payday Effect
+            if is_payday_effect and c_id in [3, 4, 7]:  # Giao lưu, Giải trí, Mua sắm
+                raw_factor += 0.15
+
+            # Kẹp biên độ từ -10% đến +30%
+            cat_factor = max(0.9, min(raw_factor, 1.30))
+
             projected = (actual_amt / days_passed) * days_in_month * cat_factor
             category_forecast[c_name] = projected
             predicted_variable += projected
-            
+
             increase_ratio = cat_factor - 1.0
             if increase_ratio > max_increase_ratio:
                 max_increase_ratio = increase_ratio
@@ -176,17 +201,18 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     predicted_expense = predicted_variable + predicted_fixed
     projected_balance = base_income - predicted_expense
 
-    # 6. Sinh Logic Lời khuyên AI (AI Insight & Reasons)
+    # 6. LỜI KHUYÊN AI (AI INSIGHT & REASONS)
     if max_increase_ratio > 0.03:
-        emotion_reasons.append(f"Chi tiêu cho '{max_increase_cat}' dự kiến tăng ({(max_increase_ratio)*100:.1f}%) do ảnh hưởng của tâm lý.")
-        
+        emotion_reasons.append(
+            f"Chi tiêu cho '{max_increase_cat}' dự kiến tăng ({(max_increase_ratio) * 100:.1f}%) do ảnh hưởng của tâm lý.")
+
         if emotion_trend_score < -0.2:
             emotion_reasons.append("Tâm trạng tiêu cực xuất hiện liên tục trong những ngày gần đây.")
         elif emotion_trend_score > 0.2:
             emotion_reasons.append("Tâm trạng tích cực xuất hiện nhiều trong những ngày gần đây.")
-            
+
         if correlation_strength < -0.3:
-            emotion_reasons.append(f"Dữ liệu lịch sử cho thấy bạn thường tăng chi tay khi bị stress.")
+            emotion_reasons.append(f"Dữ liệu lịch sử cho thấy bạn thường vung tay mua sắm khi bị stress.")
         elif correlation_strength > 0.3:
             emotion_reasons.append(f"Bạn thường có xu hướng chi tiêu bốc đồng vào lúc vui vẻ.")
 
