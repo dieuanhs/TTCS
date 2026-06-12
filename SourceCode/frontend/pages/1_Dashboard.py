@@ -88,7 +88,12 @@ try:
             df_emo,
             x='Cảm xúc',
             y='Tổng tiền (VND)',
-            color_discrete_sequence=['#A093F2'],
+            color='Cảm xúc',
+            color_discrete_map={
+                "Tích cực": "#2ECC71",   # Xanh lá dịu
+                "Bình thường": "#95A5A6", # Xám trung tính
+                "Tiêu cực": "#E74C3C"    # Đỏ cảnh báo
+            },
             text_auto='.2s'
         )
         fig_bar.update_layout(
@@ -97,7 +102,8 @@ try:
             margin=dict(t=20, b=20, l=0, r=0),
             height=320,
             xaxis_title=None,
-            yaxis_title=None
+            yaxis_title=None,
+            showlegend=False
         )
         st.plotly_chart(fig_bar, use_container_width=True)
 

@@ -83,30 +83,42 @@ class AIModel:
     # ======================
     def predict_emotion(self, text: str):
         text_lower = text.lower()
-        
-        # 1. BỘ LỌC TỪ KHÓA CẢM XÚC MẠNH
-        negative_keywords = ["buồn", "chán", "stress", "mệt", "tệ", "thất vọng", "xót", "tức", "bực", "cáu", "áp lực", "đau ví", "thất tình", "đau lòng"]
-        positive_keywords = ["vui", "sướng", "tuyệt", "ngon", "thưởng", "lương", "đã", "hạnh phúc", "phê", "hưng phấn", "may mắn"]
-        
+
+        # 1. BỘ LỌC TỪ KHÓA (Rule-based Layer)
+        negative_keywords = ["buồn", "chán", "stress", "mệt", "tệ", "thất vọng", "xót",
+                             "tức", "bực", "cáu", "áp lực", "đau ví", "thất tình", "đau lòng",
+                             "tiếc", "khổ", "lo", "sợ", "ngán", "mất tiền"]
+        positive_keywords = ["vui", "sướng", "tuyệt", "ngon", "thưởng", "lương", "đã",
+                             "hạnh phúc", "phê", "hưng phấn", "may mắn", "được", "trúng"]
+        neutral_keywords = ["thanh toán", "trả tiền", "nạp tiền", "chuyển khoản",
+                            "mua", "hết", "tổng", "chi", "nộp", "đóng tiền"]
+
         neg_count = sum(1 for kw in negative_keywords if kw in text_lower)
         pos_count = sum(1 for kw in positive_keywords if kw in text_lower)
-        
-        if neg_count > pos_count:
+        neutral_count = sum(1 for kw in neutral_keywords if kw in text_lower)
+
+        # Rule ưu tiên: Nếu có từ khóa cảm xúc mạnh → dùng ngay
+        if (neg_count > pos_count) and neg_count >= pos_count:
             return "Tiêu cực"
-        elif pos_count > neg_count:
+        if (pos_count > neg_count) and pos_count >= neg_count:
             return "Tích cực"
-            
-        # 2. HỌC MÁY (PhoBERT)
+
+        # 2. HỌC MÁY (PhoBERT Fallback)
         clean = clean_text(text)
-        inputs = self.emotion_tokenizer(clean, return_tensors="pt", truncation=True, padding=True, max_length=64)
+        inputs = self.emotion_tokenizer(clean, return_tensors="pt", truncation=True,
+                                        padding=True, max_length=64)
         inputs = {k: v.to(self.device) for k, v in inputs.items()}
 
         with torch.no_grad():
             outputs = self.emotion_model(**inputs)
-            pred_idx = torch.argmax(outputs.logits, dim=1).item()
+            logits = outputs.logits
+
+            # boost 0.3 cho "Bình thường" (index 1)
+            logits[0][1] += 0.3
+
+            pred_idx = torch.argmax(logits, dim=1).item()
 
         return self.emotion_labels[pred_idx]
-
     # ======================
     # FULL SMART INPUT
     # ======================
