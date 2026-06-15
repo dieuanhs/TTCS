@@ -6,7 +6,6 @@ import calendar
 
 def generate_mock_data():
     # 1. KẾT NỐI DATABASE MYSQL
-    # Bạn điền chính xác mật khẩu MySQL của bạn vào đây nhé
     try:
         conn = pymysql.connect(
             host='localhost',
@@ -91,8 +90,7 @@ def generate_mock_data():
             tx_date = datetime(target_year, target_month, day, hour, minute)
             formatted_date = tx_date.strftime("%Y-%m-%d %H:%M:%S")
 
-            # MySQL sử dụng placeholder là %s thay vì dấu ? của SQLite
-            # Đồng thời bỏ trường created_at vì bảng transactions của MySQL không thiết kế trường này
+
             cursor.execute('''
                            INSERT INTO transactions (user_id, category_id, description, amount, type, emotion, transaction_time)
                            VALUES (%s, %s, %s, %s, %s, %s, %s)
