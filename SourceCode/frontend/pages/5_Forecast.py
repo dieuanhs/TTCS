@@ -118,6 +118,15 @@ try:
                     </ul>
                 </div>
             """, unsafe_allow_html=True)
-
+        else:
+            # HIỂN THỊ KHI CẢM XÚC ỔN ĐỊNH
+            st.markdown(f"""
+                        <div style="background-color: #E8F5E9; padding: 15px; border-radius: 10px; border-left: 5px solid #4CAF50;">
+                            <p style="margin: 0 0 5px 0; font-size: 15px; font-weight: bold; color: #2E7D32;">🧠 Phân tích tâm lý hiện tại</p>
+                            <p style="margin: 0; font-size: 14px; color: #333;">
+                                Dòng tiền của bạn đang rất ổn định. AI không phát hiện sự bất thường nào về mặt cảm xúc làm ảnh hưởng đến quyết định chi tiêu trong những ngày qua. Hãy tiếp tục phát huy nhé!
+                            </p>
+                        </div>
+                    """, unsafe_allow_html=True)
 except Exception as e:
     st.error(f"Lỗi: {e}")

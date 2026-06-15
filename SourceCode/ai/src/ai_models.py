@@ -67,7 +67,7 @@ class AIModel:
         if match_keywords(["mua sắm", "quần áo", "áo", "quần", "váy", "giày", "dép", "shopee", "tiki", "lazada", "mỹ phẩm",
                      "kem dưỡng", "skincare", "son", "chống nắng", "túi xách", "serum", "toner"]):
             return "Mua sắm"
-        if match_keywords(["ăn", "uống", "trà sữa", "bún", "bánh mì", "cơm", "phở", "lẩu", "nhậu", "cà phê", "cafe",
+        if match_keywords(["ăn", "uống", "trà sữa", "bún", "bánh mì", "cơm", "phở", "lẩu", "nhậu", "cà phê", "cafe","rau", "quả"
                             "ăn ngoài"]):
             return "Ăn uống"
 

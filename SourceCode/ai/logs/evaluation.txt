@@ -672,3 +672,61 @@ weighted avg       0.83      0.80      0.80        80
 
 ============================================================
 
+============================================================
+ THỜI GIAN: 2026-06-14 23:14:40
+ MÔ HÌNH:   PhoBERT-base-v2 (Production Pipeline v2)
+CẤU HÌNH:  epochs=6 (Early Stop), batch=16, lr=3e-05, max_len=64, Soft_Weights_Log
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.82      0.75      0.78        12
+ Bình thường       0.69      0.84      0.76        43
+    Tích cực       0.71      0.48      0.57        25
+
+    accuracy                           0.71        80
+   macro avg       0.74      0.69      0.70        80
+weighted avg       0.72      0.71      0.70        80
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-06-14 23:52:12
+ MÔ HÌNH:   PhoBERT-base-v2 (Production Pipeline v2)
+CẤU HÌNH:  epochs=6 (Early Stop), batch=16, lr=3e-05, max_len=64, Soft_Weights_Log
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+    Tiêu cực       0.92      1.00      0.96        12
+ Bình thường       0.82      0.93      0.87        43
+    Tích cực       0.89      0.64      0.74        25
+
+    accuracy                           0.85        80
+   macro avg       0.88      0.86      0.86        80
+weighted avg       0.86      0.85      0.84        80
+
+============================================================
+
+============================================================
+ THỜI GIAN: 2026-06-14 23:59:50
+ MÔ HÌNH:   LinearSVC (Tuned)
+CẤU HÌNH:  Best params: {'estimator': LinearSVC(random_state=42), 'estimator__C': 1.0, 'estimator__class_weight': 'balanced'}, ngram_range=(1,2)
+ KẾT QUẢ:
+              precision    recall  f1-score   support
+
+   Di chuyển       1.00      0.67      0.80         6
+    Giao lưu       1.00      0.75      0.86         4
+    Giải trí       0.88      1.00      0.93         7
+     Hóa đơn       0.78      0.78      0.78         9
+     Học tập       0.71      0.71      0.71         7
+     Mua sắm       0.65      0.94      0.77        16
+   Phát sinh       1.00      0.50      0.67         4
+    Sức khỏe       0.89      0.67      0.76        12
+    Thu nhập       1.00      1.00      1.00         4
+     Ăn uống       0.82      0.82      0.82        11
+
+    accuracy                           0.80        80
+   macro avg       0.87      0.78      0.81        80
+weighted avg       0.83      0.80      0.80        80
+
+============================================================
+

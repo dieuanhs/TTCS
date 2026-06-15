@@ -219,11 +219,22 @@ def render_header(title, user_name=None):
             background-color: #A093F2 !important;
             color: white !important;
         }
+        /* --- CĂN LỀ CHO NÚT AVATAR --- */
+        div[data-testid="stHorizontalBlock"]:has(.header-anchor) > div[data-testid="stColumn"]:nth-child(2) {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        div[data-testid="stHorizontalBlock"]:has(.header-anchor) div[data-testid="stPopover"] {
+            display: flex;
+            justify-content: flex-end;
+        }
         </style>
         """, unsafe_allow_html=True
     )
 
-    col1, col2 = st.columns([5, 2])
+    col1, col2 = st.columns([8.5, 1.5])
 
     with col1:
         st.markdown(f"<div class='header-anchor' style='font-size: 24px; font-weight: bold;'>{title}</div>",
