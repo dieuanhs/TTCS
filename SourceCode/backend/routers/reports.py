@@ -2,10 +2,13 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from datetime import datetime
+import calendar
+
 from ..database import SessionLocal
 from .. import models
 
 router = APIRouter(prefix="/reports", tags=["Reports"])
+
 
 def get_db():
     db = SessionLocal()
@@ -14,10 +17,17 @@ def get_db():
     finally:
         db.close()
 
+
 @router.get("/")
 def get_reports(user_id: int, db: Session = Depends(get_db)):
     now = datetime.now()
-    current_ym = now.strftime("%Y-%m")
+    year = now.year
+    month = now.month
+
+    # Tính toán ranh giới thời gian cho tháng hiện tại
+    start_of_month = datetime(year, month, 1, 0, 0, 0)
+    _, last_day = calendar.monthrange(year, month)
+    end_of_month = datetime(year, month, last_day, 23, 59, 59)
 
     # Từ điển Danh mục
     cat_names = {
@@ -29,13 +39,15 @@ def get_reports(user_id: int, db: Session = Depends(get_db)):
     total_income = db.query(func.sum(models.Transaction.amount)).filter(
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).scalar() or 0
 
     total_expense = db.query(func.sum(models.Transaction.amount)).filter(
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).scalar() or 0
     total_expense = abs(total_expense)
 
@@ -50,15 +62,21 @@ def get_reports(user_id: int, db: Session = Depends(get_db)):
             m += 12
             y -= 1
 
-        ym_str = f"{y}-{m:02d}"
+        # Ranh giới thời gian cho từng tháng trong vòng lặp
+        start_i = datetime(y, m, 1, 0, 0, 0)
+        _, last_day_i = calendar.monthrange(y, m)
+        end_i = datetime(y, m, last_day_i, 23, 59, 59)
+
         month_label = f"T{m}"
 
         monthly_exp = db.query(func.sum(models.Transaction.amount)).filter(
             models.Transaction.user_id == user_id,
             models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-            func.strftime("%Y-%m", models.Transaction.transaction_time) == ym_str
+            models.Transaction.transaction_time >= start_i,
+            models.Transaction.transaction_time <= end_i
         ).scalar() or 0
         monthly_trend[month_label] = abs(monthly_exp)
+
     # --- 3. CHI TIÊU THEO DANH MỤC THÁNG NÀY ---
     cat_expenses = db.query(
         models.Transaction.category_id,
@@ -67,7 +85,8 @@ def get_reports(user_id: int, db: Session = Depends(get_db)):
     ).filter(
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).group_by(models.Transaction.category_id).all()
 
     categories = {}
@@ -85,7 +104,8 @@ def get_reports(user_id: int, db: Session = Depends(get_db)):
             models.Transaction.user_id == user_id,
             models.Transaction.category_id == c_id,
             models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-            func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+            models.Transaction.transaction_time >= start_of_month,
+            models.Transaction.transaction_time <= end_of_month
         ).all()
         descriptions = [tx.description for tx in txs if tx.description]
 
@@ -93,8 +113,8 @@ def get_reports(user_id: int, db: Session = Depends(get_db)):
         budget = db.query(models.Budget).filter(
             models.Budget.user_id == user_id,
             models.Budget.category_id == c_id,
-            models.Budget.month == now.month,
-            models.Budget.year == now.year
+            models.Budget.month == month,
+            models.Budget.year == year
         ).first()
 
         limit = budget.limit if budget else 0
@@ -116,7 +136,6 @@ def get_reports(user_id: int, db: Session = Depends(get_db)):
             "diff": diff,
             "descriptions": descriptions
         })
-
 
         if amount > max_cat_amount:
             max_cat_amount = amount

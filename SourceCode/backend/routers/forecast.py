@@ -27,17 +27,20 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     month = now.month
     current_day = now.day
 
-    # 1. CẤU HÌNH THỜI GIAN
+    # 1. CẤU HÌNH THỜI GIAN ĐỘC LẬP VỚI DATABASE
     _, days_in_month = calendar.monthrange(year, month)
     # Tối thiểu 7 ngày để thuật toán Burn Rate ổn định
     days_passed = current_day if current_day >= 7 else 7
-    current_ym = now.strftime("%Y-%m")
+
+    start_of_month = datetime(year, month, 1, 0, 0, 0)
+    end_of_month = datetime(year, month, days_in_month, 23, 59, 59)
 
     # 2. THU NHẬP MỤC TIÊU
     total_income = db.query(func.sum(Transaction.amount)).filter(
         Transaction.user_id == user_id,
         Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
-        func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
+        Transaction.transaction_time >= start_of_month,
+        Transaction.transaction_time <= end_of_month
     ).scalar() or 0
 
     total_budget = db.query(func.sum(Budget.limit)).filter(
@@ -53,7 +56,8 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
         Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         Transaction.category_id != 5,
-        func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
+        Transaction.transaction_time >= start_of_month,
+        Transaction.transaction_time <= end_of_month
     ).scalar() or 0
     variable_expense = abs(variable_expense)
 
@@ -62,7 +66,8 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
         Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         Transaction.category_id == 5,
-        func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
+        Transaction.transaction_time >= start_of_month,
+        Transaction.transaction_time <= end_of_month
     ).scalar() or 0
     fixed_spent = abs(fixed_spent)
 
@@ -96,7 +101,8 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
         Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         Transaction.category_id != 5,
-        func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
+        Transaction.transaction_time >= start_of_month,
+        Transaction.transaction_time <= end_of_month
     ).order_by(Transaction.transaction_time.asc()).all()
 
     correlation_strength = 0.0
@@ -142,7 +148,8 @@ def forecast(user_id: int, db: Session = Depends(get_db)):
     ).filter(
         Transaction.user_id == user_id,
         Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-        func.strftime("%Y-%m", Transaction.transaction_time) == current_ym
+        Transaction.transaction_time >= start_of_month,
+        Transaction.transaction_time <= end_of_month
     ).group_by(Transaction.category_id).all()
 
     cat_names = {

@@ -1,24 +1,25 @@
-from fastapi import APIRouter, Depends, HTTPException, FastAPI
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from .. import crud, schemas, models # Dấu .. để quay ngược ra thư mục cha lấy crud/schemas
+from .. import crud, schemas, models
 from ..database import get_db
 
-# Khởi tạo Router
 router = APIRouter(
     prefix="/users",
-    tags=["users"]
+    tags=["Users"]
 )
+
 @router.post("/", response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return crud.create_user(db=db, user=user)
+
 @router.get("/", response_model=List[schemas.UserOut])
 def read_users(db: Session = Depends(get_db)):
-    users = crud.get_all_users(db)
-    return users
+    return crud.get_all_users(db)
 
 @router.post("/login")
 def login(payload: schemas.UserLogin, db: Session = Depends(get_db)):
+    # Tìm kiếm người dùng dựa trên tên đăng nhập
     user = db.query(models.User).filter(models.User.full_name == payload.username).first()
     if not user or user.password != payload.password:
         raise HTTPException(status_code=401, detail="Sai tài khoản hoặc mật khẩu")
@@ -29,6 +30,7 @@ def login(payload: schemas.UserLogin, db: Session = Depends(get_db)):
         "user_id": user.user_id,
         "email": user.email
     }
+
 @router.put("/{user_id}/update-profile")
 def update_profile(user_id: int, payload: schemas.UpdateProfile, db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.user_id == user_id).first()

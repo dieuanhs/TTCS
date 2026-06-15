@@ -2,6 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from datetime import datetime
+import calendar
+
 from ..database import SessionLocal
 from .. import models
 
@@ -18,20 +20,28 @@ def get_db():
 
 @router.get("/")
 def dashboard(user_id: int, db: Session = Depends(get_db)):
+    # Tính toán ngày đầu tháng và cuối tháng bằng Python
     now = datetime.now()
-    current_ym = now.strftime("%Y-%m")
+    year = now.year
+    month = now.month
 
-    # 1. TỔNG THU & CHI (Chỉ lấy trong tháng hiện tại)
+    start_of_month = datetime(year, month, 1, 0, 0, 0)
+    _, last_day = calendar.monthrange(year, month)
+    end_of_month = datetime(year, month, last_day, 23, 59, 59)
+
+    # 1. TỔNG THU & CHI (Lọc theo khoảng thời gian chuẩn MySQL/SQLite)
     income = db.query(func.sum(models.Transaction.amount)).filter(
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["income", "Thu nhập", "thu nhập"]),
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).scalar() or 0
 
     expense = db.query(func.sum(models.Transaction.amount)).filter(
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).scalar() or 0
     expense = abs(expense)
 
@@ -44,7 +54,8 @@ def dashboard(user_id: int, db: Session = Depends(get_db)):
     ).filter(
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).group_by(models.Transaction.category_id).all()
 
     # Ánh xạ ID sang tên danh mục
@@ -59,7 +70,7 @@ def dashboard(user_id: int, db: Session = Depends(get_db)):
         8: "Phát sinh",
         9: "Sức khỏe",
         10: "Thu nhập"
-        }
+    }
     expense_by_category = {}
 
     for c_id, amt in cat_data:
@@ -76,9 +87,9 @@ def dashboard(user_id: int, db: Session = Depends(get_db)):
     ).filter(
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).group_by(models.Transaction.emotion).all()
-
 
     emotion_spending = {
         "Tích cực": 0,

@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from datetime import datetime
+import calendar
 from sklearn.ensemble import IsolationForest
 import pandas as pd
 import math
@@ -22,10 +23,16 @@ def get_db():
 
 @router.get("/emotion-spending")
 def emotion_spending(user_id: int, db: Session = Depends(get_db)):
+    # 0. TÍNH TOÁN GIỚI HẠN THỜI GIAN ĐỘC LẬP VỚI DATABASE
     now = datetime.now()
-    current_ym = now.strftime("%Y-%m")
+    year = now.year
+    month = now.month
 
-    # 1. LỌC DỮ LIỆU: Lấy thêm transaction_id và description để báo cáo Bất thường
+    start_of_month = datetime(year, month, 1, 0, 0, 0)
+    _, last_day = calendar.monthrange(year, month)
+    end_of_month = datetime(year, month, last_day, 23, 59, 59)
+
+    # 1. LỌC DỮ LIỆU: Áp dụng mốc thời gian an toàn cho MySQL/SQLite
     transactions = db.query(
         models.Transaction.transaction_id,
         models.Transaction.description,
@@ -37,7 +44,8 @@ def emotion_spending(user_id: int, db: Session = Depends(get_db)):
         models.Transaction.user_id == user_id,
         models.Transaction.type.in_(["expense", "Chi tiêu", "chi tiêu"]),
         models.Transaction.category_id != 5,  # Bỏ Hóa đơn cố định
-        func.strftime("%Y-%m", models.Transaction.transaction_time) == current_ym
+        models.Transaction.transaction_time >= start_of_month,
+        models.Transaction.transaction_time <= end_of_month
     ).all()
 
     # Trả về rỗng nếu không có dữ liệu
@@ -80,7 +88,7 @@ def emotion_spending(user_id: int, db: Session = Depends(get_db)):
     MIN_HISTORY_DAYS = 1
 
     is_sufficient = (total_txs >= MIN_TRANSACTIONS) and (negative_txs >= MIN_NEGATIVE_RECORDS) and (
-                unique_days >= MIN_HISTORY_DAYS)
+            unique_days >= MIN_HISTORY_DAYS)
 
     # 5. TÍNH CORRELATION & MULTI-FEATURE RULE-BASED (ĐIỂM PHẠT THỜI GIAN)
     if df["sentiment_score"].nunique() <= 1 or df["amount"].nunique() <= 1:
@@ -249,16 +257,19 @@ def emotion_spending(user_id: int, db: Session = Depends(get_db)):
                     if overall_ratio > 1.3:
                         detail_parts.append(f"số tiền cao hơn {(overall_ratio - 1) * 100:.0f}% so với trung bình chung")
                     elif overall_ratio < 0.7:
-                        detail_parts.append(f"số tiền thấp hơn {(1 - overall_ratio) * 100:.0f}% so với trung bình chung")
+                        detail_parts.append(
+                            f"số tiền thấp hơn {(1 - overall_ratio) * 100:.0f}% so với trung bình chung")
 
                 if cat_id in cat_amt_stats.index:
                     cat_m = cat_amt_stats.loc[cat_id, "mean"]
                     if cat_m > 0:
                         cat_ratio = row["amount"] / cat_m
                         if cat_ratio > 1.3:
-                            detail_parts.append(f"cao hơn {(cat_ratio - 1) * 100:.0f}% mức chi trung bình cho '{c_name}' ({cat_m:,.0f}đ)")
+                            detail_parts.append(
+                                f"cao hơn {(cat_ratio - 1) * 100:.0f}% mức chi trung bình cho '{c_name}' ({cat_m:,.0f}đ)")
                         elif cat_ratio < 0.7:
-                            detail_parts.append(f"thấp hơn {(1 - cat_ratio) * 100:.0f}% mức chi trung bình cho '{c_name}' ({cat_m:,.0f}đ)")
+                            detail_parts.append(
+                                f"thấp hơn {(1 - cat_ratio) * 100:.0f}% mức chi trung bình cho '{c_name}' ({cat_m:,.0f}đ)")
 
                 if dow_avg > 0 and not pd.isna(dow_avg):
                     dow_ratio = row["amount"] / dow_avg
@@ -269,7 +280,8 @@ def emotion_spending(user_id: int, db: Session = Depends(get_db)):
                     combined_detail = "; ".join(detail_parts)
                     reasons.append(f"🔍 Giao dịch {row['amount']:,.0f}đ cho '{c_name}': {combined_detail}")
                 else:
-                    reasons.append(f"🔍 Tổ hợp yếu tố của giao dịch này ({row['amount']:,.0f}đ · '{c_name}' · {int(row['hour']):02d}:00 · {dow_name}) khác biệt so với mô hình chi tiêu thông thường của bạn")
+                    reasons.append(
+                        f"🔍 Tổ hợp yếu tố của giao dịch này ({row['amount']:,.0f}đ · '{c_name}' · {int(row['hour']):02d}:00 · {dow_name}) khác biệt so với mô hình chi tiêu thông thường của bạn")
                 anomaly_tags.append("combined")
 
             anomalies_list.append({
